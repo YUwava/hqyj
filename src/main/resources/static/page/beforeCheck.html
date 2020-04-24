@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+</head>
+<body>
+    <div style="width: 1400px;margin: 0 auto;">
+        <div class="layui-col-md6" >
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <form class="layui-form layui-form-pane" action="">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">系统编号:</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="sysnumber" lay-verify="required" autocomplete="off" class="layui-input" readonly>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">姓   名:</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="username" lay-verify="required" autocomplete="off" class="layui-input" readonly>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">性    别:</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="sex" lay-verify="required" autocomplete="off" class="layui-input" readonly>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">对方姓名:</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="theName" lay-verify="required" autocomplete="off" class="layui-input" readonly>
+                            </div>
+                        </div>
+                        <hr>
+                        <label>直系、三代内旁系血亲关系:</label>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-md6" style="height: 400px;">
+            <div class="layui-card">
+                <div class="layui-card-body" style="margin-top: 80px ;margin-left: 300px;">
+                    <img src="../images/1.png" width="100px" height="100px">
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-md6" style="width: 100%;margin-bottom: 50px;border: #93D1FF 1px solid">
+            <div class="layui-card">
+                <div class="layui-card-header" style="background-color: #93D1FF"></div>
+                <div class="layui-card-body">
+                    <div style="width: 300px">
+                        <form class="layui-form layui-form-pane" action="">
+                            <div class="layui-form-item" pane="" style="width: 240px;height: 40px;">
+                                <div>
+                                    <div><input type="radio" name="f" checked="" lay-filter="f" class="nof"></div>
+                                    <div class="layui-input-inline" style="position:absolute; margin-top: -35px;margin-left: 51px;">
+                                        <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="未见异常" style="height: 42px">
+                                    </div>
+                                </div>
+                                <div style="position: absolute;margin-top: -35px;margin-left: 650px;">
+                                    <div style="border: 1px #beceeb solid;height: 40px;"><input type="radio" name="f" lay-filter="f" class="isf"></div>
+                                    <div class="layui-input-inline" style="position:absolute; margin-top: -42px;margin-left: 51px;">
+                                        <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="存在异常，描述如下：" style="height: 42px">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="layui-form-item layui-form-text" style="margin-left: -110px;">
+                        <div class="layui-input-block">
+                            <textarea placeholder="请输入内容" class="layui-textarea tayic"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="layui-col-md6" style="width: 100%; border: #93D1FF 1px solid">
+            <div class="layui-card">
+                <div class="layui-card-header" style="background-color: #93D1FF"></div>
+                <div class="layui-card-body">
+                    卡片式面板面板通常用于非白色背景色的主体内<br>
+                    从而映衬出边框投影
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../layui/layui.js" charset="utf-8"></script>
+    <script>
+        layui.use(['form', 'layedit', 'laydate','jquery'], function(){
+            var form = layui.form
+                ,layer = layui.layer
+                ,layedit = layui.layedit
+                ,$ = layui.$
+                ,laydate = layui.laydate;
+            form.on('radio(f)', function(data){
+                if (this.checked==true){
+                    $('.tayic').attr('disabled','true');
+                }else {
+                    $('.tayic').attr('disabled','false');
+                }
+
+            });
+        });
+    </script>
+</body>
+</html>
