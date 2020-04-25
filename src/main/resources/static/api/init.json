@@ -5,7 +5,7 @@
   "homeInfo": {
     "title": "首页",
     "icon": "fa fa-home",
-    "href": "page/welcome-1.html?mpi=m-p-i-0"
+    "href": "welcome-1"
   },
   "logoInfo": {
     "title": "孕前检查系统",
@@ -211,13 +211,13 @@
           "child": [
             {
               "title": "婚前医学检查(女)",
-              "href": "page/beforeCheck.html",
+              "href": "beforeCheck",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             },
             {
               "title": "婚前医学检查(男)",
-              "href": "page/icon.html",
+              "href": "beforeCheck",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             }
@@ -229,24 +229,24 @@
           "child": [
             {
               "title": "常规拓展检查",
-              "href": "page/FileInformation.html",
+              "href": "ruleExpand",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             },
             {
               "title": "x射线检查",
-              "href": "page/SupergeneImage.html",
+              "href": "xRayCheck",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             },{
               "title": "口腔检查",
-              "href": "page/FileInformation.html",
+              "href": "oralCheck",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             },
             {
               "title": "检查结果",
-              "href": "page/SupergeneImage.html",
+              "href": "checkBear",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             }
@@ -258,24 +258,24 @@
           "child": [
             {
               "title": "常规拓展检查",
-              "href": "page/FileInformation.html",
+              "href": "ruleExpand",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             },
             {
               "title": "x射线检查",
-              "href": "page/SupergeneImage.html",
+              "href": "xRayCheck",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             },{
               "title": "口腔检查",
-              "href": "page/FileInformation.html",
+              "href": "oralCheck",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             },
             {
               "title": "检查结果",
-              "href": "page/SupergeneImage.html",
+              "href": "checkBear",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             }
@@ -287,7 +287,7 @@
           "child": [
             {
               "title": "化验项目匹配",
-              "href": "page/FileInformation.html",
+              "href": "chemicalBear",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             }

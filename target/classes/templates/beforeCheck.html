@@ -53,19 +53,19 @@
         </div>
         <div class="layui-col-md6" style="width: 100%;margin-bottom: 50px;border: #93D1FF 1px solid">
             <div class="layui-card">
-                <div class="layui-card-header" style="background-color: #93D1FF"></div>
+                <div class="layui-card-header" style="background-color: #93D1FF">婚前医学检查结果</div>
                 <div class="layui-card-body">
                     <div style="width: 300px">
                         <form class="layui-form layui-form-pane" action="">
                             <div class="layui-form-item" pane="" style="width: 240px;height: 40px;">
                                 <div>
-                                    <div><input type="radio" name="f" checked="" lay-filter="nof" class="nof"></div>
+                                    <div><input type="radio" name="f" checked="" lay-filter="f" class="nof"></div>
                                     <div class="layui-input-inline" style="position:absolute; margin-top: -35px;margin-left: 51px;">
                                         <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="未见异常" style="height: 42px">
                                     </div>
                                 </div>
                                 <div style="position: absolute;margin-top: -35px;margin-left: 650px;">
-                                    <div style="border: 1px #beceeb solid;height: 40px;"><input type="radio" name="f" lay-filter="isf" class="isf"></div>
+                                    <div style="border: 1px #beceeb solid;height: 40px;"><input type="radio" name="f" lay-filter="f" class="isf"></div>
                                     <div class="layui-input-inline" style="position:absolute; margin-top: -42px;margin-left: 51px;">
                                         <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="存在异常，描述如下：" style="height: 42px">
                                     </div>
@@ -84,14 +84,59 @@
         </div>
 
 
-        <div class="layui-col-md6" style="width: 100%; border: #93D1FF 1px solid">
+        <div class="layui-col-md6" style="width: 100%; border: #93D1FF 1px solid;height: 100%;">
             <div class="layui-card">
-                <div class="layui-card-header" style="background-color: #93D1FF"></div>
+                <div class="layui-card-header" style="background-color: #93D1FF">医学意见</div>
                 <div class="layui-card-body">
-                    卡片式面板面板通常用于非白色背景色的主体内<br>
-                    从而映衬出边框投影
+                    <form class="layui-form layui-form-pane" action="">
+                        <div class="layui-form-item" pane="" style="width: 240px;height: 40px;">
+                            <div>
+                                <div><input type="radio" name="f" checked="" lay-filter="f" class="nof"></div>
+                                <div class="layui-input-inline" style="position:absolute;margin-top: -35px;margin-left: 51px;width: 600px;">
+                                    <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="未发现医学上不宜结婚的情形" style="height: 42px">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-form-item" pane="" style="width: 240px;height: 40px;">
+                            <div>
+                                <div><input type="radio" name="f" checked="" lay-filter="f" class="nof"></div>
+                                <div class="layui-input-inline" style="position:absolute;margin-top: -35px;margin-left: 51px;width: 600px;">
+                                    <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="建议暂缓结婚" style="height: 42px">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-form-item" pane="" style="width: 240px;height: 40px;">
+                            <div>
+                                <div><input type="radio" name="f" checked="" lay-filter="f" class="nof"></div>
+                                <div class="layui-input-inline" style="position:absolute;margin-top: -35px;margin-left: 51px;width: 600px;">
+                                    <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="建议不宜生育" style="height: 42px">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-form-item" pane="" style="width: 240px;height: 40px;">
+                            <div>
+                                <div><input type="radio" name="f" checked="" lay-filter="f" class="nof"></div>
+                                <div class="layui-input-inline" style="position:absolute;margin-top: -35px;margin-left: 51px;width: 600px;">
+                                    <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="建议不宜结婚" style="height: 42px">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-form-item" pane="" style="width: 240px;height: 40px;">
+                            <div>
+                                <div><input type="radio" name="f" checked="" lay-filter="f" class="nof"></div>
+                                <div class="layui-input-inline" style="position:absolute;margin-top: -35px;margin-left: 51px;width: 600px;">
+                                    <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="建议采取医学措施，尊重受检者意愿" style="height: 42px">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
+        </div>
+        <div class="layui-btn-group" style="width:100%;margin-left: 42%;margin-top: 20px;margin-bottom: 40px;">
+            <button type="button" class="layui-btn">保存</button>
+            <button type="button" class="layui-btn ">重置</button>
+            <button type="button" class="layui-btn">打印预览</button>
         </div>
     </div>
     <script src="../layui/layui.js" charset="utf-8"></script>

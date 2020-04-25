@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+</head>
+<body>
+<div style="width: 1400px;margin: 0 auto;background-color: paleturquoise;border: #c0c4cc 1px solid;">
+    <form class="layui-form" action="">
+        <div style="width: 100%;text-align: center;">
+            <div class="layui-form-item" style="margin-top: 20px;">
+                <div class="layui-inline">
+                    <label class="layui-form-label">系统编号:   </label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">姓名:  </label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="width: 1000px;margin: 0 auto;border: #c0c4cc 1px solid;">
+            <div style="width: 100%;height: 40px;background-color: #00a2d4">口腔检查</div>
+            <div class="layui-form-item" style="margin-top: 20px;">
+                <div class="layui-inline">
+                    <label class="layui-form-label">检查设备:   </label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 800px;">
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item" style="margin-top: 20px;">
+                <div class="layui-inline">
+                    <label class="layui-form-label">检查所见:    </label>
+                    <div class="layui-input-block">
+                        <textarea placeholder="请输入内容" class="layui-textarea" name="desc" style="width: 800px;height: 100px;"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item" style="margin-top: 20px;">
+                <div class="layui-inline">
+                    <label class="layui-form-label"></label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="yic" value="检查正常，未发现特殊情况" title="检查正常，未发现特殊情况">
+                    </div>
+                    <div class="layui-input-block">
+                        <input type="radio" name="yic" value="异常，描述如下：" title="异常，描述如下：" >
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item" style="margin-top: 20px;">
+                <div class="layui-inline">
+                    <div class="layui-input-block">
+                        <textarea placeholder="请输入内容" class="layui-textarea" name="desc" style="width: 800px;height: 100px;"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item" style="margin-top: 20px;margin-left: 200px;">
+            <div class="layui-inline">
+                <button type="button" class="layui-btn">保存</button>
+                <button type="button" class="layui-btn">打印</button>
+                <div class="layui-inline" style="margin-left: 200px;">
+                    <div class="layui-inline">
+                        <label class="layui-form-label" style="width: 150px;position:relative;margin-top: 10px;">口腔科医师签名:</label>
+                        <div class="layui-input-block" style="position:relative; margin-top: 10px;margin-left: 200px;">
+                            <select name="interest" lay-filter="aihao" style="width: 300px;">
+                                <option value=""></option>
+                                <option value="0">写作</option>
+                                <option value="1" selected="">阅读</option>
+                                <option value="2">游戏</option>
+                                <option value="3">音乐</option>
+                                <option value="4">旅行</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-inline" style="position:relative;margin-top: 10px;">
+                        <label class="layui-form-label">检查时间:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="date" id="date" autocomplete="off" class="layui-input" style="width: 100px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+<script src="../layui/layui.js" charset="utf-8"></script>
+<script>
+    layui.use(['form', 'layedit', 'laydate','jquery'], function(){
+        var form = layui.form
+            ,layer = layui.layer
+            ,layedit = layui.layedit
+            ,$ = layui.$
+            ,laydate = layui.laydate;
+        laydate.render({
+            elem: '#date'
+        });
+    });
+</script>
+</body>
+</html>

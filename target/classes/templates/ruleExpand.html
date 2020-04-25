@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+</head>
+<body>
+    <div style="width: 1400px;margin: 0 auto;background-color: paleturquoise;border: #c0c4cc 1px solid;">
+        <!--<form class="layui-form" action="">-->
+            <div class="layui-form-item" style="margin-top: 20px;">
+                <div class="layui-inline">
+                    <label class="layui-form-label">编号：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="编号" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline" style="margin-left: 350px;">
+                    <label class="layui-form-label">	性       别：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="性别" class="layui-input">
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">姓名：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="姓名" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline" style="margin-left: 350px;">
+                    <label class="layui-form-label">对方姓名：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="对方姓名" class="layui-input">
+                    </div>
+                </div>
+            </div>
+            <div style="margin: 10px 10px 10px 10px;border: 1px #c0c4cc solid">
+                <div class="layui-form-item" style="margin-top: 20px;">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">职业：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="业务" class="layui-input" style="width: 600px;">
+                        </div>
+                    </div>
+                </div>
+                <div style="margin: 10px; border: 1px #c0c4cc solid">
+                    <div style="width: 100%;height: 30px;background-color: #00a2d4">既往病史</div>
+                        <div class="layui-form-item" pane="">
+                            <div class="layui-input-block" style="margin-left: 30px;">
+                                <form class="layui-form" action="">
+                                    <div>
+                                        <input type="checkbox" name="like1[write]" lay-skin="primary" title="无" class="mg-lf">
+                                        <input type="checkbox" name="like1[read]" lay-skin="primary" title="遗传性疾病">
+                                        <input type="checkbox" name="like1[write]" lay-skin="primary" title="精神疾病">
+                                        <input type="checkbox" name="like1[read]" lay-skin="primary" title="先天性疾病">
+                                        <input type="checkbox" name="like1[read]" lay-skin="primary" title="传染病">
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="like1[write]" lay-skin="primary" title="性病">
+                                        <input type="checkbox" name="like1[read]" lay-skin="primary" title="重要器官疾病">
+                                        <input type="checkbox" name="like1[write]" lay-skin="primary" title="泌尿生殖系统疾病">
+                                        <div class="layui-inline" style="margin-top: 15px;">
+                                            <label class="layui-form-label">疾病名称：</label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 600px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div>
+                                    <label class="layui-form-label" style="width: 200px;margin-left: -46px;">若为精神疾病，发病次数：</label>
+                                    <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;">
+                                    <label class="" style="width: 200px;position:absolute;margin-top: -30px;margin-left: 340px;"> ，最近一次发病时间,</label>
+                                    <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;position:absolute;margin-top: -38px;margin-left: 500px;">
+                                    <label class="" style="width: 200px;position:absolute;margin-top: -30px;margin-left: 660px;">目前是否服药,</label>
+                                    <div style="position:absolute;margin-top: -38px;margin-left: 750px;">
+                                        <form class="layui-form" action="">
+                                            <input type="radio" name="fs" checked="" lay-filter="fs"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">是</span>
+                                            <input type="radio" name="fs" checked="" lay-filter="fo"><span  style="position:absolute; margin-left: -15px;margin-top: 10px;">否</span>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label  class="layui-form-label" style="width: 200px;margin-left: -73px;">目前生活/社会适应能力</label>
+                                    <div>
+                                        <form class="layui-form" action="">
+                                            <div>
+                                                <input type="radio" name="fs" checked="" lay-filter="fs"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">正常工作</span>
+                                            </div>
+                                            <div style="float: left;margin-top: -34px;margin-left: 140px">
+                                                <input type="radio" name="fs" checked="" lay-filter="fo"><span style="position: absolute;margin-top: 10px;margin-left: -15px;">不工作</span>
+                                            </div>
+                                            <div style="float: left;margin-top: -34px;margin-left: 280px">
+                                                <input type="radio" name="fs" checked="" lay-filter="fs"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">生活自理</span>
+                                            </div>
+                                            <div style="float: left;margin-top: -34px;margin-left: 400px">
+                                                <input type="radio" name="fs" checked="" lay-filter="fs"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">需要帮助</span>
+                                            </div>
+                                            <div style="float: left;margin-top: -34px;margin-left: 500px">
+                                                <input type="radio" name="fs" checked="" lay-filter="fs"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">不能自理</span>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div>
+
+                                    <form class="layui-form" action="">
+                                        <div>
+                                            <label  class="" style="position:absolute;margin-left: -108px"><span style="position:absolute;margin-top: 10px;margin-left: -50px;">手术室：</span>
+                                                <input type="radio" name="fs" checked="" lay-filter="fs">
+                                                <span style="position:absolute; margin-left: -15px;margin-top: 10px;">无</span>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" name="fs" lay-filter="fs"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">有，手术名称：</span>
+                                            <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;position:absolute;margin-top: -30px;margin-left: 300px;">
+                                            <label class="" style="width: 200px;position:absolute;margin-top: 10px;margin-left: 250px;">手术时间：,</label>
+                                           <input type="text" name="date" id="date1" autocomplete="off" class="layui-input" style="width: 150px;position:absolute;margin-left: 540px;margin-top: -30px;">
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                </div>
+
+                <div style="margin: 10px; border: 1px #c0c4cc solid">
+                    <div style="width: 100%;height: 30px;background-color: #00a2d4">现病史</div>
+                    <div class="layui-form-item" pane="">
+                        <div class="layui-input-block" style="margin-left: 30px;">
+                            <form class="layui-form" action="">
+                                <div>
+                                    <input type="checkbox" name="like1[write]" lay-skin="primary" title="无" class="mg-lf">
+                                    <input type="checkbox" name="like1[read]" lay-skin="primary" title="非活动性HBV携带者">
+                                    <input type="checkbox" name="like1[write]" lay-skin="primary" title="慢性HBV携带者">
+                                    <input type="checkbox" name="like1[read]" lay-skin="primary" title="梅毒随访中">
+                                    <input type="checkbox" name="like1[read]" lay-skin="primary" title="结核随访中">
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="like1[write]" lay-skin="primary" title="其他">
+                                    <div class="layui-inline" style="margin-top: 15px;">
+                                        <label class="layui-form-label">疾病名称：</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 1100px;">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin: 10px; border: 1px #c0c4cc solid">
+                    <div style="width: 100%;height: 30px;background-color: #00a2d4">婚育史</div>
+                    <div class="layui-form-item" pane="">
+                        <div class="layui-input-block" style="margin-left: 30px;">
+                            <div>
+                                <form class="layui-form" action="">
+                                    <div style="margin-top: 10px;">
+                                        <input type="radio" name="fs" checked="" lay-filter="fs"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">无</span>
+                                    </div>
+                                    <div style="float: left;margin-top: -34px;margin-left: 100px">
+                                        <input type="radio" name="fs" checked="" lay-filter="fo"><span style="position: absolute;margin-top: 10px;margin-left: -15px;">有（丧偶、离异）</span>
+                                    </div>
+                                    <div style="float: left;margin-top: -34px;margin-left: 360px">
+                                        <input type="radio" name="fs" checked="" lay-filter="fs"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">未婚先孕</span>
+                                    </div>
+                                    <div style="float: left;margin-top: -25px;margin-left: 410px;">
+                                        <label  style="margin-left: 100px;margin-top: 10px;">足月 子</label>
+                                        <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;position: absolute;margin-top: -28px;margin-left: 160px;">
+                                        <label class="" style="width: 200px;position:absolute;margin-top: -0px;margin-left: 190px;"> ，人，女,</label>
+                                        <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;position:absolute;margin-top: -28px;margin-left: 400px;">
+                                        <label class="" style="width: 200px;position:absolute;margin-top: -0px;margin-left: 410px;"> 人</label>
+                                    </div>
+                                </form>
+                                <form class="layui-form" action="">
+                                    <div>
+                                        <label>
+                                            <span style="margin-top: 5px;">子女是否患有遗传性疾病：</span>
+                                            <input type="radio" name="fs" checked="" lay-filter="fs">
+                                            <span style="position:absolute; margin-left: -15px;margin-top: 10px;">是</span>
+                                            <input type="radio" name="fs" checked="" lay-filter="fs">
+                                            <span style="position:absolute; margin-left: -15px;margin-top: 10px;">否</span>
+                                            <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 950px;position:absolute;margin-top: -28px;margin-left: 300px;">
+                                        </label>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+       <!-- </form>-->
+        <form class="layui-form" action="">
+        <div class="layui-form-item" style="margin-top: 20px;">
+            <div class="layui-inline">
+                <label class="layui-form-label">医师签名：</label>
+                <div class="layui-input-block">
+                    <select name="interest" lay-filter="aihao" style="width: 200px;">
+                        <option value=""></option>
+                        <option value="0">写作</option>
+                        <option value="1" selected="">阅读</option>
+                        <option value="2">游戏</option>
+                        <option value="3">音乐</option>
+                        <option value="4">旅行</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-left: 350px;">
+                <label class="layui-form-label">	登记日期：</label>
+                <div class="layui-input-block">
+                    <input type="text" name="date" id="date" autocomplete="off" class="layui-input" style="width: 350px;">
+                </div>
+            </div>
+        </div>
+        <div style="width: 1400px;text-align: center;margin-bottom: 50px;a">
+            <button type="button" class="layui-btn layui-btn-normal">百搭按钮</button>
+        </div>
+        </form>
+    </div>
+    <script src="../layui/layui.js" charset="utf-8"></script>
+    <script>
+        layui.use(['form', 'layedit', 'laydate','jquery'], function(){
+            var form = layui.form
+                ,layer = layui.layer
+                ,layedit = layui.layedit
+                ,$ = layui.$
+                ,laydate = layui.laydate;
+            laydate.render({
+                elem: '#date'
+            });
+            laydate.render({
+                elem: '#date1'
+            });
+        });
+    </script>
+</body>
+</html>
