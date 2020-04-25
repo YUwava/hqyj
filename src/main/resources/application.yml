@@ -1,7 +1,7 @@
 spring:
   datasource:
     username: root
-    password: 9214
+    password: 666
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/cxyqupload?serverTimezone=UTC&characterEncoding=utf-8&allowMultiQueries=true
     hikari:

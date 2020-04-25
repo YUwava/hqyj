@@ -11,6 +11,16 @@ public class LUptoprovince {
   private String k1;
   private String k2;
 
+  public MInfo getmInfo() {
+    return mInfo;
+  }
+
+  public void setmInfo(MInfo mInfo) {
+    this.mInfo = mInfo;
+  }
+
+  private MInfo mInfo;
+
 
   public long getAutoId() {
     return autoId;

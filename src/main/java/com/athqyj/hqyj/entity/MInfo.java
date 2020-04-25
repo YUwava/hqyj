@@ -1,6 +1,11 @@
 package com.athqyj.hqyj.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.util.Date;
+import java.util.List;
+
 public class MInfo {
 
   private long autoId;
@@ -48,7 +53,8 @@ public class MInfo {
   private String psid;
   private String remindLocationId;
   private long hasContent;
-  private java.sql.Timestamp dUpDate;
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+  private Date dUpDate;
   private String dupFlag;
   private String faddress;
   private String maddress;
@@ -63,6 +69,25 @@ public class MInfo {
   private String qqw;
   private String floatPopulation;
 
+  public List<LUptoprovince> getlUptoprovince() {
+    return lUptoprovince;
+  }
+
+  public void setlUptoprovince(List<LUptoprovince> lUptoprovince) {
+    this.lUptoprovince = lUptoprovince;
+  }
+
+  private List<LUptoprovince> lUptoprovince;
+
+  public List<com.athqyj.hqyj.entity.LisTongdao> getLisTongdao() {
+    return LisTongdao;
+  }
+
+  public void setLisTongdao(List<com.athqyj.hqyj.entity.LisTongdao> lisTongdao) {
+    LisTongdao = lisTongdao;
+  }
+
+  private List<LisTongdao> LisTongdao;
 
   public long getAutoId() {
     return autoId;
@@ -469,11 +494,18 @@ public class MInfo {
   }
 
 
-  public java.sql.Timestamp getDUpDate() {
+  public Date getDUpDate() {
     return dUpDate;
   }
 
-  public void setDUpDate(java.sql.Timestamp dUpDate) {
+  @Override
+  public String toString() {
+    return "MInfo{" +
+            "dUpDate=" + dUpDate +
+            '}';
+  }
+
+  public void setDUpDate(Date dUpDate) {
     this.dUpDate = dUpDate;
   }
 

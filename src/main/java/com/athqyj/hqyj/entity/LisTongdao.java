@@ -12,6 +12,16 @@ public class LisTongdao {
   private String defaultValue;
   private String classs;
 
+  public MInfo getmInfo() {
+    return mInfo;
+  }
+
+  public void setmInfo(MInfo mInfo) {
+    this.mInfo = mInfo;
+  }
+
+  private MInfo mInfo;
+
 
   public long getId() {
     return id;

@@ -25,7 +25,7 @@
           "child": [
             {
               "title": "基础信息查询",
-              "href": "page/welcome-1.html",
+              "href": "informations/information",
               "icon": "fa fa-list-alt",
               "target": "_self"
             },
