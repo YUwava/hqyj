@@ -1,9 +1,11 @@
 package com.athqyj.hqyj.controller.ym;
 
+import com.athqyj.hqyj.entity.LUptoprovince;
 import com.athqyj.hqyj.entity.MInfo;
 import com.athqyj.hqyj.service.ym.InformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,13 +28,8 @@ public class InformationController {
     /*查询所有档案信息*/
     @RequestMapping("getIndex")
     @ResponseBody
-    public Object getIndex(/*Integer autoId,*/Integer page, Integer limit) {
-        List<MInfo> list = informationService.showAllInfoNice(/*autoId,*/page,limit);
-    if(list.get(0).getlUptoprovince().get(0).getUpFlag()!=null){
-            System.out.println("上传状态:"+list.get(0).getlUptoprovince().get(0).getUpFlag());
-        }else {
-            System.out.println("错误！");
-        }
+    public Object getIndex(String fname,String mname,String midCard,String fidCard,String id,Integer page, Integer limit) {
+        List<MInfo> list = informationService.showAllInfoNice(fname,mname,midCard,fidCard,id,page,limit);
         int count = informationService.getAllCount();
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("code", 0);
@@ -42,4 +39,16 @@ public class InformationController {
       /*  String json= JSON.toJSONString(map);*/
         return map;
     }
+
+    /*状态信息表*/
+    @RequestMapping("getUpInfos")
+    @ResponseBody
+    public Object getUpInfos() {
+        List<LUptoprovince> list = informationService.geiUpInfo();
+        return list;
+
+    }
+
+
+
 }
