@@ -1,9 +1,31 @@
 package com.athqyj.hqyj.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.util.Date;
+import java.util.List;
+
 public class MInfo {
 
   private long autoId;
+
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Date getdUpDate() {
+    return dUpDate;
+  }
+
+  public void setdUpDate(Date dUpDate) {
+    this.dUpDate = dUpDate;
+  }
+
   private String id;
   private String mname;
   private String mnationality;
@@ -44,43 +66,93 @@ public class MInfo {
   private String addressVillage;
   private String postCode;
   private String doctorName;
-  private java.sql.Timestamp serviceTime;
+  private Date serviceTime;
   private String psid;
   private String remindLocationId;
   private long hasContent;
-  private java.sql.Timestamp dUpDate;
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+  private Date dUpDate;
   private String dupFlag;
   private String faddress;
   private String maddress;
   private String mjobOthers;
   private String fjobOthers;
   private String preId;
-  private String emailN;
-  private String emailW;
-  private String wechatN;
-  private String wechatW;
-  private String qqn;
-  private String qqw;
-  private String floatPopulation;
-
 
   public long getAutoId() {
     return autoId;
   }
 
+  public MInfo() {
+  }
+
+  public MInfo(long autoId, String id, String mname, String mnationality, long midCardType, String midCard, String mbirthDate, long mage, String meduLevel, long mjob, String mcellPhoneNum, long maccountType, String phoneNum, String fname, String fnationality, long fidCardType, String fidCard, String fbirthDate, long fage, long feduLevel, long fjob, long faccountType, String fcellPhoneNum, String mtime, String maccountLocationProvince, String maccountLocationCity, String maccountLocationCounty, String maccountLocationCountry, String maccountLocationVillage, String faccountLocationProvince, String faccountLocationCity, String faccountLocationCounty, String faccountLocationCountry, String faccountLocationVillage, String addressProvince, String addressCity, String addressCounty, String addressCountry, String addressVillage, String postCode, String doctorName, Date serviceTime, String psid, String remindLocationId, long hasContent, Date dUpDate, String dupFlag, String faddress, String maddress, String mjobOthers, String fjobOthers, String preId, String emailN, String emailW, String wechatN, String wechatW, String qqn, String qqw, String floatPopulation, List<com.athqyj.hqyj.entity.LisTongdao> lisTongdao, List<LUptoprovince> lUptoprovince) {
+    this.autoId = autoId;
+    this.id = id;
+    this.mname = mname;
+    this.mnationality = mnationality;
+    this.midCardType = midCardType;
+    this.midCard = midCard;
+    this.mbirthDate = mbirthDate;
+    this.mage = mage;
+    this.meduLevel = meduLevel;
+    this.mjob = mjob;
+    this.mcellPhoneNum = mcellPhoneNum;
+    this.maccountType = maccountType;
+    this.phoneNum = phoneNum;
+    this.fname = fname;
+    this.fnationality = fnationality;
+    this.fidCardType = fidCardType;
+    this.fidCard = fidCard;
+    this.fbirthDate = fbirthDate;
+    this.fage = fage;
+    this.feduLevel = feduLevel;
+    this.fjob = fjob;
+    this.faccountType = faccountType;
+    this.fcellPhoneNum = fcellPhoneNum;
+    this.mtime = mtime;
+    this.maccountLocationProvince = maccountLocationProvince;
+    this.maccountLocationCity = maccountLocationCity;
+    this.maccountLocationCounty = maccountLocationCounty;
+    this.maccountLocationCountry = maccountLocationCountry;
+    this.maccountLocationVillage = maccountLocationVillage;
+    this.faccountLocationProvince = faccountLocationProvince;
+    this.faccountLocationCity = faccountLocationCity;
+    this.faccountLocationCounty = faccountLocationCounty;
+    this.faccountLocationCountry = faccountLocationCountry;
+    this.faccountLocationVillage = faccountLocationVillage;
+    this.addressProvince = addressProvince;
+    this.addressCity = addressCity;
+    this.addressCounty = addressCounty;
+    this.addressCountry = addressCountry;
+    this.addressVillage = addressVillage;
+    this.postCode = postCode;
+    this.doctorName = doctorName;
+    this.serviceTime = serviceTime;
+    this.psid = psid;
+    this.remindLocationId = remindLocationId;
+    this.hasContent = hasContent;
+    this.dUpDate = dUpDate;
+    this.dupFlag = dupFlag;
+    this.faddress = faddress;
+    this.maddress = maddress;
+    this.mjobOthers = mjobOthers;
+    this.fjobOthers = fjobOthers;
+    this.preId = preId;
+    this.emailN = emailN;
+    this.emailW = emailW;
+    this.wechatN = wechatN;
+    this.wechatW = wechatW;
+    this.qqn = qqn;
+    this.qqw = qqw;
+    this.floatPopulation = floatPopulation;
+    LisTongdao = lisTongdao;
+    this.lUptoprovince = lUptoprovince;
+  }
+
   public void setAutoId(long autoId) {
     this.autoId = autoId;
   }
-
-
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
 
   public String getMname() {
     return mname;
@@ -90,7 +162,6 @@ public class MInfo {
     this.mname = mname;
   }
 
-
   public String getMnationality() {
     return mnationality;
   }
@@ -98,7 +169,6 @@ public class MInfo {
   public void setMnationality(String mnationality) {
     this.mnationality = mnationality;
   }
-
 
   public long getMidCardType() {
     return midCardType;
@@ -108,7 +178,6 @@ public class MInfo {
     this.midCardType = midCardType;
   }
 
-
   public String getMidCard() {
     return midCard;
   }
@@ -116,7 +185,6 @@ public class MInfo {
   public void setMidCard(String midCard) {
     this.midCard = midCard;
   }
-
 
   public String getMbirthDate() {
     return mbirthDate;
@@ -126,7 +194,6 @@ public class MInfo {
     this.mbirthDate = mbirthDate;
   }
 
-
   public long getMage() {
     return mage;
   }
@@ -134,7 +201,6 @@ public class MInfo {
   public void setMage(long mage) {
     this.mage = mage;
   }
-
 
   public String getMeduLevel() {
     return meduLevel;
@@ -144,7 +210,6 @@ public class MInfo {
     this.meduLevel = meduLevel;
   }
 
-
   public long getMjob() {
     return mjob;
   }
@@ -152,7 +217,6 @@ public class MInfo {
   public void setMjob(long mjob) {
     this.mjob = mjob;
   }
-
 
   public String getMcellPhoneNum() {
     return mcellPhoneNum;
@@ -162,7 +226,6 @@ public class MInfo {
     this.mcellPhoneNum = mcellPhoneNum;
   }
 
-
   public long getMaccountType() {
     return maccountType;
   }
@@ -170,7 +233,6 @@ public class MInfo {
   public void setMaccountType(long maccountType) {
     this.maccountType = maccountType;
   }
-
 
   public String getPhoneNum() {
     return phoneNum;
@@ -180,7 +242,6 @@ public class MInfo {
     this.phoneNum = phoneNum;
   }
 
-
   public String getFname() {
     return fname;
   }
@@ -188,7 +249,6 @@ public class MInfo {
   public void setFname(String fname) {
     this.fname = fname;
   }
-
 
   public String getFnationality() {
     return fnationality;
@@ -198,7 +258,6 @@ public class MInfo {
     this.fnationality = fnationality;
   }
 
-
   public long getFidCardType() {
     return fidCardType;
   }
@@ -206,7 +265,6 @@ public class MInfo {
   public void setFidCardType(long fidCardType) {
     this.fidCardType = fidCardType;
   }
-
 
   public String getFidCard() {
     return fidCard;
@@ -216,7 +274,6 @@ public class MInfo {
     this.fidCard = fidCard;
   }
 
-
   public String getFbirthDate() {
     return fbirthDate;
   }
@@ -224,7 +281,6 @@ public class MInfo {
   public void setFbirthDate(String fbirthDate) {
     this.fbirthDate = fbirthDate;
   }
-
 
   public long getFage() {
     return fage;
@@ -234,7 +290,6 @@ public class MInfo {
     this.fage = fage;
   }
 
-
   public long getFeduLevel() {
     return feduLevel;
   }
@@ -242,7 +297,6 @@ public class MInfo {
   public void setFeduLevel(long feduLevel) {
     this.feduLevel = feduLevel;
   }
-
 
   public long getFjob() {
     return fjob;
@@ -252,7 +306,6 @@ public class MInfo {
     this.fjob = fjob;
   }
 
-
   public long getFaccountType() {
     return faccountType;
   }
@@ -260,7 +313,6 @@ public class MInfo {
   public void setFaccountType(long faccountType) {
     this.faccountType = faccountType;
   }
-
 
   public String getFcellPhoneNum() {
     return fcellPhoneNum;
@@ -270,7 +322,6 @@ public class MInfo {
     this.fcellPhoneNum = fcellPhoneNum;
   }
 
-
   public String getMtime() {
     return mtime;
   }
@@ -278,7 +329,6 @@ public class MInfo {
   public void setMtime(String mtime) {
     this.mtime = mtime;
   }
-
 
   public String getMaccountLocationProvince() {
     return maccountLocationProvince;
@@ -288,7 +338,6 @@ public class MInfo {
     this.maccountLocationProvince = maccountLocationProvince;
   }
 
-
   public String getMaccountLocationCity() {
     return maccountLocationCity;
   }
@@ -296,7 +345,6 @@ public class MInfo {
   public void setMaccountLocationCity(String maccountLocationCity) {
     this.maccountLocationCity = maccountLocationCity;
   }
-
 
   public String getMaccountLocationCounty() {
     return maccountLocationCounty;
@@ -306,7 +354,6 @@ public class MInfo {
     this.maccountLocationCounty = maccountLocationCounty;
   }
 
-
   public String getMaccountLocationCountry() {
     return maccountLocationCountry;
   }
@@ -314,7 +361,6 @@ public class MInfo {
   public void setMaccountLocationCountry(String maccountLocationCountry) {
     this.maccountLocationCountry = maccountLocationCountry;
   }
-
 
   public String getMaccountLocationVillage() {
     return maccountLocationVillage;
@@ -324,7 +370,6 @@ public class MInfo {
     this.maccountLocationVillage = maccountLocationVillage;
   }
 
-
   public String getFaccountLocationProvince() {
     return faccountLocationProvince;
   }
@@ -332,7 +377,6 @@ public class MInfo {
   public void setFaccountLocationProvince(String faccountLocationProvince) {
     this.faccountLocationProvince = faccountLocationProvince;
   }
-
 
   public String getFaccountLocationCity() {
     return faccountLocationCity;
@@ -342,7 +386,6 @@ public class MInfo {
     this.faccountLocationCity = faccountLocationCity;
   }
 
-
   public String getFaccountLocationCounty() {
     return faccountLocationCounty;
   }
@@ -350,7 +393,6 @@ public class MInfo {
   public void setFaccountLocationCounty(String faccountLocationCounty) {
     this.faccountLocationCounty = faccountLocationCounty;
   }
-
 
   public String getFaccountLocationCountry() {
     return faccountLocationCountry;
@@ -360,7 +402,6 @@ public class MInfo {
     this.faccountLocationCountry = faccountLocationCountry;
   }
 
-
   public String getFaccountLocationVillage() {
     return faccountLocationVillage;
   }
@@ -368,7 +409,6 @@ public class MInfo {
   public void setFaccountLocationVillage(String faccountLocationVillage) {
     this.faccountLocationVillage = faccountLocationVillage;
   }
-
 
   public String getAddressProvince() {
     return addressProvince;
@@ -378,7 +418,6 @@ public class MInfo {
     this.addressProvince = addressProvince;
   }
 
-
   public String getAddressCity() {
     return addressCity;
   }
@@ -386,7 +425,6 @@ public class MInfo {
   public void setAddressCity(String addressCity) {
     this.addressCity = addressCity;
   }
-
 
   public String getAddressCounty() {
     return addressCounty;
@@ -396,7 +434,6 @@ public class MInfo {
     this.addressCounty = addressCounty;
   }
 
-
   public String getAddressCountry() {
     return addressCountry;
   }
@@ -404,7 +441,6 @@ public class MInfo {
   public void setAddressCountry(String addressCountry) {
     this.addressCountry = addressCountry;
   }
-
 
   public String getAddressVillage() {
     return addressVillage;
@@ -414,7 +450,6 @@ public class MInfo {
     this.addressVillage = addressVillage;
   }
 
-
   public String getPostCode() {
     return postCode;
   }
@@ -422,7 +457,6 @@ public class MInfo {
   public void setPostCode(String postCode) {
     this.postCode = postCode;
   }
-
 
   public String getDoctorName() {
     return doctorName;
@@ -432,15 +466,13 @@ public class MInfo {
     this.doctorName = doctorName;
   }
 
-
-  public java.sql.Timestamp getServiceTime() {
+  public Date getServiceTime() {
     return serviceTime;
   }
 
-  public void setServiceTime(java.sql.Timestamp serviceTime) {
+  public void setServiceTime(Date serviceTime) {
     this.serviceTime = serviceTime;
   }
-
 
   public String getPsid() {
     return psid;
@@ -450,7 +482,6 @@ public class MInfo {
     this.psid = psid;
   }
 
-
   public String getRemindLocationId() {
     return remindLocationId;
   }
@@ -458,7 +489,6 @@ public class MInfo {
   public void setRemindLocationId(String remindLocationId) {
     this.remindLocationId = remindLocationId;
   }
-
 
   public long getHasContent() {
     return hasContent;
@@ -468,16 +498,6 @@ public class MInfo {
     this.hasContent = hasContent;
   }
 
-
-  public java.sql.Timestamp getDUpDate() {
-    return dUpDate;
-  }
-
-  public void setDUpDate(java.sql.Timestamp dUpDate) {
-    this.dUpDate = dUpDate;
-  }
-
-
   public String getDupFlag() {
     return dupFlag;
   }
@@ -485,7 +505,6 @@ public class MInfo {
   public void setDupFlag(String dupFlag) {
     this.dupFlag = dupFlag;
   }
-
 
   public String getFaddress() {
     return faddress;
@@ -495,7 +514,6 @@ public class MInfo {
     this.faddress = faddress;
   }
 
-
   public String getMaddress() {
     return maddress;
   }
@@ -503,7 +521,6 @@ public class MInfo {
   public void setMaddress(String maddress) {
     this.maddress = maddress;
   }
-
 
   public String getMjobOthers() {
     return mjobOthers;
@@ -513,7 +530,6 @@ public class MInfo {
     this.mjobOthers = mjobOthers;
   }
 
-
   public String getFjobOthers() {
     return fjobOthers;
   }
@@ -521,7 +537,6 @@ public class MInfo {
   public void setFjobOthers(String fjobOthers) {
     this.fjobOthers = fjobOthers;
   }
-
 
   public String getPreId() {
     return preId;
@@ -531,7 +546,6 @@ public class MInfo {
     this.preId = preId;
   }
 
-
   public String getEmailN() {
     return emailN;
   }
@@ -539,7 +553,6 @@ public class MInfo {
   public void setEmailN(String emailN) {
     this.emailN = emailN;
   }
-
 
   public String getEmailW() {
     return emailW;
@@ -549,7 +562,6 @@ public class MInfo {
     this.emailW = emailW;
   }
 
-
   public String getWechatN() {
     return wechatN;
   }
@@ -558,7 +570,6 @@ public class MInfo {
     this.wechatN = wechatN;
   }
 
-
   public String getWechatW() {
     return wechatW;
   }
@@ -566,6 +577,63 @@ public class MInfo {
   public void setWechatW(String wechatW) {
     this.wechatW = wechatW;
   }
+
+  public String getFloatPopulation() {
+    return floatPopulation;
+  }
+
+  public void setFloatPopulation(String floatPopulation) {
+    this.floatPopulation = floatPopulation;
+  }
+
+  public List<com.athqyj.hqyj.entity.LisTongdao> getLisTongdao() {
+    return LisTongdao;
+  }
+
+  public void setLisTongdao(List<com.athqyj.hqyj.entity.LisTongdao> lisTongdao) {
+    LisTongdao = lisTongdao;
+  }
+
+  private String emailN;
+  private String emailW;
+  private String wechatN;
+  private String wechatW;
+  private String qqn;
+  private String qqw;
+  private String floatPopulation;
+  private List<LisTongdao> LisTongdao;
+  private List<LUptoprovince> lUptoprovince;
+
+  public List<LUptoprovince> getlUptoprovince() {
+    return lUptoprovince;
+  }
+
+  public void setlUptoprovince(List<LUptoprovince> lUptoprovince) {
+    this.lUptoprovince = lUptoprovince;
+  }
+
+
+
+
+
+
+  @Override
+  public String toString() {
+    return "MInfo{" +
+            "dUpDate=" + dUpDate +
+            '}';
+  }
+
+
+
+
+
+
+
+
+
+
+
 
 
   public String getQqn() {
@@ -576,7 +644,6 @@ public class MInfo {
     this.qqn = qqn;
   }
 
-
   public String getQqw() {
     return qqw;
   }
@@ -586,12 +653,5 @@ public class MInfo {
   }
 
 
-  public String getFloatPopulation() {
-    return floatPopulation;
-  }
-
-  public void setFloatPopulation(String floatPopulation) {
-    this.floatPopulation = floatPopulation;
-  }
 
 }

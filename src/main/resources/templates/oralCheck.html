@@ -46,17 +46,17 @@
                 <div class="layui-inline">
                     <label class="layui-form-label"></label>
                     <div class="layui-input-block">
-                        <input type="radio" name="yic" value="检查正常，未发现特殊情况" title="检查正常，未发现特殊情况">
+                        <input type="radio" name="yic" lay-filter="yic" checked="" value="正常" title="检查正常，未发现特殊情况">
                     </div>
                     <div class="layui-input-block">
-                        <input type="radio" name="yic" value="异常，描述如下：" title="异常，描述如下：" >
+                        <input type="radio" name="yic" lay-filter="yic" value="异常" title="异常，描述如下：" >
                     </div>
                 </div>
             </div>
             <div class="layui-form-item" style="margin-top: 20px;">
                 <div class="layui-inline">
                     <div class="layui-input-block">
-                        <textarea placeholder="请输入内容" class="layui-textarea" name="desc" style="width: 800px;height: 100px;"></textarea>
+                        <textarea placeholder="请输入内容" class="layui-textarea tayics" name="desc" readonly style="width: 800px;height: 100px;"></textarea>
                     </div>
                 </div>
             </div>
@@ -101,6 +101,16 @@
             ,laydate = layui.laydate;
         laydate.render({
             elem: '#date'
+        });
+        form.on('radio(yic)', function(data){
+            var val=$('input:radio[name="yic"]:checked').val();
+            if (val=='正常'){
+                $('.tayics').attr('readonly', 'readonly');
+                $(".tayics").val("");
+            }
+            if (val=='异常'){
+                $('.tayics').removeAttr('readonly');
+            }
         });
     });
 </script>

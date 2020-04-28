@@ -25,13 +25,13 @@
           "child": [
             {
               "title": "基础信息查询",
-              "href": "page/welcome-1.html",
+              "href": "informations/information",
               "icon": "fa fa-list-alt",
               "target": "_self"
             },
             {
               "title": "未填写信息查询",
-              "href": "page/welcome-2.html",
+              "href": "archive/archives",
               "icon": "fa fa-list-alt",
               "target": "_self"
             }

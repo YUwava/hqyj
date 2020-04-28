@@ -59,13 +59,13 @@
                         <form class="layui-form layui-form-pane" action="">
                             <div class="layui-form-item" pane="" style="width: 240px;height: 40px;">
                                 <div>
-                                    <div><input type="radio" name="f" checked="" lay-filter="f" class="nof"></div>
+                                    <div><input type="radio" name="f" checked="" lay-filter="f" class="nof" value="未见异常"></div>
                                     <div class="layui-input-inline" style="position:absolute; margin-top: -35px;margin-left: 51px;">
                                         <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="未见异常" style="height: 42px">
                                     </div>
                                 </div>
                                 <div style="position: absolute;margin-top: -35px;margin-left: 650px;">
-                                    <div style="border: 1px #beceeb solid;height: 40px;"><input type="radio" name="f" lay-filter="f" class="isf"></div>
+                                    <div style="border: 1px #beceeb solid;height: 40px;"><input type="radio" name="f" lay-filter="f" class="isf" value="存在异常，描述如下："></div>
                                     <div class="layui-input-inline" style="position:absolute; margin-top: -42px;margin-left: 51px;">
                                         <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="存在异常，描述如下：" style="height: 42px">
                                     </div>
@@ -76,14 +76,12 @@
                     </div>
                     <div class="layui-form-item layui-form-text" style="margin-left: -110px;">
                         <div class="layui-input-block">
-                            <textarea placeholder="请输入内容" class="layui-textarea tayic"></textarea>
+                            <textarea placeholder="请输入内容" class="layui-textarea tayic" readonly></textarea>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
         <div class="layui-col-md6" style="width: 100%; border: #93D1FF 1px solid;height: 100%;">
             <div class="layui-card">
                 <div class="layui-card-header" style="background-color: #93D1FF">医学意见</div>
@@ -147,13 +145,17 @@
                 ,layedit = layui.layedit
                 ,$ = layui.$
                 ,laydate = layui.laydate;
-            form.on('radio(f)', function(data){
-                if (this.checked==true){
-                    $('.tayic').attr('disabled','true');
-                }else {
-                    $('.tayic').attr('disabled','false');
+            form.on('radio(f)', function(data){+
+                console.log(localStorage.getItem("id")+"===");
+                var val=$('input:radio[name="f"]:checked').val();
+                if (val=='未见异常'){
+                    $('.tayic').attr('readonly', 'readonly');
+                    $(".tayic").val("");
                 }
+                if (val=='存在异常，描述如下：'){
+                    $('.tayic').removeAttr('readonly');
 
+                }
             });
         });
     </script>

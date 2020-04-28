@@ -46,20 +46,20 @@
                     <div class="layui-inline">
                         <label class="layui-form-label"></label>
                         <div class="layui-input-block">
-                            <input type="radio" name="yic" value="心肺横隔未见明显异常或改变" title="心肺横隔未见明显异常或改变">
+                            <input type="radio" name="yic" lay-filter="yic" value="未见明显异常" title="心肺横隔未见明显异常或改变">
                         </div>
                         <div class="layui-input-block">
-                            <input type="radio" name="yic" value="检查禁忌和其他原因未查" title="检查禁忌和其他原因未查" >
+                            <input type="radio" name="yic" lay-filter="yic" value="其他原因" title="检查禁忌和其他原因未查" >
                         </div>
                         <div class="layui-input-block">
-                            <input type="radio" name="yic" value="存在异常情况，具体原因如下：" title="存在异常情况，具体原因如下：">
+                            <input type="radio" name="yic" lay-filter="yic" value="存在异常" title="存在异常情况，具体原因如下：">
                         </div>
                     </div>
                 </div>
                 <div class="layui-form-item" style="margin-top: 20px;">
                     <div class="layui-inline">
                         <div class="layui-input-block">
-                            <textarea placeholder="请输入内容" class="layui-textarea" name="desc" style="width: 800px;height: 100px;"></textarea>
+                            <textarea placeholder="请输入内容" class="layui-textarea tayics" name="desc" style="width: 800px;height: 100px;"></textarea>
                         </div>
                     </div>
                 </div>
@@ -104,6 +104,20 @@
                 ,laydate = layui.laydate;
             laydate.render({
                 elem: '#date'
+            });
+            form.on('radio(yic)', function(data){
+                var val=$('input:radio[name="yic"]:checked').val();
+                if (val=='未见明显异常'){
+                    $('.tayics').attr('readonly', 'readonly');
+                    $(".tayics").val("");
+                }
+                if (val=='其他原因'){
+                    $('.tayics').attr('readonly', 'readonly');
+                    $(".tayics").val("");
+                }
+                if (val=='存在异常'){
+                    $('.tayics').removeAttr('readonly');
+                }
             });
         });
     </script>

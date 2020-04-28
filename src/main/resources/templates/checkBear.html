@@ -34,10 +34,10 @@
                         <label class="layui-form-label">检查结果：</label>
                         <div class="layui-input-block" style="background-color: #ffffff">
                             <div>
-                                <input type="radio" name="sex" value="未见异常" title="未见异常">
+                                <input type="radio" name="yic" value="未见异常" title="未见异常" lay-filter="yic">
                             </div>
                             <div style="float: right;margin-top: -35px;margin-right: 300px;">
-                                <input type="radio" name="sex" value="存在异常情况，描述如下" title="存在异常情况，描述如下">
+                                <input type="radio" name="yic" value="存在异常" title="存在异常情况，描述如下" lay-filter="yic">
                             </div>
 
                         </div>
@@ -45,13 +45,13 @@
                     <div class="layui-form-item" pane="" style="position: relative;margin-top: 20px;">
                         <label class="layui-form-label">异常情况：</label>
                         <div class="layui-input-block" style="background-color: #ffffff">
-                            <textarea placeholder="请输入内容" class="layui-textarea" style="width: 100%;height: 60px;"></textarea>
+                            <textarea placeholder="请输入内容" class="layui-textarea tayic1" style="width: 100%;height: 60px;"></textarea>
                         </div>
                     </div>
                     <div class="layui-form-item" pane="" style="position: relative;margin-top: 20px;">
                         <label class="layui-form-label">疾病诊断：</label>
                         <div class="layui-input-block" style="background-color: #ffffff">
-                            <textarea placeholder="请输入内容" class="layui-textarea" style="width: 100%;height: 60px;"></textarea>
+                            <textarea placeholder="请输入内容" class="layui-textarea tayic2" style="width: 100%;height: 60px;"></textarea>
                         </div>
                     </div>
                 </form>
@@ -271,6 +271,20 @@
         });
         laydate.render({
             elem: '#date3'
+        });
+        form.on('radio(yic)', function(data){
+            var val=$('input:radio[name="yic"]:checked').val();
+            if (val=='未见异常'){
+                $('.tayic1').attr('readonly', 'readonly');
+                $('.tayic2').attr('readonly', 'readonly');
+                $(".tayic1").val("");
+                $(".tayic2").val("");
+            }
+            if (val=='存在异常'){
+                $('.tayic1').removeAttr('readonly');
+                $('.tayic2').removeAttr('readonly');
+            }
+
         });
     });
 </script>

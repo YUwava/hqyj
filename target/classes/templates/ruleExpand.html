@@ -49,39 +49,38 @@
                     <div style="width: 100%;height: 30px;background-color: #00a2d4">既往病史</div>
                         <div class="layui-form-item" pane="">
                             <div class="layui-input-block" style="margin-left: 30px;">
-                                <form class="layui-form" action="">
+                                <form class="layui-form" action=""  lay-filter="example">
                                     <div>
-                                        <input type="checkbox" name="like1[write]" lay-skin="primary" title="无" class="mg-lf">
-                                        <input type="checkbox" name="like1[read]" lay-skin="primary" title="遗传性疾病">
-                                        <input type="checkbox" name="like1[write]" lay-skin="primary" title="精神疾病">
-                                        <input type="checkbox" name="like1[read]" lay-skin="primary" title="先天性疾病">
-                                        <input type="checkbox" name="like1[read]" lay-skin="primary" title="传染病">
+                                        <input type="checkbox" name="like" lay-skin="primary" title="无" class="mg-lf" lay-filter="wu">
+                                        <input type="checkbox" name="like[1]" lay-skin="primary" title="遗传性疾病">
+                                        <input type="checkbox" name="like[2]" lay-skin="primary" title="精神疾病">
+                                        <input type="checkbox" name="like[3]" lay-skin="primary" title="先天性疾病" >
+                                        <input type="checkbox" name="like[4]" lay-skin="primary" title="传染病">
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="like1[write]" lay-skin="primary" title="性病">
-                                        <input type="checkbox" name="like1[read]" lay-skin="primary" title="重要器官疾病">
-                                        <input type="checkbox" name="like1[write]" lay-skin="primary" title="泌尿生殖系统疾病">
+                                        <input type="checkbox" name="like[5]" lay-skin="primary" title="性病">
+                                        <input type="checkbox" name="like[6]" lay-skin="primary" title="重要器官疾病">
+                                        <input type="checkbox" name="like[7]" lay-skin="primary" title="泌尿生殖系统疾病">
                                         <div class="layui-inline" style="margin-top: 15px;">
                                             <label class="layui-form-label">疾病名称：</label>
                                             <div class="layui-input-block">
-                                                <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 600px;">
+                                                <input type="text" name="disname" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 600px;">
                                             </div>
                                         </div>
                                     </div>
-                                </form>
-                                <div>
-                                    <label class="layui-form-label" style="width: 200px;margin-left: -46px;">若为精神疾病，发病次数：</label>
-                                    <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;">
-                                    <label class="" style="width: 200px;position:absolute;margin-top: -30px;margin-left: 340px;"> ，最近一次发病时间,</label>
-                                    <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;position:absolute;margin-top: -38px;margin-left: 500px;">
-                                    <label class="" style="width: 200px;position:absolute;margin-top: -30px;margin-left: 660px;">目前是否服药,</label>
-                                    <div style="position:absolute;margin-top: -38px;margin-left: 750px;">
-                                        <form class="layui-form" action="">
-                                            <input type="radio" name="fs" checked="" lay-filter="fs"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">是</span>
-                                            <input type="radio" name="fs" checked="" lay-filter="fo"><span  style="position:absolute; margin-left: -15px;margin-top: 10px;">否</span>
-                                        </form>
+                                    <div>
+                                        <label class="layui-form-label" style="width: 200px;margin-left: -46px;">若为精神疾病，发病次数：</label>
+                                        <input type="text" name="sizes" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;">
+                                        <label class="" style="width: 200px;position:absolute;margin-top: -30px;margin-left: 340px;"> ，最近一次发病时间,</label>
+                                        <input type="text" name="zhtime" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;position:absolute;margin-top: -38px;margin-left: 500px;">
+                                        <label class="" style="width: 200px;position:absolute;margin-top: -30px;margin-left: 660px;">目前是否服药,</label>
+                                        <div style="position:absolute;margin-top: -38px;margin-left: 750px;">
+                                                <input type="radio" name="fs" checked="" lay-filter="fs"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">是</span>
+                                                <input type="radio" name="fs" checked="" lay-filter="fo"><span  style="position:absolute; margin-left: -15px;margin-top: 10px;">否</span>
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
+
                                 <div>
                                     <label  class="layui-form-label" style="width: 200px;margin-left: -73px;">目前生活/社会适应能力</label>
                                     <div>
@@ -109,15 +108,15 @@
                                     <form class="layui-form" action="">
                                         <div>
                                             <label  class="" style="position:absolute;margin-left: -108px"><span style="position:absolute;margin-top: 10px;margin-left: -50px;">手术室：</span>
-                                                <input type="radio" name="fs" checked="" lay-filter="fs">
+                                                <input type="radio" name="fsurgical" checked="" lay-filter="fsurgical" value="手术室：">
                                                 <span style="position:absolute; margin-left: -15px;margin-top: 10px;">无</span>
                                             </label>
                                         </div>
                                         <div>
-                                            <input type="radio" name="fs" lay-filter="fs"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">有，手术名称：</span>
-                                            <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;position:absolute;margin-top: -30px;margin-left: 300px;">
+                                            <input type="radio" name="fsurgical" lay-filter="fsurgical" value="有，手术名称：" ><span style="position:absolute; margin-left: -15px;margin-top: 10px;">有，手术名称：</span>
+                                            <input type="text" name="surgicalname" lay-verify="required" disabled="" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;position:absolute;margin-top: -30px;margin-left: 300px;">
                                             <label class="" style="width: 200px;position:absolute;margin-top: 10px;margin-left: 250px;">手术时间：,</label>
-                                           <input type="text" name="date" id="date1" autocomplete="off" class="layui-input" style="width: 150px;position:absolute;margin-left: 540px;margin-top: -30px;">
+                                           <input type="text" name="surgicaltime" id="date1" autocomplete="off" disabled="" class="layui-input" style="width: 150px;position:absolute;margin-left: 540px;margin-top: -30px;">
                                         </div>
                                     </form>
                                 </div>
@@ -130,20 +129,20 @@
                     <div style="width: 100%;height: 30px;background-color: #00a2d4">现病史</div>
                     <div class="layui-form-item" pane="">
                         <div class="layui-input-block" style="margin-left: 30px;">
-                            <form class="layui-form" action="">
+                            <form class="layui-form" action="" lay-filter="examples">
                                 <div>
-                                    <input type="checkbox" name="like1[write]" lay-skin="primary" title="无" class="mg-lf">
-                                    <input type="checkbox" name="like1[read]" lay-skin="primary" title="非活动性HBV携带者">
-                                    <input type="checkbox" name="like1[write]" lay-skin="primary" title="慢性HBV携带者">
-                                    <input type="checkbox" name="like1[read]" lay-skin="primary" title="梅毒随访中">
-                                    <input type="checkbox" name="like1[read]" lay-skin="primary" title="结核随访中">
+                                    <input type="checkbox" name="like[wu]" lay-skin="primary" title="无" class="mg-lf" lay-filter="like[wu]">
+                                    <input type="checkbox" name="like[wu1]" lay-skin="primary" title="非活动性HBV携带者">
+                                    <input type="checkbox" name="like[wu2]" lay-skin="primary" title="慢性HBV携带者">
+                                    <input type="checkbox" name="like[wu3]" lay-skin="primary" title="梅毒随访中">
+                                    <input type="checkbox" name="like[wu4]" lay-skin="primary" title="结核随访中">
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="like1[write]" lay-skin="primary" title="其他">
+                                    <input type="checkbox" name="like[wu5]" lay-skin="primary" title="其他" lay-filter="wu[wu5]">
                                     <div class="layui-inline" style="margin-top: 15px;">
                                         <label class="layui-form-label">疾病名称：</label>
                                         <div class="layui-input-block">
-                                            <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 1100px;">
+                                            <input type="text" name="disnames" lay-verify="required" disabled="" autocomplete="off" placeholder="" class="layui-input" style="width: 1100px;">
                                         </div>
                                     </div>
 
@@ -159,19 +158,19 @@
                             <div>
                                 <form class="layui-form" action="">
                                     <div style="margin-top: 10px;">
-                                        <input type="radio" name="fs" checked="" lay-filter="fs"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">无</span>
+                                        <input type="radio" name="fwu" checked="" lay-filter="fwu" value="无"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">无</span>
                                     </div>
                                     <div style="float: left;margin-top: -34px;margin-left: 100px">
-                                        <input type="radio" name="fs" checked="" lay-filter="fo"><span style="position: absolute;margin-top: 10px;margin-left: -15px;">有（丧偶、离异）</span>
+                                        <input type="radio" name="fwu"  lay-filter="fwu" value="有"><span style="position: absolute;margin-top: 10px;margin-left: -15px;">有（丧偶、离异）</span>
                                     </div>
                                     <div style="float: left;margin-top: -34px;margin-left: 360px">
-                                        <input type="radio" name="fs" checked="" lay-filter="fs"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">未婚先孕</span>
+                                        <input type="radio" name="fwu"  lay-filter="fwu" value="未婚先孕"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">未婚先孕</span>
                                     </div>
                                     <div style="float: left;margin-top: -25px;margin-left: 410px;">
                                         <label  style="margin-left: 100px;margin-top: 10px;">足月 子</label>
-                                        <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;position: absolute;margin-top: -28px;margin-left: 160px;">
+                                        <input type="text" disabled="" name="hbms" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;position: absolute;margin-top: -28px;margin-left: 160px;">
                                         <label class="" style="width: 200px;position:absolute;margin-top: -0px;margin-left: 190px;"> ，人，女,</label>
-                                        <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;position:absolute;margin-top: -28px;margin-left: 400px;">
+                                        <input type="text" disabled="" name="hbnv" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;position:absolute;margin-top: -28px;margin-left: 400px;">
                                         <label class="" style="width: 200px;position:absolute;margin-top: -0px;margin-left: 410px;"> 人</label>
                                     </div>
                                 </form>
@@ -179,11 +178,11 @@
                                     <div>
                                         <label>
                                             <span style="margin-top: 5px;">子女是否患有遗传性疾病：</span>
-                                            <input type="radio" name="fs" checked="" lay-filter="fs">
+                                            <input type="radio" name="fiso" checked="" lay-filter="fiso" value="是">
                                             <span style="position:absolute; margin-left: -15px;margin-top: 10px;">是</span>
-                                            <input type="radio" name="fs" checked="" lay-filter="fs">
+                                            <input type="radio" name="fiso" lay-filter="fiso" value="否">
                                             <span style="position:absolute; margin-left: -15px;margin-top: 10px;">否</span>
-                                            <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 950px;position:absolute;margin-top: -28px;margin-left: 300px;">
+                                            <input type="text" name="sfo" lay-verify="required" disabled="" autocomplete="off" placeholder="" class="layui-input" style="width: 950px;position:absolute;margin-top: -28px;margin-left: 300px;">
                                         </label>
                                     </div>
 
@@ -217,7 +216,7 @@
                 </div>
             </div>
         </div>
-        <div style="width: 1400px;text-align: center;margin-bottom: 50px;a">
+        <div style="width: 1400px;text-align: center;margin-bottom: 50px;">
             <button type="button" class="layui-btn layui-btn-normal">百搭按钮</button>
         </div>
         </form>
@@ -235,6 +234,166 @@
             });
             laydate.render({
                 elem: '#date1'
+            });
+            form.on('radio(fiso)', function(objs){
+                let valss=$('input:radio[name="fiso"]:checked').val();
+                let vals=$('input:radio[name="fwu"]:checked').val();
+                if (vals=='有' || vals=='未婚先孕'){
+                    if(valss=="是"){
+                        $('input:input[name="sfo"]').attr("disabled",false);
+                    }
+                    if(valss=="否"){
+                        $('input:input[name="sfo"]').attr("disabled",true);
+                    }
+                }
+
+            });
+            form.on('radio(fwu)', function(objs){
+                let vals=$('input:radio[name="fwu"]:checked').val();
+
+                if (vals=='无'){
+                    $('input:input[name="sfo"]').attr("disabled",true);
+                    $('input:input[name="hbnv"]').attr("disabled",true);
+                    $('input:input[name="hbms"]').attr("disabled",true);
+                    $("input:radio[name='fiso']").each(function(){
+                        $('input:radio[name="fiso"]').attr("disabled",true);
+                    });
+
+                }
+                if (vals=='有'){
+                    $('input:input[name="sfo"]').attr("disabled",false);
+                    $('input:input[name="hbnv"]').attr("disabled",false);
+                    $('input:input[name="hbms"]').attr("disabled",false);
+                    $("input:radio[name='fiso']").each(function(){
+                        $('input:radio[name="fiso"]').attr("disabled",false);
+                    });
+                    let valss=$('input:radio[name="fiso"]:checked').val();
+                    if(valss=='是'){
+                        $('input:input[name="sfo"]').attr("disabled",false);
+                    }
+                    if(valss=='否'){
+                        $('input:input[name="sfo"]').attr("disabled",true);
+                    }
+
+
+                }
+                if (vals=='未婚先孕'){
+                    $('input:input[name="sfo"]').attr("disabled",false);
+                    $('input:input[name="hbnv"]').attr("disabled",false);
+                    $('input:input[name="hbms"]').attr("disabled",false);
+                    $("input:radio[name='fiso']").each(function(){
+                        $('input:radio[name="fiso"]').attr("disabled",false);
+                    });
+                    let valss=$('input:radio[name="fiso"]:checked').val();
+                    if(valss=='是'){
+                        $('input:input[name="sfo"]').attr("disabled",false);
+                    }
+                    if(valss=='否'){
+                        $('input:input[name="sfo"]').attr("disabled",true);
+                    }
+
+                }
+            });
+            form.on('checkbox(wu[wu5])', function(objs){
+                var flagels = $('input:checkbox[name="like[wu5]"]').is(":checked");
+                if (flagels==true) {
+                    $('input:input[name="disnames"]').attr("disabled",false);
+                }
+                if (flagels==false) {
+                    $('input:input[name="disnames"]').attr("disabled",true);
+                }
+            });
+            form.on('checkbox(like[wu])', function(objs){
+                var flages = $('input:checkbox[name="like[wu]"]').is(":checked");
+                $('input:input[name="disnames"]').attr("disabled",true);
+                if(flages==true){
+                    $('input:checkbox[name="like[wu1]"]').attr("disabled",true);
+                    $('input:checkbox[name="like[wu2]"]').attr("disabled",true);
+                    $('input:checkbox[name="like[wu3]"]').attr("disabled",true);
+                    $('input:checkbox[name="like[wu4]"]').attr("disabled",true);
+                    $('input:checkbox[name="like[wu5]"]').attr("disabled",true);
+                    $('input:input[name="disnames"]').attr("disabled",true);
+                    form.val('examples', {
+                        "like[wu1]": false,
+                        "like[wu2]": false,
+                        "like[wu3]": false,
+                        "like[wu4]": false,
+                        "like[wu5]": false,
+                    });
+                }
+                if (flages==false) {
+                    $('input:checkbox[name="like[wu1]"]').attr("disabled",false);
+                    $('input:checkbox[name="like[wu2]"]').attr("disabled",false);
+                    $('input:checkbox[name="like[wu3]"]').attr("disabled",false);
+                    $('input:checkbox[name="like[wu4]"]').attr("disabled",false);
+                    $('input:checkbox[name="like[wu5]"]').attr("disabled",false);
+                    $('input:input[name="disnames"]').attr("disabled",false);
+                    form.val('examples', {
+                        "like[wu1]": false,
+                        "like[wu2]": false,
+                        "like[wu3]": false,
+                        "like[wu4]": false,
+                        "like[wu5]": false,
+                    });
+                }
+
+            });
+            form.on('radio(fsurgical)', function(data){
+                let val=$('input:radio[name="fsurgical"]:checked').val();
+                if (val=='手术室：'){
+                    $('input:input[name="surgicalname"]').attr("disabled",true);
+                    $('input:input[name="surgicaltime"]').attr("disabled",true);
+                }
+                if (val=='有，手术名称：'){
+                    $('input:input[name="surgicalname"]').attr("disabled",false);
+                    $('input:input[name="surgicaltime"]').attr("disabled",false);
+
+                }
+            });
+            form.on('checkbox(wu)', function(obj){
+                var flage = $('input:checkbox[name="like"]').is(":checked");
+                if(flage==true){
+                    $('input:checkbox[name="like[1]"]').attr("disabled",true);
+                    $('input:checkbox[name="like[2]"]').attr("disabled",true);
+                    $('input:checkbox[name="like[3]"]').attr("disabled",true);
+                    $('input:checkbox[name="like[4]"]').attr("disabled",true);
+                    $('input:checkbox[name="like[5]"]').attr("disabled",true);
+                    $('input:checkbox[name="like[6]"]').attr("disabled",true);
+                    $('input:checkbox[name="like[7]"]').attr("disabled",true);
+                    $('input:input[name="disname"]').attr("disabled",true);
+                    $('input:input[name="sizes"]').attr("disabled",true);
+                    $('input:input[name="zhtime"]').attr("disabled",true);
+                        form.val('example', {
+                            "like[1]": false,
+                            "like[2]": false,
+                            "like[3]": false,
+                            "like[4]": false,
+                            "like[5]": false,
+                            "like[6]": false,
+                            "like[7]": false,
+                        });
+                }
+                if (flage==false) {
+                    $('input:checkbox[name="like[1]"]').attr("disabled",false);
+                    $('input:checkbox[name="like[2]"]').attr("disabled",false);
+                    $('input:checkbox[name="like[3]"]').attr("disabled",false);
+                    $('input:checkbox[name="like[4]"]').attr("disabled",false);
+                    $('input:checkbox[name="like[5]"]').attr("disabled",false);
+                    $('input:checkbox[name="like[6]"]').attr("disabled",false);
+                    $('input:checkbox[name="like[7]"]').attr("disabled",false);
+                    $('input:input[name="disname"]').attr("disabled",false);
+                    $('input:input[name="sizes"]').attr("disabled",false);
+                    $('input:input[name="zhtime"]').attr("disabled",false);
+                    form.val('example', {
+                        "like[1]": false,
+                        "like[2]": false,
+                        "like[3]": false,
+                        "like[4]": false,
+                        "like[5]": false,
+                        "like[6]": false,
+                        "like[7]": false,
+                    });
+                }
             });
         });
     </script>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:c="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>基础信息查询</title>
+    <!--<link rel="stylesheet" href="/static/lib/layui-v2.5.6/layui/css/layui.css" media="all">-->
+   <!-- <link rel="stylesheet" href="/static/css/layuimini.css" media="all">
+    <link rel="stylesheet" href="/static/lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+    <link rel="stylesheet" href="/static/lib/layui-v2.5.6/layui/css/layui.css">
+    <script src="/static/lib/layui-v2.5.6/layui/layui.js" type="text/javascript"></script>
+    <script src="/static/lib/jquery-3.4.1/jquery-3.4.1.min.js" type="text/javascript"></script>-->
+
+
+    <link rel="stylesheet" href="/static/lib/layui-v2.5.4/css/layui.css">
+    <script src="/static/lib/layui-v2.5.4/layui.js"></script>
+    <script type="application/javascript" src="/static/lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+   <!-- <link rel="stylesheet" href="http://libs.baidu.com/jquery/1.8.3/jquery.min.js">-->
+    <!--数据表格-->
+    <script type="text/javascript" th:inline="none">
+
+        layui.use(['table','form','jquery'], function() {
+
+            var table = layui.table
+            ,$ = layui.$;
+         /*   var form = layui.form;
+            $.get('/informations/getUpInfos',function (d) {
+                $(d).each(function () {
+                    var showupflag=this.upFlag;
+                    var showupflags='';
+                    console.log(showupflag);
+                    if(showupflag==0){
+                        showupflags='未上传';
+                    }else if(showupflag==1){
+                        showupflags='上传成功';
+                    }else{
+                        showupflags='上传失败';
+                    }
+                    $('#upFlagId').append('<option value="'+this.upFlag+'">'+showupflags+'</option>')
+                })
+                form.render('select'); //刷新select选择框渲染
+            })*/
+
+            table.render({
+                elem: '#showNice'
+                , url: '/informations/getIndex'
+                , toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
+                , defaultToolbar: ['filter', 'exports', 'print']
+                , cols: [[
+                    {type: 'checkbox', fixed: 'center'}
+                  , {field: 'id', title: '编号', width: 145, fixed: 'center', sort: true,align:'center'}
+                  /* ,{templet:'<div>{{d.listongdao.shebeiname}}</div>', title: '血型状态', width: 100,align: 'center',}*/
+                    , {field: 'fname', title: '妻子姓名', width: 100,align: 'center'}
+                    , {field: 'fidCard', title: '妻子证件号码', width: 175,align: 'center'}
+                    , {field: 'fbirthDate', title: '妻子出生日期', width: 115,align: 'center'}
+                    , {field: 'mname', title: '丈夫姓名', width: 100,align: 'center'}
+                    , {field: 'midCard', title: '丈夫证件号码', width: 175,align: 'center'}
+                    , {field: 'mbirthDate', title: '丈夫出生日期', width: 115,align: 'center'}
+                    , {field: 'dUpDate', title: '上传时间', width: 160,align: 'center'}
+                    , {field: 'preId', title: '国家编号', width: 160,align: 'center'}
+                    /*,{title: '上传状态', width: 90,align: 'center',templet: function (d) {
+                            console.log(d.lUptoprovince[0].upFlag);
+                            if(d.lUptoprovince[0].upFlag==0){
+                                return '未上传';
+                            }else if(d.lUptoprovince[0].upFlag==1){
+                                return '上传成功';
+                            }else{
+                                return '上传失败';
+                            }
+
+                        }}*/
+                       /* a*/
+                    , {fixed: 'right', title: '操作', toolbar: '#barDemo', width: 70,align: 'center'}
+                ]]
+                ,limit: 6
+                , page: true
+                ,id: "idTest"
+            });
+
+            table.on('checkbox(show)', function(obj){
+                console.log(obj.data);
+                localStorage.setItem("id", obj.data.autoId);
+            });
+
+            $('#selectInfo').click(function () {
+
+                table.reload('idTest', {
+                    where: { //设定异步数据接口的额外参数，任意设
+                        id: $('#archivesId').val(),
+                        fname: $('#fname').val(),
+                        mname: $('#mname').val(),
+                        fidCard: $('#fidCard').val(),
+                        midCard: $('#midCard').val(),
+                     /*   upFlag: $('#upFlagId').val()*/
+
+                        /*  ,bbb: 'yyy'*/
+                        //…
+                    }
+                    ,page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                }); //只重载数据
+                
+            });
+            })
+
+
+
+
+    </script>
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs" lay-event="edit" >编辑</a>
+    </script>
+    <style type="text/css">
+        #showdiv{
+            margin:0 auto;
+        }
+        #selectTb tr td{
+            font-size: 16px;
+        }
+        #btone{
+            width: 50px;;
+            height: 30px;
+            background-color: #F2F2F2;
+        }
+        .wfwd{
+            width: 110px;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td>
+            &nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td>
+            &nbsp;
+        </td>
+    </tr>
+</table>
+<form class="layui-form" action="">
+
+    <div  style="text-align:center;width:1400px; margin:0 auto;">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label wfwd">档案编号</label>
+            <div class="layui-input-inline">
+                <input type="text" name="title" style="width: 200px" id="archivesId" required  lay-verify="required" placeholder="档案编号" autocomplete="off" class="layui-input">
+            </div>
+
+
+        </div>
+        <div class="layui-form-item"style="position:absolute;left: 460px;top: 33px;font-size: 14px">
+            <label class="layui-form-label wfwd" style="display:inline-block">妻子姓名</label>
+            <div  style="display:inline-block">
+                <input type="text" name="title" style="width: 200px" id="fname" required  lay-verify="required" placeholder="张三" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item"style="position:absolute;left: 160px;top: 90px;font-size: 14px">
+                <label class="layui-form-label wfwd"style="display:inline-block">丈夫姓名</label>
+                <div style="display:inline-block">
+                    <input type="text" name="title" style="width: 200px" id="mname" required  lay-verify="required" placeholder="李四" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+
+
+        <div class="layui-form-item" style="display:inline-block;position:absolute;left: 488px;top: 90px">
+            <label class="layui-form-label wfwd" style="border: 1px seagreen;display:inline-block">妻子证件号码</label>
+            <div style="display:inline-block">
+                <input type="text" name="title" style="width: 200px" required  id="fidCard" lay-verify="required" placeholder="430722..." autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="display:inline-block;position:absolute;left: 820px;top: 90px">
+            <label class="layui-form-label wfwd" style="display:inline-block">丈夫证件号码</label>
+            <div style="display:inline-block">
+                <input type="text" name="title" style="width: 200px" required id="midCard" lay-verify="required" placeholder="430722..." autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item"style="position:absolute;left: 190px;top: 150px;font-size: 14px">
+            <label class="layui-form-label">上传状态</label>
+            <div class="layui-input-block">
+                <select name="city" lay-verify="required" style="width: 200px" id="upFlagId">
+                    <option value="0">未上传</option>
+                    <option value="1">上传成功</option>
+                    <option value="2">上传失败</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item"style="position:absolute;left:530px;top: 150px;font-size: 14px">
+        <button type="button" class="layui-btn" id="selectInfo">查询</button>
+    </div>
+    <div class="layui-form-item"style="position:absolute;left:600px;top: 150px;font-size: 14px">
+        <button type="reset" class="layui-btn" id="clear" >清除查询条件</button>
+    </div>
+
+
+
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="showdiv" style="text-align: center;width: 1400px">
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <table class="layui-table" id="showNice" lay-filter="show" align="center">
+    </table>
+
+</div>
+
+
+
+</body>
+</html>
+
+<script type="text/html" id="titleTpl">
+    <div>{{d.lUptoprovince[0].upFlag}}</div>
+</script>
