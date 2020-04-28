@@ -13,7 +13,7 @@ import java.util.List;
 public class InformationService {
     @Autowired
     private InfomationMapper infomationMapper;
-
+    /*啊*/
     /*查询所有人员信息*/
     public List<MInfo> showAllInfoNice(String fname,String mname,String midCard,String fidCard, String id, Integer index, Integer pageSize){
         List<MInfo> list=infomationMapper.showAllInfoNice(fname,mname,midCard,fidCard,id,(index-1)*pageSize,pageSize);

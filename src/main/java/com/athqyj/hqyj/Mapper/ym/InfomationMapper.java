@@ -19,7 +19,7 @@ public interface InfomationMapper{
     /*查询总条数*/
     @Select("select count(*) from m_info")
     public int allcount();
-
+    /*a*/
     /*联表查询人员信息*/
     @Results({@Result(id=true,column = "AutoID",property = "autoId"),
             @Result(column = "UpFlag", property = "upFlag"),
