@@ -14,7 +14,7 @@ public interface NoteMapper /*extends tk.mybatis.mapper.common.Mapper<MInfo>*/{
     public int allcount();
 
 
-    /*评估建议查询*/
+    /*评估建议sql查询*/
     @Results({@Result(id=true,column = "ID",property = "id"),
             @Result(column = "evaluateResultDetail", property = "evaluateResultDetail"),
             @Result(column = "ID",property ="nvPinggujianyis", many = @Many(select = "com.athqyj.hqyj.Mapper.hzw.NoteMapper.getInfo",fetchType= FetchType.EAGER))})
