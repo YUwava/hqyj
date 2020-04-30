@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>首页二</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../lib/layui-v2.5.4/css/layui.css" media="all">
+    <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+    <link rel="stylesheet" href="../css/public.css" media="all">
+    <style>
+        .layui-card {border:1px solid #f2f2f2;border-radius:5px;}
+        .icon {margin-right:10px;color:#1aa094;}
+    </style>
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+        <div class="layui-row layui-col-space15">
+        	
+        	<div class="layui-col-md4" style="width: 25%;">
+                <div class="layui-card" style="height:566px">
+                    <div class="layui-card-header"><i class="fa fa-fire icon"></i>基本信息</div>
+                	
+                	<form class="layui-form layui-form-pane" action="">
+                	<div class="layui-inline">
+				      <label class="layui-form-label">档案编号：</label>
+				      <div class="layui-input-inline">
+				        <input type="text" name="id" class="layui-input" th:value="${min.id}"/>
+				      </div><br>
+				      <label class="layui-form-label">妻子姓名：</label>
+				      <div class="layui-input-inline">
+				        <input type="text" name="number" autocomplete="off" class="layui-input" th:value="${min.fname}"/>
+				      </div><br>
+				      <label class="layui-form-label">出生日期：</label>
+				      <div class="layui-input-inline">
+				        <input type="text" name="number" autocomplete="off" class="layui-input"  th:value="${min.fbirthDate}">
+				      </div><br>
+				      <label class="layui-form-label">年龄：</label>
+				      <div class="layui-input-inline">
+				        <input type="text" name="number" autocomplete="off" class="layui-input"  th:value="${min.fage}">
+				      </div><br>
+				      <label class="layui-form-label">身份证号：</label>
+				      <div class="layui-input-inline">
+				        <input type="text" name="number" autocomplete="off" class="layui-input"  th:value="${min.fidCard}">
+				      </div><br>
+				      <label class="layui-form-label">丈夫姓名：</label>
+				      <div class="layui-input-inline">
+				        <input type="text" name="number" autocomplete="off" class="layui-input"  th:value="${min.mname}">
+				      </div><br>
+				      <label class="layui-form-label">出生日期：</label>
+				      <div class="layui-input-inline">
+				        <input type="text" name="number" autocomplete="off" class="layui-input"  th:value="${min.mbirthDate}">
+				      </div><br>
+				      <label class="layui-form-label">年龄：</label>
+				      <div class="layui-input-inline">
+				        <input type="text" name="number" autocomplete="off" class="layui-input"  th:value="${min.mage}">
+				      </div><br>
+				      <label class="layui-form-label">身份证号：</label>
+				      <div class="layui-input-inline">
+				        <input type="text" name="number" autocomplete="off" class="layui-input"  th:value="${min.midCard}">
+				      </div><br>
+				      <label class="layui-form-label">户口性质：</label>
+				      <div class="layui-input-inline">
+				        <input type="text" name="number" autocomplete="off" class="layui-input"  th:value="${min.midCardType}">
+				      </div><br>
+				      <label class="layui-form-label">操作医生：</label>
+				      <div class="layui-input-inline">
+				        <input type="text" name="number" autocomplete="off" class="layui-input"  th:value="${min.fbirthDate}">
+				      </div>
+   					</div>
+   					</form>
+                </div>
+            </div>
+        	
+        	
+            <div class="layui-col-md8" style="width: 55%;">
+                <div class="layui-row layui-col-space15">
+                    <div class="layui-col-md12">
+                        <div class="layui-card">
+                            <div class="layui-card-header" align="center">
+                            	<span style="font-size: 25px; color: #018287;">超声影像</span>
+                            </div>
+                            <div class="layui-card-body">
+                                <div id="echarts-records" style="width: 100%;min-height:450px">
+                                	<img style="width: 100%; height: 100%;" src="../images/1.png" />
+                                </div>
+                            </div>
+                        </div>
+                        <div align="center">
+							  <div>
+							    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius"style="width: 100px;">查  询</button>
+							    <button type="button" class="layui-btn layui-btn-warm layui-btn-radius"style="width: 100px;">打印预览</button>
+							    <button type="button" class="layui-btn layui-btn-danger layui-btn-radius"style="width: 100px;">返  回</button>
+							  </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+			<div class="layui-col-md4" style="width: 20%;">
+                <div class="layui-card">
+                    <div class="layui-card-header"><i class="fa fa-fire icon"></i>检查结果</div>
+                    <form class="layui-form" action="">
+						<div class="layui-form-item">
+								<div class="layui-input-inline"  style="width: 100%;">
+									<select name="city" lay-verify="required" >
+										<option th:text="${min.bChaoimage[0].nvBchaos[0].result}"></option>
+									</select>
+								</div>
+						</div>
+					</form>
+      				<div class="layui-card-header"><i class="fa fa-fire icon"></i>超声所见(B超描述):</div>
+      				 <div class="layui-form-item layui-form-text">
+					      <textarea class="layui-textarea"  style="width:100%; height: 232px;" th:text="${min.bChaoimage[0].nvBchaos[0].resultDesc}"></textarea>
+					 </div>
+      				<div class="layui-card-header"><i class="fa fa-fire icon"></i>检查日期</div>
+      				<div class="layui-input-inline" style="width: 100%;">
+			        	<input type="tel" name="" class="layui-input" th:value="${min.bChaoimage[0].nvBchaos[0].reportDate}">
+			      	</div>
+				    <div class="layui-card-header"><i class="fa fa-fire icon"></i>医生签名</div>
+                	<form class="layui-form" action="">
+						<div class="layui-form-item">
+								<div class="layui-input-inline"  style="width: 100%;">
+									<select name="city" lay-verify="required">
+										<option th:text="${min.bChaoimage[0].nvBchaos[0].doctorName}"></option>
+									</select>
+								</div>
+						</div>
+					</form>
+                	
+                	
+                	
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+<script src="../lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
+<script src="../js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+<script>
+	//Demo
+	layui.use('form', function(){
+	var form = layui.form;
+					  
+	//监听提交
+	form.on('submit(formDemo)', function(data){
+		layer.msg(JSON.stringify(data.field));
+		return false;
+		});
+	});
+    layui.use(['layer', 'layuimini','echarts','laydate'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            layuimini = layui.layuimini,
+            echarts = layui.echarts;
+            laydate = layui.laydate;
+
+  
+
+		 //日期
+		  laydate.render({
+		    elem: '#date'
+		  });
+		  laydate.render({
+		    elem: '#date1'
+		  });
+        // echarts 窗口缩放自适应
+       /* window.onresize = function(){
+            echartsRecords.resize();
+        }*/
+
+    });
+    
+    
+</script>
+
+</body>
+</html>

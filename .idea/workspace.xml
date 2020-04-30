@@ -3,28 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="bfac5a30-0795-4352-9e85-06229ff0590e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hqyj.iml" beforeDir="false" afterPath="$PROJECT_DIR$/hqyj.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/fpj/test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/entity/Tbljxmarriageinfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/entity/Tbljxmarriageinfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/entity/BChaoimage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/entity/BChaoimage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/entity/MInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/entity/MInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/entity/NvPinggujianyi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/entity/NvPinggujianyi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/api/init.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/api/init.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/InformationQuery.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/InformationQuery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/beforeCheck.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/beforeCheck.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/checkBear.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/checkBear.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/chemicalBear.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/chemicalBear.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/oralCheck.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/oralCheck.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ruleExpand.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ruleExpand.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/xRayCheck.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/xRayCheck.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/controller/fpj/test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/entity/Tbljxmarriageinfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/entity/Tbljxmarriageinfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/controller/fpj/XbcController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/controller/fpj/XbcController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/entity/BChaoimage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/entity/BChaoimage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/entity/MInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/entity/MInfo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/api/init.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/api/init.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/InformationQuery.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/InformationQuery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/beforeCheck.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/beforeCheck.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/checkBear.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/checkBear.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/chemicalBear.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/chemicalBear.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/oralCheck.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/oralCheck.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/ruleExpand.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/ruleExpand.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/xRayCheck.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/xRayCheck.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,9 +37,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -95,16 +84,16 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last.edited.regexp" value="Sample Text" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/ym" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\tasks\work\work\hqyj\src\main\java\com\athqyj\hqyj\controller\ym" />
-      <recent name="D:\tasks\work\work\hqyj\src\main\java\com\athqyj\hqyj\service\ym" />
       <recent name="D:\tasks\work\work\hqyj\src\main\resources\templates" />
-      <recent name="D:\tasks\work\work\hqyj\src\main\java\com\athqyj\hqyj\Mapper\ym" />
       <recent name="D:\tasks\work\work\hqyj\src\main\java\com\athqyj\hqyj\entity" />
+      <recent name="D:\tasks\work\work\hqyj\src\main\java\com\athqyj\hqyj\controller\ym" />
+      <recent name="D:\tasks\work\work\hqyj\src\main\java\com\athqyj\hqyj\Mapper\ym" />
+      <recent name="D:\tasks\work\work\hqyj\src\main\java\com\athqyj\hqyj\service\ym" />
     </key>
   </component>
   <component name="RunManager">
@@ -157,7 +146,7 @@
       <workItem from="1588049636570" duration="310000" />
       <workItem from="1588049980573" duration="22419000" />
       <workItem from="1588125476600" duration="47911000" />
-      <workItem from="1588212423311" duration="2601000" />
+      <workItem from="1588212423311" duration="11418000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1587468174286</created>
@@ -215,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588058642430</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="2020.4.30">
+      <created>1588215127651</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1588215127651</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,7 +221,8 @@
     <MESSAGE value="第一次提交" />
     <MESSAGE value="2020.4.25" />
     <MESSAGE value="2020.4.28" />
-    <option name="LAST_COMMIT_MESSAGE" value="2020.4.28" />
+    <MESSAGE value="2020.4.30" />
+    <option name="LAST_COMMIT_MESSAGE" value="2020.4.30" />
   </component>
   <component name="WindowStateProjectService">
     <state x="708" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587790406697">
@@ -236,54 +233,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="204" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588153274659" />
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587638849997">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588226927659">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587638849997" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588226927659" />
     <state x="690" y="267" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1588161960435">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588161960435" />
-    <state x="443" y="114" key="CommitChangelistDialog2" timestamp="1588058641570">
+    <state x="443" y="114" key="CommitChangelistDialog2" timestamp="1588215126933">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="443" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588058641570" />
-    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1587708014658">
+    <state x="443" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588215126933" />
+    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1588226400532">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1587708014658" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1588214732106">
+    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588226400532" />
+    <state width="1877" height="399" key="GridCell.Tab.0.bottom" timestamp="1588227114601">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588214732106" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1588214732105">
+    <state width="1877" height="399" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588227114601" />
+    <state width="1877" height="399" key="GridCell.Tab.0.center" timestamp="1588227114601">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588214732105" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1588214732105">
+    <state width="1877" height="399" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588227114601" />
+    <state width="1877" height="399" key="GridCell.Tab.0.left" timestamp="1588227114601">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588214732105" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1588214732105">
+    <state width="1877" height="399" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588227114601" />
+    <state width="1877" height="399" key="GridCell.Tab.0.right" timestamp="1588227114601">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588214732105" />
-    <state width="1877" height="282" key="GridCell.Tab.1.bottom" timestamp="1588214732106">
+    <state width="1877" height="399" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588227114601" />
+    <state width="1877" height="399" key="GridCell.Tab.1.bottom" timestamp="1588227114602">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588214732106" />
-    <state width="1877" height="282" key="GridCell.Tab.1.center" timestamp="1588214732106">
+    <state width="1877" height="399" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588227114602" />
+    <state width="1877" height="399" key="GridCell.Tab.1.center" timestamp="1588227114601">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588214732106" />
-    <state width="1877" height="282" key="GridCell.Tab.1.left" timestamp="1588214732106">
+    <state width="1877" height="399" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588227114601" />
+    <state width="1877" height="399" key="GridCell.Tab.1.left" timestamp="1588227114601">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588214732106" />
-    <state width="1877" height="282" key="GridCell.Tab.1.right" timestamp="1588214732106">
+    <state width="1877" height="399" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588227114601" />
+    <state width="1877" height="399" key="GridCell.Tab.1.right" timestamp="1588227114602">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588214732106" />
+    <state width="1877" height="399" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588227114602" />
     <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1588185190087">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -304,14 +301,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1587711138607" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1588058649630">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1588215136835">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588058649630" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588215136835" />
     <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1588212426145">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588212426145" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1588216784942">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588216784942" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1588182212932">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

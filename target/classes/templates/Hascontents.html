@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:c="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <link rel="stylesheet" href="/static/lib/layui-v2.5.4/css/layui.css">
+    <script src="/static/lib/layui-v2.5.4/layui.js"></script>
+    <script type="application/javascript" src="/static/lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="http://libs.baidu.com/jquery/1.8.3/jquery.min.js">
+
+    <script type="text/javascript" th:inline="none">
+        layui.use('laydate', function(){
+            var laydate = layui.laydate;
+            laydate.render({
+                elem: '#mTime'
+            });
+            laydate.render({
+                elem: '#fTime'
+            });
+            laydate.render({
+                elem: '#docTime'
+            });
+
+
+        })
+        layui.use(['form', 'layedit', 'laydate','jquery'], function(){
+
+            var form = layui.form
+                ,layer = layui.layer
+                ,layedit = layui.layedit
+                ,$ = layui.$
+                ,laydate = layui.laydate;
+
+            $(function () {
+                console.log(localStorage.getItem("id")+"===");
+                console.log(localStorage.getItem("mname")+"===");
+                console.log(localStorage.getItem("fname")+"===");
+                var ids=$('input:text[name="id"]').val(localStorage.getItem("id"));
+                var mNames=$('input:text[name="mName"]').val(localStorage.getItem("mname"));
+                var fNames=$('input:text[name="fName"]').val(localStorage.getItem("fname"));
+            });
+
+        });
+
+    </script>
+
+    <style type="text/css">
+        .wfwd{
+            width: 130px;
+        }
+    </style>
+</head>
+<body>
+<form class="layui-form" action="/hascontens/addInfo">
+    <div style="width: 1400px;margin:0 auto;">
+        <div style="text-align:center;margin-top:30px;"><h2>永定区妇保院免费婚前医学检查知情告知书</h2></div>
+        <div style="line-height:30px;text-align:center;"><h3>知情告知书</h3></div>
+        <div style="font-size: 14px;line-height: 30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;婚前医学检查是为了男女双方和下一代的健康，预防人口出生缺 陷，提高出生人口素质，促进天要生活的和谐，有利于有效地实现调节生 青的计划通过婚前医学检查，可以帮助男女双方了解法律上有关禁止 结婚的规定，以及影响婚育的疾病等知识维护双方的合法权益，促进婚 姻登记当事人婚姻生活幸福美满在提供服务前，我们需要告知您以下 事宜：</div>
+        <div style="font-size: 14px;line-height: 30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、请双方当事人持本人身份证原件、复印件，户口本及民政部门出 示的免费婚检申请单前来体检，并填写相关资料。</div>
+        <div style="font-size: 14px;line-height: 30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、免费检查项目：体格检查（含生殖器官的检查）、胸透（查肺部的 炎症、肺结核或心肺疾病）、血常规、尿常规、乙肝表面抗原（HbsAG)、快《 速转氨酶（ALT），梅毒筛查（RPR试验方法）、阴道分泌物滴虫，霉菌检 查。以上为免费检查项目。</div>
+        <div style="font-size: 14px;line-height: 30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3、特需检查项目：心电图，胸片，乳腺血氧检查，B超（妇科，肝胆， 心脏等），乙肝二对半，肝肾功能，血糖血脂，支原体，衣原体检测，精液 分析，孕前保健等，除规定免费的检查项目外，以上特需项目的检查，由 受检人根据需要自行选择，费用由本人自理。</div>
+        <div style="font-size: 14px;line-height: 30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4、免费必检查项目您一定要做完，医生会根据您检查的结果，婚检 医师将为您出示《婚前医学检查证明》，此证明有效期为3个月，如过期 未到民政部门办理结婚登记手续者，受检者需重新自费进行婚前体检。 如《婚前医学检查证明》遗失者，需到民政部门打未结婚登记的证明，如 在3个月内丢失者给予补办，否则，超过3个月遗失者，需重新自费进 行检查后出示《婚前医学检查证明》。</div>
+        <div style="font-size: 14px;line-height: 30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5、其中需要向受检人说明的是：梅毒初筛快速试验（RPR试验），因 用的检测方法不一样，故阳性分辨率低，如一旦初筛为阳性，请受检书 到省级医院进一步检查，以便确诊。</div>
+        <div style="font-size: 14px;line-height: 30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6、根据国家有关法律规定，①男女双方为直系血亲和三代以内的 旁系血亲，禁止结婚，②重度智力低下、重型精神病在病情发作期，不宜 结婚；③指定传染病在传染期内、有关精神病在发病期内的，应当骨级 婚：0有严重滋依性疾病、重要脏带炭病的，建议不宜生育：0其它疾 病应当依据医生指导意见。</div>
+        <div style="font-size: 14px;line-height: 30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.女方准备怀孕、可能怀孕或已杯孕的，如果坚持做胸透检查，由此带来的一切局果：院方概不负或：若有上述情况拒绝作购适检查，应 简医加选明情况。拒绝超声检查的，均应在婚前体检表上填号雅色格 查，并签字。</div>
+        <div style="font-size: 14px;line-height: 30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.婚前检查是对影响婚育的传染病、遗传病及重症精神病的筛查， 并不是筛查金身所有的疾病。另外，在筛查中存在统计学允许的假阳性 戒假明性的发生率。如果筛查时发现有阳性体征时，如乙型肝炎、肺结 核等，医生会根据具体情况建议您复查或进一步检查确诊，以便为您提 供更确切的服务。如需复查或进一步确诊检查的费用由申请者自付。</div>
+        <div style="font-size: 14px;line-height: 30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9、传染病检测是检测病原体的抗体，隐性感染的抗体常在感染 1-3个月后出现，即感染后至抗体出现的之间存在1-3个月的窗口期 如乙肝、艾滋病和梅毒，抗体检测为阴性只能说明3个月前的感染状况 （如10月1日检测为阴性，则说明7月1日以前没有感染过），如果申 请人近3个月内有接触过传染源或有高危行为的，最好是接触后3个 月后再检测。</div>
+        <div style="font-size: 14px;line-height: 30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10、接受婚前或孕前检查，可以明显降低后代发生出生缺陷的风 险，但从科学客观的角度来说，不可能完全避免导致出生缺陷发生的因 素。准父母人群在接受婚前咨询指导后，应提高自身社会责任感，在日 常生活中应尽量避免接触有毒有害物质和改正不良生活习惯，减少对 后代的伤害，提高出生人口素质。</div>
+        <div style="font-size: 14px;line-height: 30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11、为保证个人隐私，婚检中发现有影响婚育的疾病时，婚检医师 只告知患病当事人。患病当事人应具实告知对方。</div>
+        <div style="font-size: 14px;line-height: 30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12、请受查者注意，您本次的检查只对本次负责，如以后发现的问 题与本次检查无关。</div>
+        <div style="font-size: 14px;line-height: 30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13、请受查者放心，您的隐私医生会为您保密，您的检查结果我院 跟保存病历一样保存30年，如您有需要可以持本人身份证前来查看本 人的检查表，其他人及代理人不予查看。 如您对以上内容已看清楚，烦请您签名，表示对我们工作的理解配 合。谢谢！</div>
+
+        <div class="layui-form-item" style="position: absolute;left: 400px;top: 780px">
+            <label class="layui-form-label wfwd">编号:</label>
+            <div class="layui-input-inline">
+                <input type="text" name="id" style="width: 200px"  id="id" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item" style="position: absolute;left: 400px;top:880px">
+            <label class="layui-form-label wfwd">男方签字:</label>
+            <div class="layui-input-inline">
+                <input type="text" name="mName" style="width: 200px"  id="mName" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item" style="position: absolute;left: 760px;top: 880px">
+            <label class="layui-form-label wfwd">女方签字:</label>
+            <div class="layui-input-inline">
+                <input type="text" name="fName" style="width: 200px"  id="fName" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item" style="position: absolute;left: 400px;top: 980px">
+            <label class="layui-form-label wfwd">男方签字日期:</label>
+            <div class="layui-input-inline">
+                <input type="text" class="layui-input" name="mTime" id="mTime" placeholder="yyyy-MM-dd">
+            </div>
+        </div>
+        <div class="layui-form-item" style="position: absolute;left: 760px;top: 980px">
+            <label class="layui-form-label wfwd">女方签字日期:</label>
+            <div class="layui-input-inline">
+                <input type="text" class="layui-input" name="fTime" id="fTime" placeholder="yyyy-MM-dd">
+            </div>
+        </div>
+        <div class="layui-form-item" style="position: absolute;left: 400px;top: 1080px">
+            <label class="layui-form-label wfwd">服务人员签字:</label>
+            <div class="layui-input-inline">
+                <input type="text" name="docName" style="width: 200px"  id="docName" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item" style="position: absolute;left: 760px;top: 1080px">
+            <label class="layui-form-label wfwd">服务人员签字日期:</label>
+            <div class="layui-input-inline">
+                <input type="text" class="layui-input" name="docTime" id="docTime" placeholder="yyyy-MM-dd">
+            </div>
+        </div>
+        <div class="layui-form-item"style="position:absolute;left:700px;top: 1180px;font-size: 14px">
+            <button type="reset" class="layui-btn" id="clear" >新建</button>
+        </div>
+        <div class="layui-form-item"style="position:absolute;left:800px;top: 1180px;font-size: 14px">
+            <button type="submit" class="layui-btn" id="selectInfo">保存</button>
+        </div>
+    </div>
+
+</form>
+
+</body>
+</html>

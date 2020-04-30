@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:c="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <link rel="stylesheet" href="/static/lib/layui-v2.5.4/css/layui.css">
+    <script src="/static/lib/layui-v2.5.4/layui.js"></script>
+    <script type="application/javascript" src="/static/lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="http://libs.baidu.com/jquery/1.8.3/jquery.min.js">
+
+    <script type="text/javascript" th:inline="none">
+        layui.use('laydate', function(){
+            var laydate = layui.laydate;
+            laydate.render({
+                elem: '#mTime'
+            });
+            laydate.render({
+                elem: '#fTime'
+            });
+            laydate.render({
+                elem: '#docTime'
+            });
+
+
+        })
+        layui.use(['form', 'layedit', 'laydate','jquery'], function(){
+
+            var form = layui.form
+                ,layer = layui.layer
+                ,layedit = layui.layedit
+                ,$ = layui.$
+                ,laydate = layui.laydate;
+
+            $(function () {
+                console.log(localStorage.getItem("id")+"===");
+                console.log(localStorage.getItem("mname")+"===");
+                console.log(localStorage.getItem("fname")+"===");
+                var ids=$('input:text[name="id"]').val(localStorage.getItem("id"));
+                var mNames=$('input:text[name="mName"]').val(localStorage.getItem("mname"));
+                var fNames=$('input:text[name="fName"]').val(localStorage.getItem("fname"));
+            });
+
+        });
+
+    </script>
+
+    <style type="text/css">
+        .wfwd{
+            width: 130px;
+        }
+    </style>
+</head>
+<body>
+<form class="layui-form" action="/hascontent/addInfo">
+    <div style="width: 1400px;margin:0 auto;">
+        <div style="text-align:center;margin-top:30px;"><h2>免 费 孕 前 优 生 健 康 检 查</h2></div>
+        <div style="line-height:40px;text-align:center;"><h3>知情同意书</h3></div>
+        <div style="font-size: 14px;line-height: 40px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了您将来的宝宝更加健康、您的家庭更加幸福，政府为符合生育政策、计划怀孕 的农村夫妇免费提供一次孕前优生健康检查。</div>
+        <div style="font-size: 14px;line-height: 40px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;孕前优生健康检查建议在计划受孕前4-6个月内进行，内容包括优生健康教育、病 史询问、体格检查、临床实验室检查、影像学检查、风险评估、咨询指导等服务，主要 目的是查找可能导致出生缺陷等不良妊娠结局的风险因素，有助于夫妇了解双方的健康 状况，得到较为全面的健康指导，使计划怀孕夫妇在良好的心理、生理状态下受孕，积 极預防出生缺陷的发生，帮助夫妇实现生育一个健康宝宝的美好愿望。</div>
+        <div style="font-size: 14px;line-height: 40px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;孕前优生健康检查针对众多孕前风险因素中较重要或较常见的因素进行检查，各项。 检查结果反映的是夫妇双方现阶段身体状况。由于怀孕、胎儿生长发育是一个复杂的生 理过程，还会存在其他不确定因素，因此尽管此次检查结果正常，或者发!!!现风险因素采 取相关预防措施后，仍有生育出生缺陷儿及发生其他不良妊娠结局(自然流产、死胎、 死产等) 的可能，怀孕后仍需定期接受孕期检查和保健。</div>
+        <div style="font-size: 14px;line-height: 40px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果您愿意参加本次检查，请在知情同意书上签名。您的个人信息将会得到严格保密。 对上述情况，本人完全理解。经认真考虑，本人同意接受免费孕前优生健康检查， 并愿意和能够按要求接受随访服务。</div>
+        <div class="layui-form-item" style="position: absolute;left: 400px;top: 380px">
+            <label class="layui-form-label wfwd">编号:</label>
+            <div class="layui-input-inline">
+                <input type="text" name="id" style="width: 200px"  id="id" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item" style="position: absolute;left: 400px;top: 450px">
+            <label class="layui-form-label wfwd">男方签字:</label>
+            <div class="layui-input-inline">
+                <input type="text" name="mName" style="width: 200px"  id="mName" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item" style="position: absolute;left: 760px;top: 450px">
+            <label class="layui-form-label wfwd">女方签字:</label>
+            <div class="layui-input-inline">
+                <input type="text" name="fName" style="width: 200px"  id="fName" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item" style="position: absolute;left: 400px;top: 520px">
+            <label class="layui-form-label wfwd">男方签字日期:</label>
+            <div class="layui-input-inline">
+                <input type="text" class="layui-input" name="mTime" id="mTime" placeholder="yyyy-MM-dd">
+            </div>
+        </div>
+        <div class="layui-form-item" style="position: absolute;left: 760px;top: 520px">
+            <label class="layui-form-label wfwd">女方签字日期:</label>
+            <div class="layui-input-inline">
+                <input type="text" class="layui-input" name="fTime" id="fTime" placeholder="yyyy-MM-dd">
+            </div>
+        </div>
+        <div class="layui-form-item" style="position: absolute;left: 400px;top: 600px">
+            <label class="layui-form-label wfwd">服务人员签字:</label>
+            <div class="layui-input-inline">
+                <input type="text" name="docName" style="width: 200px"  id="docName" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item" style="position: absolute;left: 760px;top: 600px">
+            <label class="layui-form-label wfwd">服务人员签字日期:</label>
+            <div class="layui-input-inline">
+                <input type="text" class="layui-input" name="docTime" id="docTime" placeholder="yyyy-MM-dd">
+            </div>
+        </div>
+        <div class="layui-form-item"style="position:absolute;left:700px;top: 680px;font-size: 14px">
+            <button type="reset" class="layui-btn" id="clear" >新建</button>
+        </div>
+        <div class="layui-form-item"style="position:absolute;left:800px;top: 680px;font-size: 14px">
+            <button type="submit" class="layui-btn" id="selectInfo">保存</button>
+        </div>
+    </div>
+
+</form>
+
+</body>
+</html>

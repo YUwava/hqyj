@@ -18,10 +18,9 @@
     <!--数据表格-->
     <script type="text/javascript" th:inline="none">
 
-        layui.use(['table','form','jquery'], function() {
+        layui.use(['table','form'], function() {
 
-            var table = layui.table
-            ,$ = layui.$;
+            var table = layui.table;
          /*   var form = layui.form;
             $.get('/informations/getUpInfos',function (d) {
                 $(d).each(function () {
@@ -39,7 +38,6 @@
                 })
                 form.render('select'); //刷新select选择框渲染
             })*/
-
             table.render({
                 elem: '#showNice'
                 , url: '/informations/getIndex'
@@ -58,7 +56,6 @@
                     , {field: 'dUpDate', title: '上传时间', width: 160,align: 'center'}
                     , {field: 'preId', title: '国家编号', width: 160,align: 'center'}
                     /*,{title: '上传状态', width: 90,align: 'center',templet: function (d) {
-                            console.log(d.lUptoprovince[0].upFlag);
                             if(d.lUptoprovince[0].upFlag==0){
                                 return '未上传';
                             }else if(d.lUptoprovince[0].upFlag==1){
@@ -75,14 +72,16 @@
                 , page: true
                 ,id: "idTest"
             });
-
             table.on('checkbox(show)', function(obj){
                 localStorage.clear();
+                localStorage.setItem("id", obj.data.id);
                 localStorage.setItem("id", obj.data.autoId);
-                localStorage.setItem("ids", obj.data.id);
+                localStorage.setItem("mname", obj.data.mname);
+                localStorage.setItem("fname", obj.data.fname);
+
             });
             $('#selectInfo').click(function () {
-
+x
                 table.reload('idTest', {
                     where: { //设定异步数据接口的额外参数，任意设
                         id: $('#archivesId').val(),
@@ -150,8 +149,6 @@
             <div class="layui-input-inline">
                 <input type="text" name="title" style="width: 200px" id="archivesId" required  lay-verify="required" placeholder="档案编号" autocomplete="off" class="layui-input">
             </div>
-
-
         </div>
         <div class="layui-form-item"style="position:absolute;left: 460px;top: 33px;font-size: 14px">
             <label class="layui-form-label wfwd" style="display:inline-block">妻子姓名</label>

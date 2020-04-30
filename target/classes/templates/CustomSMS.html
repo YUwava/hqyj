@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>自定义短信随访</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="/static/lib/layui-v2.5.4/css/layui.css" media="all">
+	<link rel="stylesheet" href="/static/css/public.css" media="all">
+	<link rel="stylesheet" href="http://libs.baidu.com/jquery/1.8.3/jquery.min.js">
+	<script src="/static/lib/layui-v2.5.4/layui.js"></script>
+	<script type="application/javascript" src="/static/lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+
+<fieldset class="layui-elem-field site-demo-button" style="margin-top: 20px;">
+  <legend>查询条件</legend>
+  	<form class="layui-form layui-form-pane" action="">
+	  <div class="layui-form-item" style="margin-top: 10px;">
+	  	<div style="margin-left: 20px;">
+  			<label class="layui-form-label" style="width: 150px;margin-left: 55px;">请选择建档随访地区：</label>
+		    <div class="layui-input-inline">
+		      <input type="text" name="username" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+		    </div>
+		    <label class="layui-form-label" style="width: 150px;margin-left: 55px;">妻子姓名：</label>
+		    <div class="layui-input-inline">
+		      <input type="text" name="username" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+		    </div>
+		    <label class="layui-form-label" style="width: 150px;margin-left: 55px;">身份证号码：</label>
+		    <div class="layui-input-inline">
+		      <input type="text" name="username" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+		    </div><br /><br /><br />
+		    <label class="layui-form-label" style="width: 150px;margin-left: 55px;">创建时间从：</label>
+		    <div class="layui-input-inline">
+		    	<form class="layui-form" action="">
+		    		 <div class="layui-inline">
+				      <div class="layui-input-inline">
+				        <input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+				      </div>
+				    </div>
+		    	</form>
+		    </div>
+		    <label class="layui-form-label" style="width: 150px;margin-left: 55px;">至：</label>
+		    <div class="layui-input-inline">
+		    	<form class="layui-form" action="">
+		    		 <div class="layui-inline">
+				      <div class="layui-input-inline">
+				        <input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+				      </div>
+				    </div>
+		    	</form>
+		    </div>
+		    <label class="layui-form-label" style="width: 150px;margin-left: 55px;">风险类型：</label>
+		    <div class="layui-input-inline">
+		       <form class="layui-form" action="">
+				<div class="layui-form-item">
+						<div class="layui-input-inline">
+							<select name="city" lay-verify="required">
+								<option value="0">正常</option>
+								<option value="1">异常</option>
+							</select>
+						</div>
+				</div>
+			</form>
+		    </div>
+	   	</div>
+	  </div>
+	</form>
+	<div align="center" style="margin: 30px;">
+	  <div>
+	    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius"style="width: 100px;">查  询</button>
+	    <button type="button" class="layui-btn layui-btn-warm layui-btn-radius"style="width: 100px;">发送短信</button>
+	  </div>
+	</div>
+</fieldset>
+<fieldset class="layui-elem-field site-demo-button" style="margin-top: 20px;">
+  <legend>短信内容</legend>
+  <div class="layui-form-item layui-form-text"style="margin-left: 78px; margin-right: 50px; margin-top: 10px;">
+  	<textarea class="layui-textarea"  style="width:100%; height: 75px;"></textarea>
+ </div>
+</fieldset>
+<fieldset class="layui-elem-field site-demo-button" style="margin-top: 20px;">
+  <legend>自定义短信随访</legend>
+	<div>
+		<table class="layui-hide" id="test"></table>
+	</div>
+</fieldset>
+<script src="/static/lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
+<script>
+		layui.use(['laydate','table'], function(){
+		  var table = layui.table;
+		  laydate = layui.laydate;
+		   //日期
+		  laydate.render({
+		    elem: '#date'
+		  });
+		  laydate.render({
+		    elem: '#date1'
+		  });
+
+
+			table.render({
+				elem: '#test'
+				,url:'/hzw/getShowAll'
+				,toolbar: '#toolbarDemo'
+				,defaultToolbar: ['filter', 'exports', 'print']
+				,cols: [
+						[
+							{type: 'checkbox', fixed: 'left'},
+					{field:'id', width:140, title: '档案编号', sort: true}
+					,{field:'fname', width:150, title: '姓名'}
+					,{field:'fidCard', width:225, title: '身份证号', sort: true}
+					,{field:'fage', width:110, title: '年龄'}
+					,{field:'fbirthDate', width: 225, title: '出生日期', sort: true }
+					,{field:'faddress', width:260, title: '住址'}
+					,{field:'fcellPhoneNum', width:165, title: '手机号'}
+				]
+				]
+				,limit:4 /*这里就是开启分页的页数*/
+				,page: true
+			});
+		  
+		  //头工具栏事件
+		  table.on('toolbar(test)', function(obj){
+		    var checkStatus = table.checkStatus(obj.config.id); //获取选中行状态
+		    switch(obj.event){
+		      case 'getCheckData':
+		        var data = checkStatus.data;  //获取选中行数据
+		        layer.alert(JSON.stringify(data));
+		      break;
+		    };
+		  });
+		});
+		</script>
+<div style="text-align: center;width: 100%">
+	<table class="layui-table" id="showNice" lay-filter="show" align="center"></table>
+</div>
+</body>
+</html>
