@@ -77,10 +77,10 @@
             });
 
             table.on('checkbox(show)', function(obj){
-                console.log(obj.data);
+                localStorage.clear();
                 localStorage.setItem("id", obj.data.autoId);
+                localStorage.setItem("ids", obj.data.id);
             });
-
             $('#selectInfo').click(function () {
 
                 table.reload('idTest', {

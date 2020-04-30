@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class test {
+public class HomeController {
 
     @RequestMapping("/")
     public String test(){
@@ -16,27 +16,27 @@ public class test {
         return "welcome-1";
     }
 
-    @RequestMapping("beforeCheck")
+    /*@RequestMapping("beforeCheck")
     public String testss(){
         return "beforeCheck";
-    }
+    }*/
 
-    @RequestMapping("ruleExpand")
+    /*@RequestMapping("ruleExpand")
     public String testsss(){
         return "ruleExpand";
-    }
+    }*/
 
-    @RequestMapping("xRayCheck")
+    /*@RequestMapping("xRayCheck")
     public String testssss(){
         return "xRayCheck";
-    }
+    }*/
 
-    @RequestMapping("oralCheck")
+    /*@RequestMapping("oralCheck")
     public String testsssss(){
         return "oralCheck";
-    }
+    }*/
 
-    @RequestMapping("chemicalBear")
+    /*@RequestMapping("chemicalBear")
     public String testssssss(){
         return "chemicalBear";
     }
@@ -47,5 +47,5 @@ public class test {
     @RequestMapping("checkBear")
     public String testssssssss(){
         return "checkBear";
-    }
+    }*/
 }

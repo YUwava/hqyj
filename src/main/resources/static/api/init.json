@@ -211,13 +211,13 @@
           "child": [
             {
               "title": "婚前医学检查(女)",
-              "href": "beforeCheck",
+              "href": "beforeCheck/beforeCheck/nv",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             },
             {
               "title": "婚前医学检查(男)",
-              "href": "beforeCheck",
+              "href": "beforeCheck/beforeCheck/nan",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             }
@@ -229,24 +229,24 @@
           "child": [
             {
               "title": "常规拓展检查",
-              "href": "ruleExpand",
+              "href": "ruleExpand/ruleExpand/nv",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             },
             {
               "title": "x射线检查",
-              "href": "xRayCheck",
+              "href": "xRayCheck/xRayCheck/nv",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             },{
               "title": "口腔检查",
-              "href": "oralCheck",
+              "href": "oralCheck/oralCheck/nv",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             },
             {
               "title": "检查结果",
-              "href": "checkBear",
+              "href": "checkBear/checkBear/nv",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             }
@@ -258,24 +258,24 @@
           "child": [
             {
               "title": "常规拓展检查",
-              "href": "ruleExpand",
+              "href": "ruleExpand/ruleExpand/nan",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             },
             {
               "title": "x射线检查",
-              "href": "xRayCheck",
+              "href": "xRayCheck/xRayCheck/nan",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             },{
               "title": "口腔检查",
-              "href": "oralCheck",
+              "href": "oralCheck/oralCheck/nan",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             },
             {
               "title": "检查结果",
-              "href": "checkBear",
+              "href": "checkBear/checkBear/nan",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             }
@@ -287,7 +287,7 @@
           "child": [
             {
               "title": "化验项目匹配",
-              "href": "chemicalBear",
+              "href": "chemicalBear/chemicalBear",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             }

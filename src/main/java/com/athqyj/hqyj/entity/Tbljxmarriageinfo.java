@@ -373,6 +373,52 @@ public class Tbljxmarriageinfo {
     return k5;
   }
 
+  @Override
+  public String toString() {
+    return "Tbljxmarriageinfo{" +
+            "id='" + id + '\'' +
+            ", mSex='" + mSex + '\'' +
+            ", isJiWangBingShi='" + isJiWangBingShi + '\'' +
+            ", yiChuanXingJiBing='" + yiChuanXingJiBing + '\'' +
+            ", jingShenJiBing='" + jingShenJiBing + '\'' +
+            ", xianTianXiangJiBing='" + xianTianXiangJiBing + '\'' +
+            ", chuanRanBing='" + chuanRanBing + '\'' +
+            ", xingBing='" + xingBing + '\'' +
+            ", zhongYaoZangQi='" + zhongYaoZangQi + '\'' +
+            ", miNiaoXiTongShengZhiJiBing='" + miNiaoXiTongShengZhiJiBing + '\'' +
+            ", jiBingName='" + jiBingName + '\'' +
+            ", jingShenFaBingNum='" + jingShenFaBingNum + '\'' +
+            ", jingShenFaBingDate=" + jingShenFaBingDate +
+            ", isFuYao='" + isFuYao + '\'' +
+            ", sheHuiShengYingNengLi='" + sheHuiShengYingNengLi + '\'' +
+            ", shouShuShi='" + shouShuShi + '\'' +
+            ", shouShuName='" + shouShuName + '\'' +
+            ", shouShuDate=" + shouShuDate +
+            ", xianBingShi='" + xianBingShi + '\'' +
+            ", feiHuoDongXingHbv='" + feiHuoDongXingHbv + '\'' +
+            ", manXingHbv='" + manXingHbv + '\'' +
+            ", meiDuSuiFang='" + meiDuSuiFang + '\'' +
+            ", feiJieHeSuiFang='" + feiJieHeSuiFang + '\'' +
+            ", xianBingQt='" + xianBingQt + '\'' +
+            ", xianBingMiaoShu='" + xianBingMiaoShu + '\'' +
+            ", hunYunShi='" + hunYunShi + '\'' +
+            ", xianYouNan='" + xianYouNan + '\'' +
+            ", xianYouNv='" + xianYouNv + '\'' +
+            ", ziNvIsJiBing='" + ziNvIsJiBing + '\'' +
+            ", ziNvJiBingName='" + ziNvJiBingName + '\'' +
+            ", hunJianDate=" + hunJianDate +
+            ", dengJidoctor='" + dengJidoctor + '\'' +
+            ", k1='" + k1 + '\'' +
+            ", k2='" + k2 + '\'' +
+            ", k3='" + k3 + '\'' +
+            ", k4='" + k4 + '\'' +
+            ", k5='" + k5 + '\'' +
+            ", k6='" + k6 + '\'' +
+            ", k7='" + k7 + '\'' +
+            ", k8='" + k8 + '\'' +
+            '}';
+  }
+
   public void setK5(String k5) {
     this.k5 = k5;
   }

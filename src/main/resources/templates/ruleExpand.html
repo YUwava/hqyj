@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+    <link rel="stylesheet" href="../../layui/css/layui.css"  media="all">
 </head>
 <body>
     <div style="width: 1400px;margin: 0 auto;background-color: paleturquoise;border: #c0c4cc 1px solid;">
-        <!--<form class="layui-form" action="">-->
+        <form class="layui-form" action="">
             <div class="layui-form-item" style="margin-top: 20px;">
                 <div class="layui-inline">
                     <label class="layui-form-label">编号：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="编号" class="layui-input">
+                        <input type="text" name="id" readonly  lay-verify="required" autocomplete="off" placeholder="编号" class="layui-input id">
                     </div>
                 </div>
                 <div class="layui-inline" style="margin-left: 350px;">
                     <label class="layui-form-label">	性       别：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="性别" class="layui-input">
+                        <input type="text" name="mSex" lay-verify="required" readonly  autocomplete="off" placeholder="性别" class="layui-input mSex">
                     </div>
                 </div>
             </div>
@@ -26,57 +26,60 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">姓名：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="姓名" class="layui-input">
+                        <input type="text" name="username" lay-verify="required" readonly  autocomplete="off" placeholder="姓名" class="layui-input username">
                     </div>
                 </div>
                 <div class="layui-inline" style="margin-left: 350px;">
                     <label class="layui-form-label">对方姓名：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="对方姓名" class="layui-input">
+                        <input type="text" name="theName" lay-verify="required" readonly  autocomplete="off" placeholder="对方姓名" class="layui-input theName">
                     </div>
                 </div>
             </div>
+            </form>
             <div style="margin: 10px 10px 10px 10px;border: 1px #c0c4cc solid">
                 <div class="layui-form-item" style="margin-top: 20px;">
                     <div class="layui-inline">
                         <label class="layui-form-label">职业：</label>
                         <div class="layui-input-block">
-                            <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="业务" class="layui-input" style="width: 600px;">
+                            <input type="text" name="job" readonly  lay-verify="required" autocomplete="off" placeholder="业务" disabled class="layui-input job" style="width: 600px;">
+                            <input type="hidden" class="hiddemsex" th:value="${sex}">
                         </div>
                     </div>
                 </div>
+
                 <div style="margin: 10px; border: 1px #c0c4cc solid">
                     <div style="width: 100%;height: 30px;background-color: #00a2d4">既往病史</div>
                         <div class="layui-form-item" pane="">
                             <div class="layui-input-block" style="margin-left: 30px;">
                                 <form class="layui-form" action=""  lay-filter="example">
                                     <div>
-                                        <input type="checkbox" name="like" lay-skin="primary" title="无" class="mg-lf" lay-filter="wu">
-                                        <input type="checkbox" name="like[1]" lay-skin="primary" title="遗传性疾病">
-                                        <input type="checkbox" name="like[2]" lay-skin="primary" title="精神疾病">
-                                        <input type="checkbox" name="like[3]" lay-skin="primary" title="先天性疾病" >
-                                        <input type="checkbox" name="like[4]" lay-skin="primary" title="传染病">
+                                        <input type="checkbox" name="isJiWangBingShi" value="1" lay-skin="primary" title="无" class="mg-lf" lay-filter="isJiWangBingShi">
+                                        <input type="checkbox" name="yiChuanXingJiBing" value="1" lay-skin="primary" title="遗传性疾病">
+                                        <input type="checkbox" name="jingShenJiBing" value="1" lay-skin="primary" title="精神疾病">
+                                        <input type="checkbox" name="xianTianXiangJiBing" value="1" lay-skin="primary" title="先天性疾病" >
+                                        <input type="checkbox" name="chuanRanBing" value="1" lay-skin="primary" title="传染病">
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="like[5]" lay-skin="primary" title="性病">
-                                        <input type="checkbox" name="like[6]" lay-skin="primary" title="重要器官疾病">
-                                        <input type="checkbox" name="like[7]" lay-skin="primary" title="泌尿生殖系统疾病">
+                                        <input type="checkbox" name="xingBing" lay-skin="primary" title="性病" value="1">
+                                        <input type="checkbox" name="zhongYaoZangQi" lay-skin="primary" title="重要器官疾病" value="1">
+                                        <input type="checkbox" name="miNiaoXiTongShengZhiJiBing" lay-skin="primary" title="泌尿生殖系统疾病" value="1">
                                         <div class="layui-inline" style="margin-top: 15px;">
                                             <label class="layui-form-label">疾病名称：</label>
                                             <div class="layui-input-block">
-                                                <input type="text" name="disname" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 600px;">
+                                                <input type="text" name="jiBingName" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 600px;">
                                             </div>
                                         </div>
                                     </div>
                                     <div>
                                         <label class="layui-form-label" style="width: 200px;margin-left: -46px;">若为精神疾病，发病次数：</label>
-                                        <input type="text" name="sizes" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;">
+                                        <input type="text" name="jingShenFaBingNum" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;">
                                         <label class="" style="width: 200px;position:absolute;margin-top: -30px;margin-left: 340px;"> ，最近一次发病时间,</label>
-                                        <input type="text" name="zhtime" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;position:absolute;margin-top: -38px;margin-left: 500px;">
+                                        <input type="text" name="jingShenFaBingDate" id="date8" autocomplete="off" class="layui-input" style="width: 150px;position:absolute;margin-top: -38px;margin-left: 500px;">
                                         <label class="" style="width: 200px;position:absolute;margin-top: -30px;margin-left: 660px;">目前是否服药,</label>
                                         <div style="position:absolute;margin-top: -38px;margin-left: 750px;">
-                                                <input type="radio" name="fs" checked="" lay-filter="fs"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">是</span>
-                                                <input type="radio" name="fs" checked="" lay-filter="fo"><span  style="position:absolute; margin-left: -15px;margin-top: 10px;">否</span>
+                                                <input type="radio" name="isFuYao" checked="" lay-filter="isFuYao" value="0"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">是</span>
+                                                <input type="radio" name="isFuYao" checked="" lay-filter="isFuYao" value="1"><span  style="position:absolute; margin-left: -15px;margin-top: 10px;">否</span>
                                         </div>
                                     </div>
                                 </form>
@@ -86,19 +89,19 @@
                                     <div>
                                         <form class="layui-form" action="">
                                             <div>
-                                                <input type="radio" name="fs" checked="" lay-filter="fs"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">正常工作</span>
+                                                <input type="radio" name="sheHuiShengYingNengLi" checked="" value="0" lay-filter="sheHuiShengYingNengLi"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">正常工作</span>
                                             </div>
                                             <div style="float: left;margin-top: -34px;margin-left: 140px">
-                                                <input type="radio" name="fs" checked="" lay-filter="fo"><span style="position: absolute;margin-top: 10px;margin-left: -15px;">不工作</span>
+                                                <input type="radio" name="sheHuiShengYingNengLi" checked="" value="1" lay-filter="sheHuiShengYingNengLi"><span style="position: absolute;margin-top: 10px;margin-left: -15px;">不工作</span>
                                             </div>
                                             <div style="float: left;margin-top: -34px;margin-left: 280px">
-                                                <input type="radio" name="fs" checked="" lay-filter="fs"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">生活自理</span>
+                                                <input type="radio" name="sheHuiShengYingNengLi" checked="" value="2" lay-filter="sheHuiShengYingNengLi"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">生活自理</span>
                                             </div>
                                             <div style="float: left;margin-top: -34px;margin-left: 400px">
-                                                <input type="radio" name="fs" checked="" lay-filter="fs"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">需要帮助</span>
+                                                <input type="radio" name="sheHuiShengYingNengLi" checked="" value="3" lay-filter="sheHuiShengYingNengLi"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">需要帮助</span>
                                             </div>
                                             <div style="float: left;margin-top: -34px;margin-left: 500px">
-                                                <input type="radio" name="fs" checked="" lay-filter="fs"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">不能自理</span>
+                                                <input type="radio" name="sheHuiShengYingNengLi" checked="" value="4" lay-filter="sheHuiShengYingNengLi"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">不能自理</span>
                                             </div>
                                         </form>
                                     </div>
@@ -108,15 +111,15 @@
                                     <form class="layui-form" action="">
                                         <div>
                                             <label  class="" style="position:absolute;margin-left: -108px"><span style="position:absolute;margin-top: 10px;margin-left: -50px;">手术室：</span>
-                                                <input type="radio" name="fsurgical" checked="" lay-filter="fsurgical" value="手术室：">
+                                                <input type="radio" name="shouShuShi" checked="" lay-filter="shouShuShi" value="手术室：">
                                                 <span style="position:absolute; margin-left: -15px;margin-top: 10px;">无</span>
                                             </label>
                                         </div>
                                         <div>
-                                            <input type="radio" name="fsurgical" lay-filter="fsurgical" value="有，手术名称：" ><span style="position:absolute; margin-left: -15px;margin-top: 10px;">有，手术名称：</span>
-                                            <input type="text" name="surgicalname" lay-verify="required" disabled="" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;position:absolute;margin-top: -30px;margin-left: 300px;">
+                                            <input type="radio" name="shouShuShi" lay-filter="shouShuShi" value="有，手术名称：" ><span style="position:absolute; margin-left: -15px;margin-top: 10px;">有，手术名称：</span>
+                                            <input type="text" name="shouShuName" lay-verify="required" disabled="" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;position:absolute;margin-top: -30px;margin-left: 300px;">
                                             <label class="" style="width: 200px;position:absolute;margin-top: 10px;margin-left: 250px;">手术时间：,</label>
-                                           <input type="text" name="surgicaltime" id="date1" autocomplete="off" disabled="" class="layui-input" style="width: 150px;position:absolute;margin-left: 540px;margin-top: -30px;">
+                                           <input type="text" name="shouShuDate" id="date1" autocomplete="off" disabled="" class="layui-input" style="width: 150px;position:absolute;margin-left: 540px;margin-top: -30px;">
                                         </div>
                                     </form>
                                 </div>
@@ -131,18 +134,19 @@
                         <div class="layui-input-block" style="margin-left: 30px;">
                             <form class="layui-form" action="" lay-filter="examples">
                                 <div>
-                                    <input type="checkbox" name="like[wu]" lay-skin="primary" title="无" class="mg-lf" lay-filter="like[wu]">
-                                    <input type="checkbox" name="like[wu1]" lay-skin="primary" title="非活动性HBV携带者">
-                                    <input type="checkbox" name="like[wu2]" lay-skin="primary" title="慢性HBV携带者">
-                                    <input type="checkbox" name="like[wu3]" lay-skin="primary" title="梅毒随访中">
-                                    <input type="checkbox" name="like[wu4]" lay-skin="primary" title="结核随访中">
+                                    <input type="hidden" name="hyu" lay-filter="hyu" value="无">
+                                    <input type="checkbox" name="xianBingShi" value="1"  lay-skin="primary" title="无" class="mg-lf" lay-filter="xianBingShi">
+                                    <input type="checkbox" name="feiHuoDongXingHbv" value="1" lay-skin="primary" title="非活动性HBV携带者">
+                                    <input type="checkbox" name="manXingHbv" lay-skin="primary" title="慢性HBV携带者" value="1">
+                                    <input type="checkbox" name="meiDuSuiFang" lay-skin="primary" title="梅毒随访中" value="1">
+                                    <input type="checkbox" name="feiJieHeSuiFang" lay-skin="primary" title="结核随访中" value="1">
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="like[wu5]" lay-skin="primary" title="其他" lay-filter="wu[wu5]">
+                                    <input type="checkbox" name="xianBingQt" lay-skin="primary" title="其他" lay-filter="xianBingQt" value="1">
                                     <div class="layui-inline" style="margin-top: 15px;">
                                         <label class="layui-form-label">疾病名称：</label>
                                         <div class="layui-input-block">
-                                            <input type="text" name="disnames" lay-verify="required" disabled="" autocomplete="off" placeholder="" class="layui-input" style="width: 1100px;">
+                                            <input type="text" name="xianBingMiaoShu" lay-verify="required" disabled="" autocomplete="off" placeholder="" class="layui-input" style="width: 1100px;">
                                         </div>
                                     </div>
 
@@ -158,19 +162,20 @@
                             <div>
                                 <form class="layui-form" action="">
                                     <div style="margin-top: 10px;">
-                                        <input type="radio" name="fwu" checked="" lay-filter="fwu" value="无"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">无</span>
+                                        <input type="radio" name="hunYunShi" checked="" lay-filter="hunYunShi" value="无"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">无</span>
+
                                     </div>
                                     <div style="float: left;margin-top: -34px;margin-left: 100px">
-                                        <input type="radio" name="fwu"  lay-filter="fwu" value="有"><span style="position: absolute;margin-top: 10px;margin-left: -15px;">有（丧偶、离异）</span>
+                                        <input type="radio" name="hunYunShi"  lay-filter="hunYunShi" value="有"><span style="position: absolute;margin-top: 10px;margin-left: -15px;">有（丧偶、离异）</span>
                                     </div>
                                     <div style="float: left;margin-top: -34px;margin-left: 360px">
-                                        <input type="radio" name="fwu"  lay-filter="fwu" value="未婚先孕"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">未婚先孕</span>
+                                        <input type="radio" name="hunYunShi"  lay-filter="hunYunShi" value="未婚先孕"><span style="position:absolute; margin-left: -15px;margin-top: 10px;">未婚先孕</span>
                                     </div>
                                     <div style="float: left;margin-top: -25px;margin-left: 410px;">
                                         <label  style="margin-left: 100px;margin-top: 10px;">足月 子</label>
-                                        <input type="text" disabled="" name="hbms" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;position: absolute;margin-top: -28px;margin-left: 160px;">
+                                        <input type="text" disabled="" name="xianYouNan" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;position: absolute;margin-top: -28px;margin-left: 160px;">
                                         <label class="" style="width: 200px;position:absolute;margin-top: -0px;margin-left: 190px;"> ，人，女,</label>
-                                        <input type="text" disabled="" name="hbnv" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;position:absolute;margin-top: -28px;margin-left: 400px;">
+                                        <input type="text" disabled="" name="xianYouNv" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 150px;position:absolute;margin-top: -28px;margin-left: 400px;">
                                         <label class="" style="width: 200px;position:absolute;margin-top: -0px;margin-left: 410px;"> 人</label>
                                     </div>
                                 </form>
@@ -178,11 +183,11 @@
                                     <div>
                                         <label>
                                             <span style="margin-top: 5px;">子女是否患有遗传性疾病：</span>
-                                            <input type="radio" name="fiso" checked="" lay-filter="fiso" value="是">
+                                            <input type="radio" name="ziNvIsJiBing" checked="" lay-filter="ziNvIsJiBing" value="是">
                                             <span style="position:absolute; margin-left: -15px;margin-top: 10px;">是</span>
-                                            <input type="radio" name="fiso" lay-filter="fiso" value="否">
+                                            <input type="radio" name="ziNvIsJiBing" lay-filter="ziNvIsJiBing" value="否">
                                             <span style="position:absolute; margin-left: -15px;margin-top: 10px;">否</span>
-                                            <input type="text" name="sfo" lay-verify="required" disabled="" autocomplete="off" placeholder="" class="layui-input" style="width: 950px;position:absolute;margin-top: -28px;margin-left: 300px;">
+                                            <input type="text" name="ziNvJiBingName" lay-verify="required" disabled="" autocomplete="off" placeholder="" class="layui-input" style="width: 950px;position:absolute;margin-top: -28px;margin-left: 300px;">
                                         </label>
                                     </div>
 
@@ -199,30 +204,24 @@
             <div class="layui-inline">
                 <label class="layui-form-label">医师签名：</label>
                 <div class="layui-input-block">
-                    <select name="interest" lay-filter="aihao" style="width: 200px;">
-                        <option value=""></option>
-                        <option value="0">写作</option>
-                        <option value="1" selected="">阅读</option>
-                        <option value="2">游戏</option>
-                        <option value="3">音乐</option>
-                        <option value="4">旅行</option>
-                    </select>
+                    <select name="dengJidoctor" lay-filter="dengJidoctor" style="width: 200px;" id="sysUser"></select>
                 </div>
             </div>
             <div class="layui-inline" style="margin-left: 350px;">
                 <label class="layui-form-label">	登记日期：</label>
                 <div class="layui-input-block">
-                    <input type="text" name="date" id="date" autocomplete="off" class="layui-input" style="width: 350px;">
+                    <input type="text" name="hunJianDate" id="date" autocomplete="off" class="layui-input" style="width: 350px;">
                 </div>
             </div>
         </div>
         <div style="width: 1400px;text-align: center;margin-bottom: 50px;">
-            <button type="button" class="layui-btn layui-btn-normal">百搭按钮</button>
+            <button type="button" class="layui-btn layui-btn-normal" id="butConservation">保存</button>
         </div>
         </form>
     </div>
-    <script src="../layui/layui.js" charset="utf-8"></script>
+    <script src="../../layui/layui.js" charset="utf-8"></script>
     <script>
+        var newlyID=localStorage.getItem("id");
         layui.use(['form', 'layedit', 'laydate','jquery'], function(){
             var form = layui.form
                 ,layer = layui.layer
@@ -235,164 +234,287 @@
             laydate.render({
                 elem: '#date1'
             });
-            form.on('radio(fiso)', function(objs){
-                let valss=$('input:radio[name="fiso"]:checked').val();
-                let vals=$('input:radio[name="fwu"]:checked').val();
+            laydate.render({
+                elem: '#date8'
+            });
+
+            $('#butConservation').on('click', function () {
+                var arr = new Array();
+
+                //序列化每个表单
+                $("form").each(function(){
+                    var obj = $(this).serializeJson();
+                    arr.push(obj);
+                });
+                //转json
+                var arrJson = JSON.stringify(arr);
+                    $.ajax({
+                        type: "GET",
+                        data: {allParams:arrJson},
+                        url: "../addBfc",
+                        dataType: "JSON",
+                        contentType: 'application/json',
+                        success:function(data){
+                            if (data.data=="true"){
+                                layer.msg("保存成功")
+                            }else {
+                                layer.msg("保存失败")
+                            }
+                        },
+                        error: function (data) {//当访问时候，404，500 等非200的错误状态码
+                            layer.msg("页面错误")
+                        }
+                    });
+            });
+            (function($){
+                $.fn.serializeJson=function(){
+                    var serializeObj={};
+                    $(this.serializeArray()).each(function(){
+                        serializeObj[this.name]=this.value;
+                    });
+                    return serializeObj;
+                };
+            })($);
+            form.on('radio(ziNvIsJiBing)', function(objs){
+                let valss=$('input:radio[name="ziNvIsJiBing"]:checked').val();
+                let vals=$('input:radio[name="hunYunShi"]:checked').val();
                 if (vals=='有' || vals=='未婚先孕'){
                     if(valss=="是"){
-                        $('input:input[name="sfo"]').attr("disabled",false);
+                        $('input:input[name="ziNvJiBingName"]').attr("disabled",false);
                     }
                     if(valss=="否"){
-                        $('input:input[name="sfo"]').attr("disabled",true);
+                        $('input:input[name="ziNvJiBingName"]').attr("disabled",true);
                     }
                 }
 
             });
-            form.on('radio(fwu)', function(objs){
-                let vals=$('input:radio[name="fwu"]:checked').val();
-
+            form.on('radio(hunYunShi)', function(objs){
+                let vals=$('input:radio[name="hunYunShi"]:checked').val();
                 if (vals=='无'){
-                    $('input:input[name="sfo"]').attr("disabled",true);
-                    $('input:input[name="hbnv"]').attr("disabled",true);
-                    $('input:input[name="hbms"]').attr("disabled",true);
-                    $("input:radio[name='fiso']").each(function(){
-                        $('input:radio[name="fiso"]').attr("disabled",true);
+                    $('input:input[name="ziNvJiBingName"]').attr("disabled",true);
+                    $('input:input[name="xianYouNv"]').attr("disabled",true);
+                    $('input:input[name="xianYouNan"]').attr("disabled",true);
+                    $("input:radio[name='ziNvIsJiBing']").each(function(){
+                        $('input:radio[name="ziNvIsJiBing"]').attr("disabled",true);
                     });
 
                 }
                 if (vals=='有'){
-                    $('input:input[name="sfo"]').attr("disabled",false);
-                    $('input:input[name="hbnv"]').attr("disabled",false);
-                    $('input:input[name="hbms"]').attr("disabled",false);
-                    $("input:radio[name='fiso']").each(function(){
-                        $('input:radio[name="fiso"]').attr("disabled",false);
+                    $('input:input[name="ziNvJiBingName"]').attr("disabled",false);
+                    $('input:input[name="xianYouNan"]').attr("disabled",false);
+                    $('input:input[name="xianYouNv"]').attr("disabled",false);
+                    $("input:radio[name='ziNvIsJiBing']").each(function(){
+                        $('input:radio[name="ziNvIsJiBing"]').attr("disabled",false);
                     });
-                    let valss=$('input:radio[name="fiso"]:checked').val();
+                    let valss=$('input:radio[name="ziNvIsJiBing"]:checked').val();
                     if(valss=='是'){
-                        $('input:input[name="sfo"]').attr("disabled",false);
+                        $('input:input[name="ziNvJiBingName"]').attr("disabled",false);
                     }
                     if(valss=='否'){
-                        $('input:input[name="sfo"]').attr("disabled",true);
+                        $('input:input[name="ziNvJiBingName"]').attr("disabled",true);
                     }
 
 
                 }
                 if (vals=='未婚先孕'){
-                    $('input:input[name="sfo"]').attr("disabled",false);
-                    $('input:input[name="hbnv"]').attr("disabled",false);
-                    $('input:input[name="hbms"]').attr("disabled",false);
-                    $("input:radio[name='fiso']").each(function(){
-                        $('input:radio[name="fiso"]').attr("disabled",false);
+                    $('input:input[name="ziNvJiBingName"]').attr("disabled",false);
+                    $('input:input[name="xianYouNv"]').attr("disabled",false);
+                    $('input:input[name="xianYouNan"]').attr("disabled",false);
+                    $("input:radio[name='ziNvIsJiBing']").each(function(){
+                        $('input:radio[name="ziNvIsJiBing"]').attr("disabled",false);
                     });
-                    let valss=$('input:radio[name="fiso"]:checked').val();
+                    let valss=$('input:radio[name="ziNvIsJiBing"]:checked').val();
                     if(valss=='是'){
-                        $('input:input[name="sfo"]').attr("disabled",false);
+                        $('input:input[name="ziNvJiBingName"]').attr("disabled",false);
                     }
                     if(valss=='否'){
-                        $('input:input[name="sfo"]').attr("disabled",true);
+                        $('input:input[name="ziNvJiBingName"]').attr("disabled",true);
                     }
 
                 }
             });
-            form.on('checkbox(wu[wu5])', function(objs){
-                var flagels = $('input:checkbox[name="like[wu5]"]').is(":checked");
+            form.on('checkboxxianBingQt])', function(objs){
+                var flagels = $('input:checkbox[name="xianBingQt"]').is(":checked");
                 if (flagels==true) {
-                    $('input:input[name="disnames"]').attr("disabled",false);
+                    $('input:input[name="xianBingMiaoShu"]').attr("disabled",false);
                 }
                 if (flagels==false) {
-                    $('input:input[name="disnames"]').attr("disabled",true);
+                    $('input:input[name="xianBingMiaoShu"]').attr("disabled",true);
                 }
             });
-            form.on('checkbox(like[wu])', function(objs){
-                var flages = $('input:checkbox[name="like[wu]"]').is(":checked");
-                $('input:input[name="disnames"]').attr("disabled",true);
+            form.on('checkbox(xianBingShi)', function(objs){
+                var flages = $('input:checkbox[name="xianBingShi"]').is(":checked");
+                $('input:input[name="xianBingMiaoShu"]').attr("disabled",true);
                 if(flages==true){
-                    $('input:checkbox[name="like[wu1]"]').attr("disabled",true);
-                    $('input:checkbox[name="like[wu2]"]').attr("disabled",true);
-                    $('input:checkbox[name="like[wu3]"]').attr("disabled",true);
-                    $('input:checkbox[name="like[wu4]"]').attr("disabled",true);
-                    $('input:checkbox[name="like[wu5]"]').attr("disabled",true);
-                    $('input:input[name="disnames"]').attr("disabled",true);
+                    $('input:checkbox[name="feiHuoDongXingHbv"]').attr("disabled",true);
+                    $('input:checkbox[name="manXingHbv"]').attr("disabled",true);
+                    $('input:checkbox[name="meiDuSuiFang"]').attr("disabled",true);
+                    $('input:checkbox[name="feiJieHeSuiFang"]').attr("disabled",true);
+                    $('input:checkbox[name="xianBingQt"]').attr("disabled",true);
+                    $('input:input[name="xianBingMiaoShu"]').attr("disabled",true);
                     form.val('examples', {
-                        "like[wu1]": false,
-                        "like[wu2]": false,
-                        "like[wu3]": false,
-                        "like[wu4]": false,
-                        "like[wu5]": false,
+                        "feiHuoDongXingHbv": false,
+                        "manXingHbv": false,
+                        "meiDuSuiFang": false,
+                        "feiJieHeSuiFang": false,
+                        "xianBingQt": false,
                     });
                 }
                 if (flages==false) {
-                    $('input:checkbox[name="like[wu1]"]').attr("disabled",false);
-                    $('input:checkbox[name="like[wu2]"]').attr("disabled",false);
-                    $('input:checkbox[name="like[wu3]"]').attr("disabled",false);
-                    $('input:checkbox[name="like[wu4]"]').attr("disabled",false);
-                    $('input:checkbox[name="like[wu5]"]').attr("disabled",false);
-                    $('input:input[name="disnames"]').attr("disabled",false);
+                    $('input:checkbox[name="feiHuoDongXingHbv"]').attr("disabled",false);
+                    $('input:checkbox[name="manXingHbv"]').attr("disabled",false);
+                    $('input:checkbox[name="meiDuSuiFang"]').attr("disabled",false);
+                    $('input:checkbox[name="feiJieHeSuiFang"]').attr("disabled",false);
+                    $('input:checkbox[name="xianBingQt"]').attr("disabled",false);
+                    $('input:input[name="xianBingMiaoShu"]').attr("disabled",false);
                     form.val('examples', {
-                        "like[wu1]": false,
-                        "like[wu2]": false,
-                        "like[wu3]": false,
-                        "like[wu4]": false,
-                        "like[wu5]": false,
+                        "feiHuoDongXingHbv": false,
+                        "manXingHbv": false,
+                        "meiDuSuiFang": false,
+                        "feiJieHeSuiFang": false,
+                        "xianBingQt": false,
                     });
                 }
 
             });
-            form.on('radio(fsurgical)', function(data){
-                let val=$('input:radio[name="fsurgical"]:checked').val();
+            form.on('radio(shouShuShi)', function(data){
+                let val=$('input:radio[name="shouShuShi"]:checked').val();
                 if (val=='手术室：'){
-                    $('input:input[name="surgicalname"]').attr("disabled",true);
-                    $('input:input[name="surgicaltime"]').attr("disabled",true);
+                    $('input:input[name="shouShuName"]').attr("disabled",true);
+                    $('input:input[name="shouShuDate"]').attr("disabled",true);
                 }
                 if (val=='有，手术名称：'){
-                    $('input:input[name="surgicalname"]').attr("disabled",false);
-                    $('input:input[name="surgicaltime"]').attr("disabled",false);
+                    $('input:input[name="shouShuName"]').attr("disabled",false);
+                    $('input:input[name="shouShuDate"]').attr("disabled",false);
 
                 }
             });
-            form.on('checkbox(wu)', function(obj){
-                var flage = $('input:checkbox[name="like"]').is(":checked");
+            form.on('checkbox(isJiWangBingShi)', function(obj){
+                var flage = $('input:checkbox[name="isJiWangBingShi"]').is(":checked");
                 if(flage==true){
-                    $('input:checkbox[name="like[1]"]').attr("disabled",true);
-                    $('input:checkbox[name="like[2]"]').attr("disabled",true);
-                    $('input:checkbox[name="like[3]"]').attr("disabled",true);
-                    $('input:checkbox[name="like[4]"]').attr("disabled",true);
-                    $('input:checkbox[name="like[5]"]').attr("disabled",true);
-                    $('input:checkbox[name="like[6]"]').attr("disabled",true);
-                    $('input:checkbox[name="like[7]"]').attr("disabled",true);
-                    $('input:input[name="disname"]').attr("disabled",true);
-                    $('input:input[name="sizes"]').attr("disabled",true);
-                    $('input:input[name="zhtime"]').attr("disabled",true);
+                    $('input:checkbox[name="yiChuanXingJiBing"]').attr("disabled",true);
+                    $('input:checkbox[name="jingShenJiBing"]').attr("disabled",true);
+                    $('input:checkbox[name="xianTianXiangJiBing"]').attr("disabled",true);
+                    $('input:checkbox[name="chuanRanBing"]').attr("disabled",true);
+                    $('input:checkbox[name="xingBing"]').attr("disabled",true);
+                    $('input:checkbox[name="zhongYaoZangQi"]').attr("disabled",true);
+                    $('input:checkbox[name="miNiaoXiTongShengZhiJiBing"]').attr("disabled",true);
+                    $('input:input[name="jiBingName"]').attr("disabled",true);
+                    $('input:input[name="jingShenFaBingNum"]').attr("disabled",true);
+                    $('input:input[name="jingShenFaBingDate"]').attr("disabled",true);
                         form.val('example', {
-                            "like[1]": false,
-                            "like[2]": false,
-                            "like[3]": false,
-                            "like[4]": false,
-                            "like[5]": false,
-                            "like[6]": false,
-                            "like[7]": false,
+                            "yiChuanXingJiBing": false,
+                            "jingShenJiBing": false,
+                            "xianTianXiangJiBing": false,
+                            "chuanRanBing": false,
+                            "xingBing": false,
+                            "zhongYaoZangQi": false,
+                            "miNiaoXiTongShengZhiJiBing": false,
                         });
                 }
                 if (flage==false) {
-                    $('input:checkbox[name="like[1]"]').attr("disabled",false);
-                    $('input:checkbox[name="like[2]"]').attr("disabled",false);
-                    $('input:checkbox[name="like[3]"]').attr("disabled",false);
-                    $('input:checkbox[name="like[4]"]').attr("disabled",false);
-                    $('input:checkbox[name="like[5]"]').attr("disabled",false);
-                    $('input:checkbox[name="like[6]"]').attr("disabled",false);
-                    $('input:checkbox[name="like[7]"]').attr("disabled",false);
-                    $('input:input[name="disname"]').attr("disabled",false);
-                    $('input:input[name="sizes"]').attr("disabled",false);
-                    $('input:input[name="zhtime"]').attr("disabled",false);
+                    $('input:checkbox[name="yiChuanXingJiBing"]').attr("disabled",false);
+                    $('input:checkbox[name="jingShenJiBing"]').attr("disabled",false);
+                    $('input:checkbox[name="xianTianXiangJiBing"]').attr("disabled",false);
+                    $('input:checkbox[name="chuanRanBing"]').attr("disabled",false);
+                    $('input:checkbox[name="xingBing"]').attr("disabled",false);
+                    $('input:checkbox[name="zhongYaoZangQi"]').attr("disabled",false);
+                    $('input:checkbox[name="miNiaoXiTongShengZhiJiBing"]').attr("disabled",false);
+                    $('input:input[name="jiBingName"]').attr("disabled",false);
+                    $('input:input[name="jingShenFaBingNum"]').attr("disabled",false);
+                    $('input:input[name="jingShenFaBingDate"]').attr("disabled",false);
                     form.val('example', {
-                        "like[1]": false,
-                        "like[2]": false,
-                        "like[3]": false,
-                        "like[4]": false,
-                        "like[5]": false,
-                        "like[6]": false,
-                        "like[7]": false,
+                        "yiChuanXingJiBing": false,
+                        "jingShenJiBing": false,
+                        "xianTianXiangJiBing": false,
+                        "chuanRanBing": false,
+                        "xingBing": false,
+                        "zhongYaoZangQi": false,
+                        "miNiaoXiTongShengZhiJiBing": false,
                     });
+                }
+
+            });
+            $(function () {
+                var sexs=$('.hiddemsex').val();
+                if (sexs=='nv'){
+                    $.ajax({
+                        type: "GET",//请求类型
+                        url: "../GetRe.id",//请求的url
+                        data: {ID: newlyID,sex:'nv'},//请求参数
+                        dataType: "json",//ajax接口（请求url）返回的数据类型
+                        success: function (data) {//data：返回数据（json对象）
+                            $('.id').val(data.ID);
+                            $('.username').val(data.fname);
+                            $('.mSex').val('女');
+                            $('.theName').val(data.mname);
+                            $('.job').val(data.Mjob);
+                            $.ajax({
+                                type: "GET",//请求类型
+                                url: "../GetSysUser",//请求的url
+                                data: {},//请求参数
+                                dataType: "json",//ajax接口（请求url）返回的数据类型
+                                success: function (data) {//data：返回数据（json对象）
+                                    var add=document.getElementById("sysUser");
+                                    for(var i=0;i<data.data.length;i++){
+                                        var option=document.createElement("option");
+                                        option.id=data.data[i].uid;
+                                        option.innerText=data.data[i].uName;
+                                        add.append(option);
+                                        layui.form.render('select');
+                                    }
+
+
+                                },
+                                error: function (data) {//当访问时候，404，500 等非200的错误状态码
+                                    layer.msg("页面错误")
+                                }
+                            })
+
+                        },
+                        error: function (data) {//当访问时候，404，500 等非200的错误状态码
+                            layer.msg("页面错误")
+                        }
+                    })
+                }
+                if (sexs=='nan'){
+                    $.ajax({
+                        type: "GET",//请求类型
+                        url: "../GetRe.id",//请求的url
+                        data: {ID: newlyID,sex:'nan'},//请求参数
+                        dataType: "json",//ajax接口（请求url）返回的数据类型
+                        success: function (data) {//data：返回数据（json对象）
+                            $('.id').val(data.ID);
+                            $('.username').val(data.mname);
+                            $('.mSex').val('男');
+                            $('.theName').val(data.fname);
+                            $('.job').val(data.Fjob);
+                            $.ajax({
+                                type: "GET",//请求类型
+                                url: "../GetSysUser",//请求的url
+                                data: {},//请求参数
+                                dataType: "json",//ajax接口（请求url）返回的数据类型
+                                success: function (data) {//data：返回数据（json对象）
+                                    var add=document.getElementById("sysUser");
+                                    for(var i=0;i<data.data.length;i++){
+                                        var option=document.createElement("option");
+                                        option.id=data.data[i].uid;
+                                        option.innerText=data.data[i].uName;
+                                        add.append(option);
+                                        layui.form.render('select');
+                                    }
+
+
+                                },
+                                error: function (data) {//当访问时候，404，500 等非200的错误状态码
+                                    layer.msg("页面错误");
+                                }
+                            })
+                        },
+                        error: function (data) {//当访问时候，404，500 等非200的错误状态码
+                            layer.msg("页面错误");
+                        }
+                    })
                 }
             });
         });

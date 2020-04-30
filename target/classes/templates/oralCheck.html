@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+    <link rel="stylesheet" href="../../layui/css/layui.css"  media="all">
 </head>
 <body>
 <div style="width: 1400px;margin: 0 auto;background-color: paleturquoise;border: #c0c4cc 1px solid;">
@@ -13,13 +13,14 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">系统编号:   </label>
                     <div class="layui-input-block">
-                        <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input">
+                        <input type="text" name="id" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label">姓名:  </label>
                     <div class="layui-input-block">
-                        <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input">
+                        <input type="text" name="name" lay-verify="required" autocomplete="off" placeholder="" class="layui-input name">
+                        <input type="hidden" class="hiddemsex" th:value="${sex}">
                     </div>
                 </div>
             </div>
@@ -30,7 +31,7 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">检查设备:   </label>
                     <div class="layui-input-block">
-                        <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input" style="width: 800px;">
+                        <input type="text" name="CheckDev" lay-verify="required" autocomplete="off" placeholder="" class="layui-input CheckDev" style="width: 800px;">
                     </div>
                 </div>
             </div>
@@ -38,7 +39,7 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">检查所见:    </label>
                     <div class="layui-input-block">
-                        <textarea placeholder="请输入内容" class="layui-textarea" name="desc" style="width: 800px;height: 100px;"></textarea>
+                        <textarea placeholder="请输入内容" class="layui-textarea CheckShow" name="CheckShow" style="width: 800px;height: 100px;"></textarea>
                     </div>
                 </div>
             </div>
@@ -46,43 +47,38 @@
                 <div class="layui-inline">
                     <label class="layui-form-label"></label>
                     <div class="layui-input-block">
-                        <input type="radio" name="yic" lay-filter="yic" checked="" value="正常" title="检查正常，未发现特殊情况">
+                        <input type="radio" name="IsNormal" lay-filter="IsNormal" checked="" value="0" title="检查正常，未发现特殊情况">
                     </div>
                     <div class="layui-input-block">
-                        <input type="radio" name="yic" lay-filter="yic" value="异常" title="异常，描述如下：" >
+                        <input type="radio" name="IsNormal" lay-filter="IsNormal" value="1" title="异常，描述如下：" >
                     </div>
                 </div>
             </div>
             <div class="layui-form-item" style="margin-top: 20px;">
                 <div class="layui-inline">
                     <div class="layui-input-block">
-                        <textarea placeholder="请输入内容" class="layui-textarea tayics" name="desc" readonly style="width: 800px;height: 100px;"></textarea>
+                        <textarea placeholder="请输入内容" class="layui-textarea tayics UnusualDes" name="UnusualDes" readonly style="width: 800px;height: 100px;"></textarea>
                     </div>
                 </div>
             </div>
         </div>
         <div class="layui-form-item" style="margin-top: 20px;margin-left: 200px;">
             <div class="layui-inline">
-                <button type="button" class="layui-btn">保存</button>
+                <button type="button" class="layui-btn" id="butConservation">保存</button>
                 <button type="button" class="layui-btn">打印</button>
                 <div class="layui-inline" style="margin-left: 200px;">
                     <div class="layui-inline">
                         <label class="layui-form-label" style="width: 150px;position:relative;margin-top: 10px;">口腔科医师签名:</label>
                         <div class="layui-input-block" style="position:relative; margin-top: 10px;margin-left: 200px;">
-                            <select name="interest" lay-filter="aihao" style="width: 300px;">
-                                <option value=""></option>
-                                <option value="0">写作</option>
-                                <option value="1" selected="">阅读</option>
-                                <option value="2">游戏</option>
-                                <option value="3">音乐</option>
-                                <option value="4">旅行</option>
+                            <select name="Doctor" lay-filter="aihao" style="width: 300px;" id="Doctor">
+                                <option value="1" selected="">管理员</option>
                             </select>
                         </div>
                     </div>
                     <div class="layui-inline" style="position:relative;margin-top: 10px;">
                         <label class="layui-form-label">检查时间:</label>
                         <div class="layui-input-block">
-                            <input type="text" name="date" id="date" autocomplete="off" class="layui-input" style="width: 100px;">
+                            <input type="text" name="ExaminationDate" id="date" autocomplete="off" class="layui-input ExaminationDate" style="width: 100px;">
                         </div>
                     </div>
                 </div>
@@ -91,8 +87,10 @@
 
     </form>
 </div>
-<script src="../layui/layui.js" charset="utf-8"></script>
+<script src="../../layui/layui.js" charset="utf-8"></script>
 <script>
+    var newlyID=localStorage.getItem("id");
+    var newlyIDs=localStorage.getItem("ids");
     layui.use(['form', 'layedit', 'laydate','jquery'], function(){
         var form = layui.form
             ,layer = layui.layer
@@ -102,14 +100,123 @@
         laydate.render({
             elem: '#date'
         });
-        form.on('radio(yic)', function(data){
-            var val=$('input:radio[name="yic"]:checked').val();
-            if (val=='正常'){
+        $('#butConservation').on('click', function () {
+            var sexs=$('.hiddemsex').val();
+            var arr = new Array();
+
+            //序列化每个表单
+            $("form").each(function(){
+                var obj = $(this).serializeJson();
+                arr.push(obj);
+            });
+            //转json
+            var arrJson = JSON.stringify(arr);
+            $.ajax({
+                type: "GET",
+                data: {allParams:arrJson,sex:sexs},
+                url: "../addOc",
+                dataType: "JSON",
+                contentType: 'application/json',
+                success:function(data){
+                    if (data.data=="true"){
+                        layer.msg("保存成功")
+                    }else {
+                        layer.msg("保存失败")
+                    }
+                },
+                error: function (data) {//当访问时候，404，500 等非200的错误状态码
+                    layer.msg("页面错误")
+                }
+            });
+        });
+        (function($){
+            $.fn.serializeJson=function(){
+                var serializeObj={};
+                $(this.serializeArray()).each(function(){
+                    serializeObj[this.name]=this.value;
+                });
+                return serializeObj;
+            };
+        })($);
+        form.on('radio(IsNormal)', function(data){
+            var val=$('input:radio[name="IsNormal"]:checked').val();
+            if (val=='0'){
                 $('.tayics').attr('readonly', 'readonly');
                 $(".tayics").val("");
             }
-            if (val=='异常'){
+            if (val=='1'){
                 $('.tayics').removeAttr('readonly');
+            }
+        });
+        $(function () {
+            var sexs=$('.hiddemsex').val();
+            if (sexs=='nv'){
+                $.ajax({
+                    type: "GET",//请求类型
+                    url: "../GetXOc.id",//请求的url
+                    data: {ID: newlyID,sex:sexs,IDS:newlyIDs},//请求参数
+                    dataType: "json",//ajax接口（请求url）返回的数据类型
+                    success: function (data) {//data：返回数据（json对象）
+                        $('.id').val(data.id);
+                        $('.name').val(data.mname);
+                        $('.CheckDev').val(data.CheckDev);
+                        $('.CheckShow').val(data.CheckShow);
+                        $('.UnusualDes').val(data.UnusualDes);
+                        $('.ExaminationDate').val(data.ExaminationDate);
+                        if (data.IsNormal=="0"){
+                            $('input:radio[name="IsNormal"]').attr("checked","checked");
+                            $('.tayics').attr('readonly', 'readonly');
+                            $(".tayics").val("");
+                        }
+                        if (data.IsNormal=="1"){
+                            $('input:radio[name="IsNormal"]').attr("checked","checked");
+                            $('.tayics').removeAttr('readonly');
+                        }
+                        var add=document.getElementById("Doctor");
+                        var option=document.createElement("option");
+                        option.id=2;
+                        option.innerText=data.Doctor;
+                        add.append(option);
+                        layui.form.render('select');
+                    },
+                    error: function (data) {//当访问时候，404，500 等非200的错误状态码
+                        layer.msg("页面错误")
+                    }
+                })
+            }
+            if (sexs=='nan'){
+                $.ajax({
+                    type: "GET",//请求类型
+                    url: "../GetXOc.id",//请求的url
+                    data: {ID: newlyID,sex:sexs,IDS:newlyIDs},//请求参数
+                    dataType: "json",//ajax接口（请求url）返回的数据类型
+                    success: function (data) {//data：返回数据（json对象）
+                        $('.id').val(data.id);
+                        $('.name').val(data.mname);
+                        $('.CheckDev').val(data.CheckDev);
+                        $('.CheckShow').val(data.CheckShow);
+                        $('.UnusualDes').val(data.UnusualDes);
+                        $('.ExaminationDate').val(data.ExaminationDate);
+                        if (data.IsNormal=="0"){
+                            $('input:radio[name="IsNormal"]').attr("checked","checked");
+                            $('.tayics').attr('readonly', 'readonly');
+                            $(".tayics").val("");
+                        }
+                        if (data.IsNormal=="1"){
+                            $('input:radio[name="IsNormal"]').attr("checked","checked");
+                            $('.tayics').removeAttr('readonly');
+                        }
+                        var add=document.getElementById("Doctor");
+                        var option=document.createElement("option");
+                        option.id=2;
+                        option.innerText=data.Doctor;
+                        add.append(option);
+                        layui.form.render('select');
+                    },
+                    error: function (data) {//当访问时候，404，500 等非200的错误状态码
+                        layer.msg("页面错误")
+                    }
+                })
             }
         });
     });
