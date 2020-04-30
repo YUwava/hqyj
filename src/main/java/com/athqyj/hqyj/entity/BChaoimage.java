@@ -1,6 +1,8 @@
 package com.athqyj.hqyj.entity;
 
 
+import java.util.List;
+
 public class BChaoimage {
 
   private long autoId;
@@ -9,6 +11,15 @@ public class BChaoimage {
   private String picSource;
   private double picSize;
 
+  public List<NvBchao> nvBchaos;
+
+  public List<NvBchao> getNvBchaos() {
+    return nvBchaos;
+  }
+
+  public void setNvBchaos(List<NvBchao> nvBchaos) {
+    this.nvBchaos = nvBchaos;
+  }
 
   public long getAutoId() {
     return autoId;

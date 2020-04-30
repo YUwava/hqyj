@@ -81,6 +81,16 @@ public class MInfo {
 
 
 
+  public List<BChaoimage> bChaoimage;
+
+  public List<BChaoimage> getbChaoimage() {
+    return bChaoimage;
+  }
+
+  public void setbChaoimage(List<BChaoimage> bChaoimage) {
+    this.bChaoimage = bChaoimage;
+  }
+
 
   public List<LUptoprovince> getlUptoprovince() {
     return lUptoprovince;

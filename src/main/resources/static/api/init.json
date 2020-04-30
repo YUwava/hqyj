@@ -177,7 +177,7 @@
 			        },
 			        {
 		          "title": "打开超声影像",
-		          "href": "page/SupergeneImage.html",
+		          "href": "hzw/supergeneImage",
 		          "icon": "fa fa-dot-circle-o",
 		          "target": "_self"
 		        }
