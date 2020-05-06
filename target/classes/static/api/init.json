@@ -70,13 +70,13 @@
           "child": [
             {
               "title": "一般情况",
-              "href": "page/form.html",
+              "href": "WomenInfo/WomenInfo",
               "icon": "fa fa-list-alt",
               "target": "_self"
             },
             {
               "title": "体格检查",
-              "href": "page/form-step.html",
+              "href": "Womenexamination/Womenexamination",
               "icon": "fa fa-navicon",
               "target": "_self"
             },
@@ -114,7 +114,7 @@
             },
             {
               "title": "体格检查",
-              "href": "page/form-step.html",
+              "href": "Manexamination/Manexamination",
               "icon": "fa fa-navicon",
               "target": "_self"
             },
@@ -307,18 +307,6 @@
             {
               "title": "检查结果",
               "href": "checkBear/checkBear/nan",
-              "icon": "fa fa-dot-circle-o",
-              "target": "_self"
-            }
-          ]
-        },
-        {
-          "title": "系统设置",
-          "icon": "fa fa-angle-double-down",
-          "child": [
-            {
-              "title": "化验项目匹配",
-              "href": "chemicalBear/chemicalBear",
               "icon": "fa fa-dot-circle-o",
               "target": "_self"
             }

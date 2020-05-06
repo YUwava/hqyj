@@ -19,4 +19,12 @@ public class OcService {
     public int AddOccService(Tblmouth Tblmouth){
         return OcMapper.AddOcMapper(Tblmouth);
     }
+
+    public int count(String id,String sex){
+        return OcMapper.count(id ,sex);
+    }
+
+    public int updOcService(Tblmouth Tblmouth){
+        return OcMapper.updOcMapper(Tblmouth);
+    }
 }

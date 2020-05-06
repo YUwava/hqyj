@@ -41,7 +41,7 @@ public class XbcController {
     public String  GetXbCGETController(@RequestParam("ID")Long AutoId, @RequestParam("sex")String sex,@RequestParam("IDS")Long ids){
         Map<String, String> StringMap = new HashMap<String, String>();
         if(sex.equals("nv")){
-            Tblxray Tblxray=XbcService.QueryxbcService(ids,"女");
+            Tblxray Tblxray=XbcService.QueryxbcService(AutoId,"女");
             MInfo MInfo=BfcService.BfcqidService(AutoId);
             StringMap.put("id",MInfo.getId());
             StringMap.put("mname",MInfo.getFname());
@@ -57,7 +57,7 @@ public class XbcController {
 
         }
         if(sex.equals("nan")){
-            Tblxray Tblxray=XbcService.QueryxbcService(ids,"男");
+            Tblxray Tblxray=XbcService.QueryxbcService(AutoId,"男");
             MInfo MInfo=BfcService.BfcqidService(AutoId);
             StringMap.put("id",MInfo.getId());
             StringMap.put("mname",MInfo.getMname());
@@ -94,12 +94,22 @@ public class XbcController {
                 }
                 Tblxray.setExaminationDate(list.get(i).getExaminationDate());
             }
-
-            if (XbcService.AddXbcService(Tblxray)>0){
-                mapTF.put("data","true");
+            int count=XbcService.count(Tblxray.getId(),Tblxray.getSex());
+            if (count==1){
+                if (XbcService.updXbcService(Tblxray)>0){
+                    mapTF.put("data","true");
+                }else {
+                    mapTF.put("data","false");
+                }
             }else {
-                mapTF.put("data","false");
+                if (XbcService.AddXbcService(Tblxray)>0){
+                    mapTF.put("data","true");
+                }else {
+                    mapTF.put("data","false");
+                }
             }
+
+
         }else if(sex.equals("nan")){
             for (int i=0;i<list.size();i++){
                 Tblxray.setId(list.get(i).getId());
@@ -114,10 +124,19 @@ public class XbcController {
                 }
                 Tblxray.setExaminationDate(list.get(i).getExaminationDate());
             }
-            if (XbcService.AddXbcService(Tblxray)>0){
-                mapTF.put("data","true");
+            int count=XbcService.count(Tblxray.getId(),Tblxray.getSex());
+            if (count==1){
+                if (XbcService.updXbcService(Tblxray)>0){
+                    mapTF.put("data","true");
+                }else {
+                    mapTF.put("data","false");
+                }
             }else {
-                mapTF.put("data","false");
+                if (XbcService.AddXbcService(Tblxray)>0){
+                    mapTF.put("data","true");
+                }else {
+                    mapTF.put("data","false");
+                }
             }
         }
 

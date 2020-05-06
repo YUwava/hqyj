@@ -48,7 +48,7 @@ public class OcController {
     public String  GetXbCGETController(@RequestParam("ID")Long AutoId, @RequestParam("sex")String sex, @RequestParam("IDS")Long ids){
         Map<String, String> StringMap = new HashMap<String, String>();
         if(sex.equals("nv")){
-            Tblmouth Tblmouth=OcService.QueryOcService(ids,"女");
+            Tblmouth Tblmouth=OcService.QueryOcService(AutoId,"女");
             MInfo MInfo= BfcService.BfcqidService(AutoId);
             StringMap.put("id",MInfo.getId());
             StringMap.put("mname",MInfo.getFname());
@@ -63,7 +63,7 @@ public class OcController {
 
         }
         if(sex.equals("nan")){
-            Tblmouth Tblmouth=OcService.QueryOcService(ids,"男");
+            Tblmouth Tblmouth=OcService.QueryOcService(AutoId,"男");
             MInfo MInfo=BfcService.BfcqidService(AutoId);
             StringMap.put("id",MInfo.getId());
             StringMap.put("mname",MInfo.getMname());
@@ -91,7 +91,7 @@ public class OcController {
                 Tblmouth.setId(list.get(i).getId());
                 Tblmouth.setSex("女");
                 Tblmouth.setCheckDev(list.get(i).getCheckDev());
-                Tblmouth.setIsNormal(list.get(i).getIsNormal());
+                Tblmouth.setCheckShow(list.get(i).getCheckShow());
                 Tblmouth.setIsNormal(list.get(i).getIsNormal());
                 Tblmouth.setUnusualDes(list.get(i).getUnusualDes());
                 if (list.get(i).getDoctor().equals(1)){
@@ -100,17 +100,26 @@ public class OcController {
                 Tblmouth.setExaminationDate(list.get(i).getExaminationDate());
             }
 
-            if (OcService.AddOccService(Tblmouth)>0){
-                mapTF.put("data","true");
+            int count=OcService.count(Tblmouth.getId(),Tblmouth.getSex());
+            if (count==1){
+                if (OcService.updOcService(Tblmouth)>0){
+                    mapTF.put("data","true");
+                }else {
+                    mapTF.put("data","false");
+                }
             }else {
-                mapTF.put("data","false");
+                if (OcService.AddOccService(Tblmouth)>0){
+                    mapTF.put("data","true");
+                }else {
+                    mapTF.put("data","false");
+                }
             }
         }else if (sex.equals("nan")){
             for (int i=0;i<list.size();i++){
                 Tblmouth.setId(list.get(i).getId());
                 Tblmouth.setSex("男");
                 Tblmouth.setCheckDev(list.get(i).getCheckDev());
-                Tblmouth.setIsNormal(list.get(i).getIsNormal());
+                Tblmouth.setCheckShow(list.get(i).getCheckShow());
                 Tblmouth.setIsNormal(list.get(i).getIsNormal());
                 Tblmouth.setUnusualDes(list.get(i).getUnusualDes());
                 if (list.get(i).getDoctor().equals(1)){
@@ -118,12 +127,21 @@ public class OcController {
                 }
                 Tblmouth.setExaminationDate(list.get(i).getExaminationDate());
             }
-
-            if (OcService.AddOccService(Tblmouth)>0){
-                mapTF.put("data","true");
+            int count=OcService.count(Tblmouth.getId(),Tblmouth.getSex());
+            if (count==1){
+                if (OcService.updOcService(Tblmouth)>0){
+                    mapTF.put("data","true");
+                }else {
+                    mapTF.put("data","false");
+                }
             }else {
-                mapTF.put("data","false");
+                if (OcService.AddOccService(Tblmouth)>0){
+                    mapTF.put("data","true");
+                }else {
+                    mapTF.put("data","false");
+                }
             }
+
         }
 
         return JSONArray.toJSONString(mapTF);

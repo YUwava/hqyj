@@ -69,6 +69,16 @@ public class MInfo {
   private String qqw;
   private String floatPopulation;
 
+  public com.athqyj.hqyj.entity.Tblmarriageresult getTblmarriageresult() {
+    return Tblmarriageresult;
+  }
+
+  public void setTblmarriageresult(com.athqyj.hqyj.entity.Tblmarriageresult tblmarriageresult) {
+    Tblmarriageresult = tblmarriageresult;
+  }
+
+  private Tblmarriageresult Tblmarriageresult;
+
   public List<NvPinggujianyi> getNvPinggujianyis() {
     return nvPinggujianyis;
   }

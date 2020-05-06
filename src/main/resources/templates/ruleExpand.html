@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../../layui/css/layui.css"  media="all">
 </head>
 <body>
-    <div style="width: 1400px;margin: 0 auto;background-color: paleturquoise;border: #c0c4cc 1px solid;">
+    <div style="width: 1400px;margin: 0 auto;background-color: #e6f4ff;border: #c0c4cc 1px solid;">
         <form class="layui-form" action="">
             <div class="layui-form-item" style="margin-top: 20px;">
                 <div class="layui-inline">
@@ -49,7 +49,7 @@
                 </div>
 
                 <div style="margin: 10px; border: 1px #c0c4cc solid">
-                    <div style="width: 100%;height: 30px;background-color: #00a2d4">既往病史</div>
+                    <div style="width: 100%;height: 30px;background-color: #9dd5ff">既往病史</div>
                         <div class="layui-form-item" pane="">
                             <div class="layui-input-block" style="margin-left: 30px;">
                                 <form class="layui-form" action=""  lay-filter="example">
@@ -129,7 +129,7 @@
                 </div>
 
                 <div style="margin: 10px; border: 1px #c0c4cc solid">
-                    <div style="width: 100%;height: 30px;background-color: #00a2d4">现病史</div>
+                    <div style="width: 100%;height: 30px;background-color: #9dd5ff">现病史</div>
                     <div class="layui-form-item" pane="">
                         <div class="layui-input-block" style="margin-left: 30px;">
                             <form class="layui-form" action="" lay-filter="examples">
@@ -156,7 +156,7 @@
                     </div>
                 </div>
                 <div style="margin: 10px; border: 1px #c0c4cc solid">
-                    <div style="width: 100%;height: 30px;background-color: #00a2d4">婚育史</div>
+                    <div style="width: 100%;height: 30px;background-color: #9dd5ff">婚育史</div>
                     <div class="layui-form-item" pane="">
                         <div class="layui-input-block" style="margin-left: 30px;">
                             <div>
@@ -251,7 +251,7 @@
                     $.ajax({
                         type: "GET",
                         data: {allParams:arrJson},
-                        url: "../addBfc",
+                        url: "../addRe",
                         dataType: "JSON",
                         contentType: 'application/json',
                         success:function(data){

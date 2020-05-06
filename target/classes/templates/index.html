@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登录</title>
+<link rel="stylesheet" type="text/css" href="/static/lib/layui-v2.5.4/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/static/lib/layui-v2.5.4/css/body.css"/>
+</head>
+<body>
+<div class="container">
+	<section id="content">
+		<form action="loginNice" method="post">
+			<h1>欢迎登录</h1>
+			<div>
+				<input type="text" placeholder="用户名" required="" id="username" name="nvcUsername" />
+			</div>
+			<div>
+				<input type="password" placeholder="密码" required="" id="password" name="nvcPsw" />
+			</div>
+			<span style="position:absolute;left:270px;top:150px;width: 80px;height:15px;color:red;line-height: 40px"><p th:text="${erorr}"></p></span>
+			<div class="">
+				<span class="help-block u-errormessage" id="js-server-helpinfo">&nbsp;</span>			</div>
+
+			<div style="height: 50px;line-height: 50px;">
+				<input style="margin-left: 230px" type="submit" value="登录" class="btn btn-primary" id="js-btn-login"/>
+			</div>
+		</form>
+	</section>
+</div>
+
+</body>
+</html>

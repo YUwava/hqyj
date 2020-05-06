@@ -104,7 +104,7 @@ public class ReController {
         return JSONArray.toJSONString(StringMap);
     }
 
-    @RequestMapping("addBfc")
+    @RequestMapping("addRe")
     @ResponseBody
     public String addBfcController(@RequestParam(value = "allParams")String data){
         List<Object> list= JSON.parseArray(data,Object.class);
@@ -176,10 +176,19 @@ public class ReController {
             tbljxmarriageinfo.setDengJidoctor(lists.get(i).getDengJidoctor());
         }
         Map<String,String> mapTF=new HashMap<>();
-        if (ReService.AddReService(tbljxmarriageinfo)>0){
-            mapTF.put("data","true");
+        int count=ReService.count(tbljxmarriageinfo.getId(),tbljxmarriageinfo.getMSex());
+        if (count==1){
+            if (ReService.updReService(tbljxmarriageinfo)>0){
+                mapTF.put("data","true");
+            }else {
+                mapTF.put("data","false");
+            }
         }else {
-            mapTF.put("data","false");
+            if (ReService.AddReService(tbljxmarriageinfo)>0){
+                mapTF.put("data","true");
+            }else {
+                mapTF.put("data","false");
+            }
         }
         return JSONArray.toJSONString(mapTF);
     }

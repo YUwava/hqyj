@@ -23,6 +23,16 @@ public class Tblmarriageresult {
   private String dotcorName;
   private java.sql.Date fillDate;
 
+  public com.athqyj.hqyj.entity.MInfo getMInfo() {
+    return MInfo;
+  }
+
+  public void setMInfo(com.athqyj.hqyj.entity.MInfo MInfo) {
+    this.MInfo = MInfo;
+  }
+
+  private  MInfo MInfo;
+
 
   public String getId() {
     return id;

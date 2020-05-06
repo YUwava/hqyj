@@ -7,21 +7,21 @@
 </head>
 <body>
     <div style="width: 1400px;margin: 0 auto;">
+        <form class="layui-form layui-form-pane" action="" lay-filter="example">
         <div class="layui-col-md6" >
             <div class="layui-card">
                 <div class="layui-card-body">
-                    <form class="layui-form layui-form-pane" action="">
                         <div class="layui-form-item">
                             <label class="layui-form-label">系统编号:</label>
                             <div class="layui-input-inline">
-                                <input type="text" name="sysnumber"  lay-verify="required" autocomplete="off" class="layui-input sysnumber" readonly>
+                                <input type="text" name="id"  lay-verify="required" autocomplete="off" class="layui-input id" readonly>
                             </div>
                         </div>
                         <hr>
                         <div class="layui-form-item">
                             <label class="layui-form-label">姓   名:</label>
                             <div class="layui-input-inline">
-                                <input type="text" name="username" lay-verify="required" autocomplete="off" class="layui-input username" readonly>
+                                <input type="text" name="fname" lay-verify="required" autocomplete="off" class="layui-input fname" readonly>
                             </div>
                         </div>
                         <hr>
@@ -35,49 +35,46 @@
                         <div class="layui-form-item">
                             <label class="layui-form-label">对方姓名:</label>
                             <div class="layui-input-inline">
-                                <input type="text" name="theName" lay-verify="required" autocomplete="off" class="layui-input theName" readonly>
+                                <input type="text" name="mname" lay-verify="required" autocomplete="off" class="layui-input mname" readonly>
                             </div>
                         </div>
                         <hr>
                         <label>直系、三代内旁系血亲关系:</label>
-                    </form>
                 </div>
             </div>
         </div>
-        <div class="layui-col-md6" style="height: 400px;">
+       <!-- <div class="layui-col-md6" style="height: 400px;">
             <div class="layui-card">
                 <div class="layui-card-body" style="margin-top: 80px ;margin-left: 300px;">
                     <img src="../../images/1.png" width="100px" height="100px">
                 </div>
             </div>
-        </div>
+        </div>-->
         <div class="layui-col-md6" style="width: 100%;margin-bottom: 50px;border: #93D1FF 1px solid">
             <div class="layui-card">
                 <div class="layui-card-header" style="background-color: #93D1FF">婚前医学检查结果</div>
                 <div class="layui-card-body">
                     <div style="width: 300px">
-                        <form class="layui-form layui-form-pane" action="">
                             <div class="layui-form-item" pane="" style="width: 240px;height: 40px;">
                                 <div>
-                                    <div><input type="radio" name="f" checked="" lay-filter="f" class="nof" value="未见异常"></div>
+                                    <div><input type="radio" name="result" checked="" lay-filter="result" class="nof" value="0"></div>
                                     <div class="layui-input-inline" style="position:absolute; margin-top: -35px;margin-left: 51px;">
                                         <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="未见异常" style="height: 42px">
                                         <input type="hidden" class="hiddemsex" th:value="${sex}">
                                     </div>
                                 </div>
                                 <div style="position: absolute;margin-top: -35px;margin-left: 650px;">
-                                    <div style="border: 1px #beceeb solid;height: 40px;"><input type="radio" name="f" lay-filter="f" class="isf" value="存在异常，描述如下："></div>
+                                    <div style="border: 1px #beceeb solid;height: 40px;"><input type="radio" name="result" lay-filter="result" class="isf" value="1"></div>
                                     <div class="layui-input-inline" style="position:absolute; margin-top: -42px;margin-left: 51px;">
                                         <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="存在异常，描述如下：" style="height: 42px">
                                     </div>
                                 </div>
 
                             </div>
-                        </form>
                     </div>
-                    <div class="layui-form-item layui-form-text" style="margin-left: -110px;">
+                    <div class="layui-form-item layui-form-text" style="margin-left: 0px;">
                         <div class="layui-input-block">
-                            <textarea placeholder="请输入内容" class="layui-textarea tayic" readonly></textarea>
+                            <textarea placeholder="请输入内容" class="layui-textarea resultDes" readonly></textarea>
                         </div>
                     </div>
                 </div>
@@ -87,10 +84,9 @@
             <div class="layui-card">
                 <div class="layui-card-header" style="background-color: #93D1FF">医学意见</div>
                 <div class="layui-card-body">
-                    <form class="layui-form layui-form-pane" action="">
                         <div class="layui-form-item" pane="" style="width: 240px;height: 40px;">
                             <div>
-                                <div><input type="radio" name="f" checked="" lay-filter="f" class="nof"></div>
+                                <div><input type="checkbox" name="medicalAdvice" value="0" lay-filter="medicalAdvice" class="nof"></div>
                                 <div class="layui-input-inline" style="position:absolute;margin-top: -35px;margin-left: 51px;width: 600px;">
                                     <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="未发现医学上不宜结婚的情形" style="height: 42px">
                                 </div>
@@ -98,7 +94,7 @@
                         </div>
                         <div class="layui-form-item" pane="" style="width: 240px;height: 40px;">
                             <div>
-                                <div><input type="radio" name="f" checked="" lay-filter="f" class="nof"></div>
+                                <div><input type="checkbox" name="medicalAdvice" value="1" lay-filter="medicalAdvice" class="nof"></div>
                                 <div class="layui-input-inline" style="position:absolute;margin-top: -35px;margin-left: 51px;width: 600px;">
                                     <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="建议暂缓结婚" style="height: 42px">
                                 </div>
@@ -106,7 +102,7 @@
                         </div>
                         <div class="layui-form-item" pane="" style="width: 240px;height: 40px;">
                             <div>
-                                <div><input type="radio" name="f" checked="" lay-filter="f" class="nof"></div>
+                                <div><input type="checkbox" name="medicalAdvice" value="2" lay-filter="medicalAdvice" class="nof"></div>
                                 <div class="layui-input-inline" style="position:absolute;margin-top: -35px;margin-left: 51px;width: 600px;">
                                     <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="建议不宜生育" style="height: 42px">
                                 </div>
@@ -114,7 +110,7 @@
                         </div>
                         <div class="layui-form-item" pane="" style="width: 240px;height: 40px;">
                             <div>
-                                <div><input type="radio" name="f" checked="" lay-filter="f" class="nof"></div>
+                                <div><input type="checkbox" name="medicalAdvice" value="3" lay-filter="medicalAdvice" class="nof"></div>
                                 <div class="layui-input-inline" style="position:absolute;margin-top: -35px;margin-left: 51px;width: 600px;">
                                     <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="建议不宜结婚" style="height: 42px">
                                 </div>
@@ -122,21 +118,21 @@
                         </div>
                         <div class="layui-form-item" pane="" style="width: 240px;height: 40px;">
                             <div>
-                                <div><input type="radio" name="f" checked="" lay-filter="f" class="nof"></div>
+                                <div><input type="checkbox" name="medicalAdvice" value="4" lay-filter="medicalAdvice" class="nof"></div>
                                 <div class="layui-input-inline" style="position:absolute;margin-top: -35px;margin-left: 51px;width: 600px;">
                                     <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="建议采取医学措施，尊重受检者意愿" style="height: 42px">
                                 </div>
                             </div>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>
         <div class="layui-btn-group" style="width:100%;margin-left: 42%;margin-top: 20px;margin-bottom: 40px;">
-            <button type="button" class="layui-btn">保存</button>
+            <button type="button" class="layui-btn" id="butConservation">保存</button>
             <button type="button" class="layui-btn ">重置</button>
             <button type="button" class="layui-btn">打印预览</button>
         </div>
+        </form>
     </div>
     <script src="../../layui/layui.js" charset="utf-8"></script>
     <script>
@@ -147,14 +143,53 @@
                 ,layedit = layui.layedit
                 ,$ = layui.$
                 ,laydate = layui.laydate;
-            form.on('radio(f)', function(data){
-                var val=$('input:radio[name="f"]:checked').val();
-                if (val=='未见异常'){
-                    $('.tayic').attr('readonly', 'readonly');
-                    $(".tayic").val("");
+            $('#butConservation').on('click', function () {
+                var sexs=$('.hiddemsex').val();
+                var arr = new Array();
+
+                //序列化每个表单
+                $("form").each(function(){
+                    var obj = $(this).serializeJson();
+                    arr.push(obj);
+                });
+                //转json
+                var arrJson = JSON.stringify(arr);
+                console.log(arrJson)
+                $.ajax({
+                    type: "GET",
+                    data: {allParams:arrJson,sexsing:sexs},
+                    url: "../addbef",
+                    dataType: "JSON",
+                    contentType: 'application/json',
+                    success:function(data){
+                        if (data.data=="true"){
+                            layer.msg("保存成功")
+                        }else {
+                            layer.msg("保存失败")
+                        }
+                    },
+                    error: function (data) {//当访问时候，404，500 等非200的错误状态码
+                        layer.msg("页面错误")
+                    }
+                });
+            });
+            (function($){
+                $.fn.serializeJson=function(){
+                    var serializeObj={};
+                    $(this.serializeArray()).each(function(){
+                        serializeObj[this.name]=this.value;
+                    });
+                    return serializeObj;
+                };
+            })($);
+            form.on('radio(result)', function(data){
+                var val=$('input:radio[name="result"]:checked').val();
+                if (val=='0'){
+                    $('.resultDes').attr('readonly', 'readonly');
+                    $(".resultDes").val("");
                 }
-                if (val=='存在异常，描述如下：'){
-                    $('.tayic').removeAttr('readonly');
+                if (val=='1'){
+                    $('.resultDes').removeAttr('readonly');
 
                 }
             });
@@ -163,15 +198,46 @@
                 if (sexs=='nv'){
                     $.ajax({
                         type: "GET",//请求类型
-                        url: "../Getbc.id",//请求的url
-                        data: {ID: newlyID},//请求参数
+                        url: "../Getbfc.id",//请求的url
+                        data: {ID: newlyID,sexsing:"女"},//请求参数
                         dataType: "json",//ajax接口（请求url）返回的数据类型
                         success: function (data) {//data：返回数据（json对象）
-                            console.log(data)
-                            $('.sysnumber').val(data.ID)
-                            $('.username').val(data.fname)
-                            $('.sex').val('女')
-                            $('.theName').val(data.mname)
+                            $('.id').val(data.id)
+                            $('.fname').val(data.fname);
+                            $('.mname').val(data.mname);
+                            $('.sex').val("女");
+                            if (data.dates=="false") {
+                            };
+                            if (data.dates=="true") {
+                                form.val("example", {
+                                    "result": data.Tblmarriageresult.result == 1 ? '1' : '0' //对应radio的value
+                                });
+                                if (data.Tblmarriageresult.result == 1) {
+                                    $('.resultDes').val(data.Tblmarriageresult.resultDes);
+                                }
+                                var str = data.Tblmarriageresult.medicalAdvice;
+                                var strArr = str.split(",");
+                                for (j = 0, len = strArr.length; j < len; j++) {
+                                    if (strArr[j] == 0) {
+                                        $('input:checkbox[value="0"]').attr("checked", "checked");
+                                    }
+                                    if (strArr[j] == 1) {
+                                        $('input:checkbox[value="1"]').attr("checked", "checked");
+                                    }
+                                    if (strArr[j] == 2) {
+                                        $('input:checkbox[value="2"]').attr("checked", "checked");
+                                    }
+                                    if (strArr[j] == 3) {
+                                        $('input:checkbox[value="3"]').attr("checked", "checked");
+                                    }
+                                    if (strArr[j] == 4) {
+                                        $('input:checkbox[value="4"]').attr("checked", "checked");
+                                    }
+                                    form.render();  //更新渲染
+                                }
+                                ;
+                            }
+
                         },
                         error: function (data) {//当访问时候，404，500 等非200的错误状态码
                             layer.msg("页面错误")
@@ -181,15 +247,45 @@
                 if (sexs=='nan'){
                     $.ajax({
                         type: "GET",//请求类型
-                        url: "../Getbc.id",//请求的url
-                        data: {ID: newlyID},//请求参数
+                        url: "../Getbfc.id",//请求的url
+                        data: {ID: newlyID,sexsing:"男"},//请求参数
                         dataType: "json",//ajax接口（请求url）返回的数据类型
                         success: function (data) {//data：返回数据（json对象）
-                            console.log(data)
-                            $('.sysnumber').val(data.ID)
-                            $('.username').val(data.mname)
-                            $('.sex').val('男')
-                            $('.theName').val(data.fname)
+                            $('.id').val(data.id)
+                            $('.fname').val(data.fname);
+                            $('.mname').val(data.mname);
+                            $('.sex').val("女");
+                            if (data.dates=="false") {
+                            };
+                            if (data.dates=="true") {
+                                form.val("example", {
+                                    "result": data.Tblmarriageresult.result == 1 ? '1' : '0' //对应radio的value
+                                });
+                                if (data.Tblmarriageresult.result == 1) {
+                                    $('.resultDes').val(data.Tblmarriageresult.resultDes);
+                                }
+                                var str = data.Tblmarriageresult.medicalAdvice;
+                                var strArr = str.split(",");
+                                for (j = 0, len = strArr.length; j < len; j++) {
+                                    if (strArr[j] == 0) {
+                                        $('input:checkbox[value="0"]').attr("checked", "checked");
+                                    }
+                                    if (strArr[j] == 1) {
+                                        $('input:checkbox[value="1"]').attr("checked", "checked");
+                                    }
+                                    if (strArr[j] == 2) {
+                                        $('input:checkbox[value="2"]').attr("checked", "checked");
+                                    }
+                                    if (strArr[j] == 3) {
+                                        $('input:checkbox[value="3"]').attr("checked", "checked");
+                                    }
+                                    if (strArr[j] == 4) {
+                                        $('input:checkbox[value="4"]').attr("checked", "checked");
+                                    }
+                                    form.render();  //更新渲染
+                                }
+                                ;
+                            }
                         },
                         error: function (data) {//当访问时候，404，500 等非200的错误状态码
                             layer.msg("页面错误")

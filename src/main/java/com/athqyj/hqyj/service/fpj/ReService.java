@@ -14,4 +14,12 @@ public class ReService {
         return ReMapper.addReMapper(tbljxmarriageinfo);
     }
 
+    public int count(String id,String sex){
+        return ReMapper.count(id ,sex);
+    }
+
+    public int updReService(Tbljxmarriageinfo tbljxmarriageinfo){
+        return ReMapper.updReMapper(tbljxmarriageinfo);
+    }
+
 }

@@ -1,43 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="../../layui/css/layui.css"  media="all">
 </head>
 <body>
-    <div style="width: 1400px;margin: 0 auto;background-color: paleturquoise;border: #c0c4cc 1px solid;">
+    <div style="width: 1400px;margin: 0 auto;background-color: #e6f4ff;border: #c0c4cc 1px solid;">
+        <form class="layui-form" action=""  lay-filter="example">
         <div style="width: 1392px;margin: 0 auto;border: #c0c4cc 1px solid;margin-top: 10px;">
-            <form class="layui-form" action="">
                 <div class="layui-form-item" style="margin-top: 20px;">
                     <div class="layui-inline">
                         <label class="layui-form-label">系统编号：</label>
                         <div class="layui-input-block">
-                            <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input">
+                            <input type="text" name="id" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
                         </div>
                     </div>
                     <div class="layui-inline" style="margin-left: 350px;">
                         <label class="layui-form-label">人员姓名：</label>
                         <div class="layui-input-block">
-                            <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="" class="layui-input">
+                            <input type="text" name="name" lay-verify="required" autocomplete="off" placeholder="" class="layui-input name">
                         </div>
                     </div>
                 </div>
-            </form>
             <div>
 
             </div>
             <div  style="width: 1382px;margin: 0 auto;margin-top: 10px;">
-                <div style="background-color: #00a2d4;width: 100%;">1.</div>
-                <form class="layui-form" action="">
+                <div style="background-color: #9dd5ff;width: 100%;">1.</div>
                     <div class="layui-form-item" pane="" style="position: relative;margin-top: 20px;">
                         <label class="layui-form-label">检查结果：</label>
                         <div class="layui-input-block" style="background-color: #ffffff">
                             <div>
-                                <input type="radio" name="yic" value="未见异常" title="未见异常" lay-filter="yic">
+                                <input type="radio" id="result0" name="result" value="0" title="未见异常" lay-filter="result">
                             </div>
                             <div style="float: right;margin-top: -35px;margin-right: 300px;">
-                                <input type="radio" name="yic" value="存在异常" title="存在异常情况，描述如下" lay-filter="yic">
+                                <input type="radio" id="result1"  name="result" value="1" title="存在异常情况，描述如下" lay-filter="result">
                             </div>
 
                         </div>
@@ -45,215 +43,185 @@
                     <div class="layui-form-item" pane="" style="position: relative;margin-top: 20px;">
                         <label class="layui-form-label">异常情况：</label>
                         <div class="layui-input-block" style="background-color: #ffffff">
-                            <textarea placeholder="请输入内容" class="layui-textarea tayic1" style="width: 100%;height: 60px;"></textarea>
+                            <textarea placeholder="请输入内容" class="layui-textarea resultDes" id="resultDes" name="resultDes" style="width: 100%;height: 60px;"></textarea>
                         </div>
                     </div>
                     <div class="layui-form-item" pane="" style="position: relative;margin-top: 20px;">
                         <label class="layui-form-label">疾病诊断：</label>
                         <div class="layui-input-block" style="background-color: #ffffff">
-                            <textarea placeholder="请输入内容" class="layui-textarea tayic2" style="width: 100%;height: 60px;"></textarea>
+                            <textarea placeholder="请输入内容" class="layui-textarea sickness" id="sickness" name="sickness" style="width: 100%;height: 60px;"></textarea>
                         </div>
                     </div>
-                </form>
             </div>
             <div style="width: 1372px;margin: 10px;border: #c0c4cc 1px solid;">
                 <div style="position: absolute;margin-top: 100px;"><label class="layui-form-label">医学意见：</label></div>
                 <div style="position: relative;margin-left: 120px;margin-top: 10px;">
                     <div style="position: relative;margin-top: 20px;">
-                        <form class="layui-form" action="">
                             <div class="layui-form-item" pane="" style="width: 240px;height: 40px;">
                                 <div>
-                                    <div style="border: #c0c4cc 1px solid;height: 39px;position: relative;margin-top: 10px;background-color: #e7ebed"><span style="position: relative;margin-left: 10px;"><input type="checkbox" name="like1[read]" lay-skin="primary" title=""></span></div>
+                                    <div style="border: #c0c4cc 1px solid;height: 39px;position: relative;margin-top: 10px;background-color: #e7ebed"><span style="position: relative;margin-left: 10px;"><input type="checkbox" name="medicalAdvice" lay-skin="primary" title="" value="0"></span></div>
                                     <div class="layui-input-inline" style="position:absolute;margin-top: -42px;margin-left: 51px;width: 600px;">
-                                        <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="未发现医学上不宜结婚的异常情况和疾病" style="height: 42px">
+                                        <input type="text" name="uns" lay-verify="required" autocomplete="off" class="layui-input" readonly value="未发现医学上不宜结婚的异常情况和疾病" style="height: 42px">
                                     </div>
                                 </div>
                             </div>
                             <div class="layui-form-item" pane="" style="width: 240px;height: 40px;">
                                 <div>
-                                    <div style="border: #c0c4cc 1px solid;height: 39px;position: relative;margin-top: 10px;background-color: #e7ebed"><span style="position: relative;margin-left: 10px;"><input type="checkbox" name="like1[read]" lay-skin="primary" title=""></span></div>
+                                    <div style="border: #c0c4cc 1px solid;height: 39px;position: relative;margin-top: 10px;background-color: #e7ebed"><span style="position: relative;margin-left: 10px;"><input type="checkbox" name="medicalAdvice" lay-skin="primary" title="" value="1"></span></div>
                                     <div class="layui-input-inline" style="position:absolute;margin-top: -42px;margin-left: 51px;width: 600px;">
-                                        <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="建议不宜生育" style="height: 42px">
+                                        <input type="text" name="uns" lay-verify="required" autocomplete="off" class="layui-input" readonly value="建议不宜生育" style="height: 42px">
                                     </div>
                                 </div>
                             </div>
                             <div class="layui-form-item" pane="" style="width: 240px;height: 40px;">
                                 <div>
-                                    <div style="border: #c0c4cc 1px solid;height: 39px;position: relative;margin-top: 10px;background-color: #e7ebed"><span style="position: relative;margin-left: 10px;"><input type="checkbox" name="like1[read]" lay-skin="primary" title=""></span></div>
+                                    <div style="border: #c0c4cc 1px solid;height: 39px;position: relative;margin-top: 10px;background-color: #e7ebed"><span style="position: relative;margin-left: 10px;"><input type="checkbox" name="medicalAdvice" lay-skin="primary" title="" value="2"></span></div>
                                     <div class="layui-input-inline" style="position:absolute;margin-top: -42px;margin-left: 51px;width: 600px;">
-                                        <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="建议采取医学措施，尊重受检者意愿" style="height: 42px">
+                                        <input type="text" name="uns" lay-verify="required" autocomplete="off" class="layui-input" readonly value="建议采取医学措施，尊重受检者意愿" style="height: 42px">
                                     </div>
                                 </div>
                             </div>
                             <div class="layui-form-item" pane="" style="width: 240px;height: 40px;">
                                 <div>
-                                    <div style="border: #c0c4cc 1px solid;height: 39px;position: relative;margin-top: 10px;background-color: #e7ebed"><span style="position: relative;margin-left: 10px;"><input type="checkbox" name="like1[read]" lay-skin="primary" title=""></span></div>
+                                    <div style="border: #c0c4cc 1px solid;height: 39px;position: relative;margin-top: 10px;background-color: #e7ebed"><span style="position: relative;margin-left: 10px;"><input type="checkbox" name="medicalAdvice" lay-skin="primary" title="" value="3"></span></div>
                                     <div class="layui-input-inline" style="position:absolute;margin-top: -42px;margin-left: 51px;width: 600px;">
-                                        <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="建议暂缓结婚" style="height: 42px">
+                                        <input type="text" name="uns" lay-verify="required" autocomplete="off" class="layui-input" readonly value="建议暂缓结婚" style="height: 42px">
                                     </div>
                                 </div>
                             </div>
                             <div class="layui-form-item" pane="" style="width: 240px;height: 40px;">
                                 <div>
-                                    <div style="border: #c0c4cc 1px solid;height: 39px;position: relative;margin-top: 10px;background-color: #e7ebed"><span style="position: relative;margin-left: 10px;"><input type="checkbox" name="like1[read]" lay-skin="primary" title=""></span></div>
+                                    <div style="border: #c0c4cc 1px solid;height: 39px;position: relative;margin-top: 10px;background-color: #e7ebed"><span style="position: relative;margin-left: 10px;"><input type="checkbox" name="medicalAdvice" lay-skin="primary" title="" value="4"></span></div>
                                     <div class="layui-input-inline" style="position:absolute;margin-top: -42px;margin-left: 51px;width: 600px;">
-                                        <input type="text" name="nounusual" lay-verify="required" autocomplete="off" class="layui-input" readonly value="建议不以结婚" style="height: 42px">
+                                        <input type="text" name="uns" lay-verify="required" autocomplete="off" class="layui-input" readonly value="建议不以结婚" style="height: 42px">
                                     </div>
                                 </div>
                             </div>
-                        </form>
                     </div>
                 </div>
                 <div>
-                    <form class="layui-form" action="">
                         <div class="layui-form-item" style="margin-top: 20px;">
                             <div class="layui-inline">
                                 <div style="position: absolute;margin-top: 30px;"><label class="layui-form-label" style="width: 100px;">婚前卫生检查：</label></div>
                                 <div class="layui-input-block" style="margin-left: 150px;">
-                                    <textarea placeholder="请输入内容" class="layui-textarea" style="width: 600px;height: 50px;"></textarea>
+                                    <textarea placeholder="请输入内容" class="layui-textarea prenubileConsult" id="prenubileConsult" name="prenubileConsult" style="width: 600px;height: 50px;"></textarea>
                                 </div>
                             </div>
                             <div class="layui-inline">
                                 <label class="layui-form-label">咨询指导结果：</label>
                                 <div class="layui-input-block">
                                     <div>
-                                        <input type="radio" name="fs" checked="" lay-filter="fs"><span style="position:relative; margin-left: -15px;margin-top: 10px;">正常工作</span>
+                                        <input type="radio" name="directResult" value="0" lay-filter="directResult"><span style="position:relative; margin-left: -15px;margin-top: 10px;">正常工作</span>
                                     </div>
                                     <div>
-                                        <input type="radio" name="fs" checked="" lay-filter="fo"><span style="position: relative;margin-top: 10px;margin-left: -15px;">不工作</span>
+                                        <input type="radio" name="directResult" value="1" lay-filter="directResult"><span style="position: relative;margin-top: 10px;margin-left: -15px;">不工作</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </form>
                 </div>
                 <div>
-                    <form class="layui-form" action="">
                         <div class="layui-form-item" style="margin-top: 20px;">
                             <div class="layui-inline">
                                 <div style="position: absolute;margin-top: 10px;"><label class="layui-form-label" style="width: 130px;">主检医生补充病史：</label></div>
                                 <div class="layui-input-block" style="margin-left: 170px;">
-                                    <textarea placeholder="请输入内容" class="layui-textarea" style="width: 1100px;min-height: 20px;resize: none;"></textarea>
+                                    <textarea placeholder="请输入内容" class="layui-textarea k1" id="k1" name="k1" style="width: 1100px;min-height: 20px;resize: none;"></textarea>
                                 </div>
                             </div>
                         </div>
-                    </form>
                 </div>
                 <div>
-                    <form class="layui-form" action="">
                         <div class="layui-form-item" style="margin-top: 20px;">
                             <div class="layui-inline">
                                 <div style="position: absolute;margin-top: 0px;"><label class="layui-form-label" style="width: 120px;">进一步检查建议：</label></div>
                                 <div class="layui-input-block" style="margin-left: 150px;">
-                                    <select name="interest" lay-filter="aihao" style="width: 200px;">
-                                        <option value=""></option>
-                                        <option value="0">写作</option>
-                                        <option value="1" selected="">阅读</option>
-                                        <option value="2">游戏</option>
-                                        <option value="3">音乐</option>
-                                        <option value="4">旅行</option>
+                                    <select name="interest" lay-filter="aihao" lay-anim="k2" id="k2" style="width: 200px;">
+                                        <option value="0" selected="">不需要进一步检查</option>
+                                        <option value="1">本院进一步检查</option>
+                                        <option value="2" >外医院进一步检查</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="layui-inline" style="float: left;margin-left: 600px;margin-top: -50px;">
                                 <div style="position: absolute;margin-top: 10px;"><label class="layui-form-label" style="width: 100px;">建议检查项目：</label></div>
                                 <div class="layui-input-block" style="margin-left: 120px;">
-                                    <textarea placeholder="请输入内容" class="layui-textarea" style="width: 600px;min-height: 5px;resize: none;"></textarea>
+                                    <textarea placeholder="请输入内容" class="layui-textarea k3" id="k3" name="k3" style="width: 600px;min-height: 5px;resize: none;"></textarea>
                                 </div>
                             </div>
                         </div>
-                    </form>
                 </div>
 
                 <div>
-                    <form class="layui-form" action="">
                         <div class="layui-form-item" pane="" style="position: relative;margin-top: 20px;">
                             <div style="position: absolute;margin-top: 0px;"><label class="layui-form-label" style="width: 230px;">婚检对象对进一步检查建议的态度：</label></div>
                             <div class="layui-input-block" style="background-color: #ffffff;margin-left: 270px;">
                                 <div>
-                                    <input type="radio" name="sex" value="接受" title="接受">
+                                    <input type="radio" name="k4" value="0" title="接受">
                                 </div>
                                 <div style="float: right;margin-top: -35px;margin-right: 300px;">
-                                    <input type="radio" name="sex" value="拒绝" title="拒绝">
+                                    <input type="radio" name="k4" value="1" title="拒绝">
                                 </div>
                             </div>
                         </div>
-                    </form>
                 </div>
                 <div>
-                    <form class="layui-form" action="">
                             <div class="layui-inline" style="margin-top: 20px;">
                                 <div style="position: absolute;margin-top: 0px;"><label class="layui-form-label" style="width: 75px;">转诊医院：</label></div>
                                 <div class="layui-input-block" style="position:relative; margin-top: 0px;margin-left: 100px;">
-                                    <select name="interest" lay-filter="aihao" style="width: 300px;">
-                                        <option value=""></option>
-                                        <option value="0">写作</option>
-                                        <option value="1" selected="">阅读</option>
-                                        <option value="2">游戏</option>
-                                        <option value="3">音乐</option>
-                                        <option value="4">旅行</option>
-                                    </select>
+                                    <input type="text" name="changeHospital" lay-verify="required" autocomplete="off" placeholder="" class="layui-input changeHospital">
+                                    <input type="hidden" class="hiddemsex" th:value="${sexs}">
                                 </div>
                             </div>
                             <div class="layui-inline" style="position:relative;margin-top: 0px;margin-left: 300px">
                                 <label class="layui-form-label">转诊日期:</label>
                                 <div class="layui-input-block">
-                                    <input type="text" name="date" id="date" autocomplete="off" class="layui-input" style="width: 300px;">
-                                    <button type="button" class="layui-btn" style="margin-left: 350px;margin-top: -52px;">转诊单</button>
+                                    <input type="text" name="changeHospitalDate" id="date" autocomplete="off" class="layui-input changeHospitalDate" style="width: 300px;">
                                 </div>
                             </div>
-                    </form>
                 </div>
                 <div>
-                    <form class="layui-form" action="">
                         <div class="layui-inline" style="margin-top: 20px;">
                             <div style="position: absolute;margin-top: 0px;"><label class="layui-form-label" style="width: 100px;">预约复诊日期：</label></div>
                             <div class="layui-input-block" style="position:relative; margin-top: 0px;margin-left: 130px;">
-                                <input type="text" name="date" id="date1" autocomplete="off" class="layui-input" style="width: 300px;">
+                                <input type="text" name="comeBackDate" id="date1" autocomplete="off" class="layui-input comeBackDate" style="width: 300px;">
                             </div>
                         </div>
                         <div class="layui-inline" style="position:relative;margin-top: 0px;margin-left: 130px">
                             <div style="position: absolute;margin-top: 0px;"><label class="layui-form-label" style="width: 130px;">出具婚检证明日期：</label></div>
                             <div class="layui-input-block" style="margin-left: 160px;">
-                                <input type="text" name="date" id="date2" autocomplete="off" class="layui-input" style="width: 300px;">
+                                <input type="text" name="provideDate" id="date2" autocomplete="off" class="layui-input provideDate" style="width: 300px;">
                             </div>
                         </div>
-                    </form>
                 </div>
                 <div>
-                    <form class="layui-form" action="">
                         <div class="layui-inline" style="margin-top: 20px;">
                             <div style="position: absolute;margin-top: 0px;"><label class="layui-form-label" style="width: 100px;">主诊医生签名：</label></div>
                             <div class="layui-input-block" style="position:relative; margin-top: 0px;margin-left: 130px;">
-                                <select name="interest" lay-filter="aihao" style="width: 100px;">
-                                    <option value=""></option>
-                                    <option value="0">写作</option>
-                                    <option value="1" selected="">阅读</option>
-                                    <option value="2">游戏</option>
-                                    <option value="3">音乐</option>
-                                    <option value="4">旅行</option>
+                                <select name="dotcorName" id="dotcorName" lay-filter="aihao" style="width: 100px;">
+                                    <option value="0">管理员</option>
                                 </select>
                             </div>
                         </div>
                         <div class="layui-inline" style="position:relative;margin-top: 0px;margin-left: 280px">
                             <div style="position: absolute;margin-top: 0px;"><label class="layui-form-label" style="width: 75px;">检查日期：</label></div>
                             <div class="layui-input-block" style="margin-left: 100px;">
-                                <input type="text" name="date" id="date3" autocomplete="off" class="layui-input" style="width: 300px;">
+                                <input type="text" name="fillDate" id="date3" autocomplete="off" class="layui-input fillDate" style="width: 300px;">
                             </div>
                         </div>
-                    </form>
                 </div>
                 <div style="text-align: center;width: 100%;margin-bottom: 20px;margin-top: 20px;">
-                    <button type="button" class="layui-btn">保存</button>
-                    <button type="button" class="layui-btn">删除</button>
-                    <button type="button" class="layui-btn">打印</button>
-                    <button type="button" class="layui-btn">重置</button>
+                    <button type="button" class="layui-btn" id="butConservation">保存</button>
+                    <button type="button" class="layui-btn" id="delete">删除</button>
+                    <button type="button" class="layui-btn" id="mimeograph">打印</button>
+                    <button type="button" class="layui-btn" id="resetting">重置</button>
                 </div>
             </div>
         </div>
+    </form>
     </div>
 <script src="../../layui/layui.js" charset="utf-8"></script>
 <script>
+    var newlyID=localStorage.getItem("iding");
     layui.use(['form', 'layedit', 'laydate','jquery'], function(){
         var form = layui.form
             ,layer = layui.layer
@@ -272,17 +240,174 @@
         laydate.render({
             elem: '#date3'
         });
-        form.on('radio(yic)', function(data){
-            var val=$('input:radio[name="yic"]:checked').val();
-            if (val=='未见异常'){
-                $('.tayic1').attr('readonly', 'readonly');
-                $('.tayic2').attr('readonly', 'readonly');
-                $(".tayic1").val("");
-                $(".tayic2").val("");
+        $('#butConservation').on('click', function () {
+            var sexs=$('.hiddemsex').val();
+            var arr = new Array();
+
+            //序列化每个表单
+            $("form").each(function(){
+                var obj = $(this).serializeJson();
+                arr.push(obj);
+            });
+            //转json
+            var arrJson = JSON.stringify(arr);
+            console.log(arrJson)
+            $.ajax({
+                type: "GET",
+                data: {allParams:arrJson,sexsing:sexs},
+                url: "../addCb",
+                dataType: "JSON",
+                contentType: 'application/json',
+                success:function(data){
+                    if (data.data=="true"){
+                        layer.msg("保存成功")
+                    }else {
+                        layer.msg("保存失败")
+                    }
+                },
+                error: function (data) {//当访问时候，404，500 等非200的错误状态码
+                    layer.msg("页面错误")
+                }
+            });
+        });
+        (function($){
+            $.fn.serializeJson=function(){
+                var serializeObj={};
+                $(this.serializeArray()).each(function(){
+                    serializeObj[this.name]=this.value;
+                });
+                return serializeObj;
+            };
+        })($);
+        $(function () {
+            var sexs=$('.hiddemsex').val();
+            if (sexs=='nv'){
+                $.ajax({
+                    type: "GET",//请求类型
+                    url: "../GetCb.id",//请求的url
+                    data: {ID: newlyID,sexsing:"女"},//请求参数
+                    dataType: "json",//ajax接口（请求url）返回的数据类型
+                    success: function (data) {//data：返回数据（json对象）
+                        $('.id').val(data.id)
+                        $('.name').val(data.name);
+                        if (data.dates=="false") {
+                        };
+                        if (data.dates=="true") {
+                            form.val("example", {
+                                "k4": data.Tblmarriageresult.k4==1?'1':'0',
+                                "directResult": data.Tblmarriageresult.directResult==1?'1':'0',
+                                "result": data.Tblmarriageresult.result==1?'1':'0' //对应radio的value
+                            });
+                            if (data.Tblmarriageresult.result==1){
+                                $('.resultDes').val(data.Tblmarriageresult.resultDes);
+                                $('.sickness').val(data.Tblmarriageresult.sickness);
+                            }
+                            var str=data.Tblmarriageresult.medicalAdvice;
+                            var strArr=str.split(",");
+                            for(j = 0,len=strArr.length; j < len; j++) {
+                                if (strArr[j]==0){
+                                    $('input:checkbox[value="0"]').attr("checked","checked");
+                                }
+                                if (strArr[j]==1){
+                                    $('input:checkbox[value="1"]').attr("checked","checked");
+                                }
+                                if (strArr[j]==2){
+                                    $('input:checkbox[value="2"]').attr("checked","checked");
+                                }
+                                if (strArr[j]==3){
+                                    $('input:checkbox[value="3"]').attr("checked","checked");
+                                }
+                                if (strArr[j]==4){
+                                    $('input:checkbox[value="4"]').attr("checked","checked");
+                                }
+                                form.render();  //更新渲染
+                            };
+
+                            $('.prenubileConsult').val(data.Tblmarriageresult.prenubileConsult);
+                            $('.k1').val(data.Tblmarriageresult.k1);
+                            $('.k3').val(data.Tblmarriageresult.k3);
+                            $('.changeHospital').val(data.Tblmarriageresult.changeHospital);
+                            $('.changeHospitalDate').val(data.Tblmarriageresult.changeHospitalDate);
+                            $('.comeBackDate').val(data.Tblmarriageresult.comeBackDate);
+                            $('.provideDate').val(data.Tblmarriageresult.provideDate);
+                            $('.fillDate').val(data.Tblmarriageresult.fillDate);
+                        };
+
+                    },
+                    error: function (data) {//当访问时候，404，500 等非200的错误状态码
+                        layer.msg("页面错误")
+                    }
+                })
             }
-            if (val=='存在异常'){
-                $('.tayic1').removeAttr('readonly');
-                $('.tayic2').removeAttr('readonly');
+            if (sexs=='nan'){
+                $.ajax({
+                    type: "GET",//请求类型
+                    url: "../GetCb.id",//请求的url
+                    data: {ID: newlyID,sexsing:"男"},//请求参数
+                    dataType: "json",//ajax接口（请求url）返回的数据类型
+                    success: function (data) {//data：返回数据（json对象）
+                            $('.id').val(data.id)
+                            $('.name').val(data.name);
+                            if (data.dates=="false") {
+                            };
+                            if (data.dates=="true") {
+                                form.val("example", {
+                                    "k4": data.Tblmarriageresult.k4==1?'1':'0',
+                                    "directResult": data.Tblmarriageresult.directResult==1?'1':'0',
+                                    "result": data.Tblmarriageresult.result==1?'1':'0' //对应radio的value
+                                });
+                                if (data.Tblmarriageresult.result==1){
+                                    $('.resultDes').val(data.Tblmarriageresult.resultDes);
+                                    $('.sickness').val(data.Tblmarriageresult.sickness);
+                                }
+                                var str=data.Tblmarriageresult.medicalAdvice;
+                                var strArr=str.split(",");
+                                for(j = 0,len=strArr.length; j < len; j++) {
+                                    if (strArr[j]==0){
+                                        $('input:checkbox[value="0"]').attr("checked","checked");
+                                    }
+                                    if (strArr[j]==1){
+                                        $('input:checkbox[value="1"]').attr("checked","checked");
+                                    }
+                                    if (strArr[j]==2){
+                                        $('input:checkbox[value="2"]').attr("checked","checked");
+                                    }
+                                    if (strArr[j]==3){
+                                        $('input:checkbox[value="3"]').attr("checked","checked");
+                                    }
+                                    if (strArr[j]==4){
+                                        $('input:checkbox[value="4"]').attr("checked","checked");
+                                    }
+                                    form.render();  //更新渲染
+                                };
+                                $('.prenubileConsult').val(data.Tblmarriageresult.prenubileConsult);
+                                $('.k1').val(data.Tblmarriageresult.k1);
+                                $('.k3').val(data.Tblmarriageresult.k3);
+                                $('.changeHospital').val(data.Tblmarriageresult.changeHospital);
+                                $('.changeHospitalDate').val(data.Tblmarriageresult.changeHospitalDate);
+                                $('.comeBackDate').val(data.Tblmarriageresult.comeBackDate);
+                                $('.provideDate').val(data.Tblmarriageresult.provideDate);
+                                $('.fillDate').val(data.Tblmarriageresult.fillDate);
+                            };
+
+                    },
+                    error: function (data) {//当访问时候，404，500 等非200的错误状态码
+                        layer.msg("页面错误")
+                    }
+                })
+            }
+        });
+        form.on('radio(result)', function(data){
+            var val=$('input:radio[name="result"]:checked').val();
+            if (val=='0'){
+                $('.resultDes').attr('readonly', 'readonly');
+                $('.sickness').attr('readonly', 'readonly');
+                $(".resultDes").val("");
+                $(".sickness").val("");
+            }
+            if (val=='1'){
+                $('.resultDes').removeAttr('readonly');
+                $('.sickness').removeAttr('readonly');
             }
 
         });
