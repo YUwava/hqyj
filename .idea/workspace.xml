@@ -2,52 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bfac5a30-0795-4352-9e85-06229ff0590e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/Mapper/ym/ManKaiDanMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/Mapper/ym/ManMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/Mapper/ym/ManexamMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/Mapper/ym/WomenKaiDanMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/Mapper/ym/WomenMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/Mapper/ym/WomenexamMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/ym/ManInfoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/ym/ManKaiDanController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/ym/ManxaminationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/ym/WomenClinicaleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/ym/WomenClinicalpController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/ym/WomenKanDanController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/ym/WomenxaminationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/service/ym/ManKaiDanService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/service/ym/ManService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/service/ym/ManexamService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/service/ym/WomenKanDanService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/service/ym/WomenService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/service/ym/WomenexamService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/ManInfo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/ManKaiDan.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/WomenKaiDan.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hqyj.iml" beforeDir="false" afterPath="$PROJECT_DIR$/hqyj.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/Mapper/fpj/BfcMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/Mapper/fpj/BfcMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/Mapper/fpj/OcMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/Mapper/fpj/OcMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/Mapper/fpj/ReMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/Mapper/fpj/ReMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/Mapper/fpj/XbcMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/Mapper/fpj/XbcMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/fpj/BfcController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/fpj/BfcController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/fpj/CbController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/fpj/CbController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/fpj/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/fpj/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/fpj/OcController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/fpj/OcController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/fpj/ReController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/fpj/ReController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/fpj/XbcController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/fpj/XbcController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/entity/MInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/entity/MInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/entity/Tblmarriageresult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/entity/Tblmarriageresult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/service/fpj/BfcService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/service/fpj/BfcService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/service/fpj/OcService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/service/fpj/OcService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/service/fpj/ReService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/service/fpj/ReService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/service/fpj/XbcService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/service/fpj/XbcService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/api/init.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/api/init.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/InformationQuery.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/InformationQuery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/beforeCheck.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/beforeCheck.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/checkBear.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/checkBear.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/chemicalBear.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/oralCheck.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/oralCheck.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ruleExpand.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ruleExpand.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/xRayCheck.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/xRayCheck.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/Mapper/fpj/BfcMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/Mapper/fpj/BfcMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/controller/fpj/BfcController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/controller/fpj/BfcController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/controller/fpj/CbController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/controller/fpj/CbController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/controller/fpj/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/controller/fpj/HomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/controller/fpj/OcController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/controller/fpj/OcController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/controller/fpj/ReController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/controller/fpj/ReController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/controller/fpj/XbcController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/controller/fpj/XbcController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/entity/MInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/entity/MInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/entity/Tblmarriageresult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/entity/Tblmarriageresult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/service/fpj/BfcService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/service/fpj/BfcService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/service/fpj/OcService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/service/fpj/OcService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/service/fpj/ReService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/service/fpj/ReService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/service/fpj/XbcService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/athqyj/hqyj/service/fpj/XbcService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/api/init.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/api/init.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/InformationQuery.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/InformationQuery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/beforeCheck.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/beforeCheck.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/checkBear.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/checkBear.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/chemicalBear.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/ruleExpand.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/ruleExpand.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/ym/WomenInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athqyj/hqyj/controller/ym/WomenInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Manexamination.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Manexamination.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Womenexamination.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Womenexamination.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +58,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsFlowSettings">
@@ -189,6 +170,7 @@
       <workItem from="1588509613341" duration="2415000" />
       <workItem from="1588642523647" duration="27876000" />
       <workItem from="1588689031924" duration="9177000" />
+      <workItem from="1588740118221" duration="239000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1587468174286</created>
@@ -260,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588227188899</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="2020.4.30">
+      <created>1588740209188</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1588740209188</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,10 +283,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588161960435" />
-    <state x="443" y="114" key="CommitChangelistDialog2" timestamp="1588227187800">
+    <state x="443" y="114" key="CommitChangelistDialog2" timestamp="1588740208308">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="443" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588227187800" />
+    <state x="443" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588740208308" />
     <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1588226400532">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -350,14 +339,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588265351166" />
+    <state x="184" y="92" key="MergeDialog" timestamp="1588740279419">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="184" y="92" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588740279419" />
+    <state x="702" y="234" key="MultipleFileMergeDialog" timestamp="1588740287365">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="702" y="234" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588740287365" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1587711138607">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1587711138607" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1588227195103">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1588740219526">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588227195103" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588740219526" />
     <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1588740133199">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

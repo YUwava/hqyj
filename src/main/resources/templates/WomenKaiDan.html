@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:c="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>妻子临床开单</title>
+
+    <link rel="stylesheet" href="/static/lib/layui-v2.5.4/css/layui.css">
+    <script src="/static/lib/layui-v2.5.4/layui.js"></script>
+    <script type="application/javascript" src="/static/lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="http://libs.baidu.com/jquery/1.8.3/jquery.min.js">
+
+
+    <script type="text/javascript" th:inline="none">
+        layui.use('form', function(){
+            var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+
+            //……
+
+            //但是，如果你的HTML是动态生成的，自动渲染就会失效
+            //因此你需要在相应的地方，执行下述方法来进行渲染
+            form.render();
+        });
+
+        layui.use(['laydate','form','table','layedit','jquery'],function(){
+            //监听行工具事件
+            var table = layui.table;
+            var form = layui.form
+                ,layer = layui.layer
+                ,layedit = layui.layedit
+                ,$ = layui.jquery
+                ,laydate = layui.laydate;
+
+            $(function () {
+                console.log(localStorage.getItem("id")+"===");
+                console.log(localStorage.getItem("fname")+"===");
+                console.log(localStorage.getItem("fbirthDate")+"===");
+                var ids=$('input:text[name="id"]').val(localStorage.getItem("id"));
+                var mNames=$('input:text[name="fname"]').val(localStorage.getItem("fname"));
+                var fNames=$('input:text[name="fbirthDate"]').val(localStorage.getItem("fbirthDate"));
+            });
+
+
+          /*  laydate.render({
+                elem: '#mtime'
+            });*/
+            form.on('radio(go)', function(objs){
+                var vals=$('input:radio[name="go"]:checked').val();
+                if (vals=='0'){
+                    console.log("laile")
+                    $('input:checkbox[name="wng"]').attr("disabled",true);
+                    $('input:checkbox[name="wct"]').attr("disabled",true);
+                }
+                if (vals=='1'){
+                    console.log("laile")
+                    $('input:checkbox[name="wng"]').attr("disabled",false);
+                    $('input:checkbox[name="wct"]').attr("disabled",false);
+                }
+            });
+
+        })
+
+    </script>
+    <style type="text/css">
+        .widl{width:80px}
+    </style>
+</head>
+<body>
+<form class="layui-form" action="/womenKaiDan/addInfo">
+    <div style="width: 1400px; margin:0 auto;margin-top: 50px">
+        <div>
+            <div class="layui-inline" style="margin-right: 100px">
+                <label class="layui-form-label">系统编号:   </label>
+                <div class="layui-input-block">
+                    <input type="text" name="id" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-left: 100px">
+                <label class="layui-form-label">姓名:  </label>
+                <div class="layui-input-block">
+                    <input type="text" name="fname" lay-verify="required" autocomplete="off" placeholder="" class="layui-input mname">
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 30px;">
+            <div class="layui-inline" style="margin-right: 100px">
+                <label class="layui-form-label">性别:   </label>
+                <div class="layui-input-block">
+                    <input type="text" lay-verify="required" value="女" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-left: 100px">
+                <label class="layui-form-label">出生日期:  </label>
+                <div class="layui-input-block">
+                    <input type="text" class="layui-input" name="fbirthDate" id="fbirthDate" placeholder="yyyy-MM-dd">
+                </div>
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp;白带检查(是否有以下问题)</div>
+        <div>
+            <div class="layui-form-item">
+                <div class="layui-input-block" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="go" lay-filter="go" value="1" title="是">
+                    <input type="radio" name="go" lay-filter="go" value="0" title="否">
+                </div>
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;margin-top: 20px;padding-right: 500px;border-radius: 6px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;淋球菌筛查:</div>
+        <div class="layui-row" style="margin-top: 20px">
+            <div class="layui-col-md1" style="margin-right: 80px">
+                <input type="checkbox" name="wng" value="1"  title="阴性">
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="wng"  value="0" title="阳性">
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;margin-top: 20px;padding-right: 500px;border-radius: 6px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;沙眼衣原体筛查:</div>
+        <div class="layui-row" style="margin-top: 20px">
+            <div class="layui-col-md1" style="margin-right: 80px">
+                <input type="checkbox" name="wct" value="1"  title="阴性">
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="wct"  value="0" title="阳性">
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;margin-top: 20px;padding-right: 500px;border-radius: 6px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;血细胞分析</div>
+        <div><p style="line-height: 35px"><hr></p></div>
+        <div style="margin-top: 20px;">
+            <div class="layui-inline" style="margin-right: 100px">
+                <label class="layui-form-label widl">Hb  (g/L):   </label>
+                <div class="layui-input-block">
+                    <input type="text" name="whb" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-left: 100px">
+                <label class="layui-form-label widl">E(%)  :  </label>
+                <div class="layui-input-block">
+                    <input type="text" name="we" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 20px;">
+            <div class="layui-inline" style="margin-right: 100px">
+                <label class="layui-form-label widl">RBC(10/L)  :   </label>
+                <div class="layui-input-block">
+                    <input type="text" name="wrbc" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-left: 100px">
+                <label class="layui-form-label widl">B(%) :  </label>
+                <div class="layui-input-block">
+                    <input type="text" name="wb" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 20px;">
+            <div class="layui-inline" style="margin-right: 100px">
+                <label class="layui-form-label widl">PLT(10/L):      </label>
+                <div class="layui-input-block">
+                    <input type="text" name="wplt" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-left: 100px">
+                <label class="layui-form-label widl">M(%):  </label>
+                <div class="layui-input-block">
+                    <input type="text" name="wm" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 20px;">
+            <div class="layui-inline" style="margin-right: 100px">
+                <label class="layui-form-label widl">WBC(10/L):       </label>
+                <div class="layui-input-block">
+                    <input type="text" name="wwbc" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-left: 100px">
+                <label class="layui-form-label widl">N(%):   </label>
+                <div class="layui-input-block">
+                    <input type="text" name="wn" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 20px;">
+            <div class="layui-inline" style="margin-right: 100px">
+                <label class="layui-form-label widl">中值细胞(%): </label>
+                <div class="layui-input-block">
+                    <input type="text" name="midcell" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-left: 100px">
+                <label class="layui-form-label widl">L(%):      </label>
+                <div class="layui-input-block">
+                    <input type="text" name="wl" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;尿液常规检查</div>
+        <div>
+            <div class="layui-form-item">
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="wurt" value="on" title="正常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="wurt" value="off" title="异常">
+                </div>
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;血糖</div>
+        <div>
+            <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                <input type="text" name="wbloodSugar"  style="margin-left: 50px;width: 200px" placeholder="血糖(mmol/L)：-->" class="layui-input">
+            </div>
+        </div>
+
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;肝肾功能检测</div>
+        <div>
+            <div class="layui-form-item">
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="text" name="walt"  style="margin-left: 50px;width: 200px" placeholder="谷丙转氨酶ALT(U/L):-->" class="layui-input">
+                </div>
+
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="text" name="wcr"  style="margin-left: 50px;width: 200px" placeholder="肌酐Cr(umol/L):-->" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;甲状腺检测</div>
+        <div>
+            <div class="layui-form-item">
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="text" name="ext_comp_1044"  style="margin-left: 50px;width: 200px" placeholder="促甲状腺激素TSH(U/L):" class="layui-input">
+                </div>
+
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;其他检查</div>
+        <div>
+            <div class="layui-form-item">
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="text" name="elseItem"  style="margin-left: 50px;width: 200px" placeholder="" class="layui-input">
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="layui-input-inline" style="font-size: 14px;margin-top: 20px">
+            <label class="layui-form-label wfwd" style="width: 110px">医生签名:</label>
+            <div class="layui-inline">
+                <input type="text" name="doctorName" id="realDoc" style="width: 200px" required  lay-verify="required" placeholder="医生签名" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div style="margin-left: 600px">
+            <div class="layui-input-inline" style="font-size: 14px;margin-top: 20px">
+                <div class="layui-inline">
+                    <button type="reset" class="layui-btn" id="clear" style="margin-right: 100px">重置</button>
+                </div>
+            </div>
+            <div class="layui-input-inline" style="margin-top: 20px">
+                <div class="layui-col-md1">
+                    <button type="submit" class="layui-btn" id="selectInfo">保存</button>
+                </div>
+            </div>
+        </div>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+    </div>
+
+
+
+</form>
+
+</body>
+
+</html>

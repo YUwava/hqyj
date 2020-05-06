@@ -2,7 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:c="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
     <title>体格检查</title>
+=======
+    <title>妻子体格检查</title>
+>>>>>>> origin/master
 
     <link rel="stylesheet" href="/static/lib/layui-v2.5.4/css/layui.css">
     <script src="/static/lib/layui-v2.5.4/layui.js"></script>
@@ -21,6 +25,7 @@
             form.render();
         });
 
+<<<<<<< HEAD
         layui.use('laydate', function(){
             var laydate = layui.laydate;
             laydate.render({
@@ -29,13 +34,62 @@
             laydate.render({
                 elem: '#mtime'
             });
+=======
+        layui.use(['laydate','form','table','layedit','jquery'],function(){
+            //监听行工具事件
+            var table = layui.table;
+            var form = layui.form
+                ,layer = layui.layer
+                ,layedit = layui.layedit
+                ,$ = layui.jquery
+                ,laydate = layui.laydate;
+
+            $(function () {
+                console.log(localStorage.getItem("id")+"===");
+                console.log(localStorage.getItem("fname")+"===");
+                console.log(localStorage.getItem("fbirthDate")+"===");
+                var ids=$('input:text[name="id"]').val(localStorage.getItem("id"));
+                var mNames=$('input:text[name="fname"]').val(localStorage.getItem("fname"));
+                var fNames=$('input:text[name="fbirthDate"]').val(localStorage.getItem("fbirthDate"));
+            });
+
+
+            laydate.render({
+                elem: '#mtime'
+            });
+            form.on('radio(retardation)', function(objs){
+
+                var vals=$('input:radio[name="retardation"]:checked').val();
+                if (vals=='正常'){
+                    console.log("laile")
+                    $('input:checkbox[name="knowledge"]').attr("disabled",true);
+                    $('input:checkbox[name="judge"]').attr("disabled",true);
+                    $('input:checkbox[name="memory"]').attr("disabled",true);
+                    $('input:checkbox[name="caculate"]').attr("disabled",true);
+
+                }
+                if (vals=='异常'){
+                    console.log("laile")
+                    $('input:checkbox[name="knowledge"]').attr("disabled",false);
+                    $('input:checkbox[name="judge"]').attr("disabled",false);
+                    $('input:checkbox[name="memory"]').attr("disabled",false);
+                    $('input:checkbox[name="caculate"]').attr("disabled",false);
+
+
+                }
+            });
+>>>>>>> origin/master
 
         })
 
     </script>
 </head>
 <body>
+<<<<<<< HEAD
 <form class="layui-form" action="">
+=======
+<form class="layui-form" action="/womenexInfo/addInfo">
+>>>>>>> origin/master
     <div style="width: 1400px; margin:0 auto;margin-top: 50px">
         <div>
             <div class="layui-inline" style="margin-right: 100px">
@@ -55,7 +109,11 @@
             <div class="layui-inline" style="margin-right: 100px">
                 <label class="layui-form-label">性别:   </label>
                 <div class="layui-input-block">
+<<<<<<< HEAD
                     <input type="text" name="id" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+=======
+                    <input type="text" lay-verify="required" value="女" autocomplete="off" placeholder="" class="layui-input id">
+>>>>>>> origin/master
                 </div>
             </div>
             <div class="layui-inline" style="margin-left: 100px">
@@ -71,13 +129,21 @@
             <div class="layui-inline" style="margin-right: 100px">
                 <label class="layui-form-label">身高(cm):   </label>
                 <div class="layui-input-block">
+<<<<<<< HEAD
                     <input type="text" name="id" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+=======
+                    <input type="text" name="height" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+>>>>>>> origin/master
                 </div>
             </div>
             <div class="layui-inline" style="margin-left: 100px">
                 <label class="layui-form-label">体重指数(kg/m2):  </label>
                 <div class="layui-input-block">
+<<<<<<< HEAD
                     <input type="text" name="id" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+=======
+                    <input type="text" name="weight" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+>>>>>>> origin/master
                 </div>
             </div>
         </div>
@@ -85,13 +151,21 @@
             <div class="layui-inline" style="margin-right: 100px">
                 <label class="layui-form-label">体重 (kg):   </label>
                 <div class="layui-input-block">
+<<<<<<< HEAD
                     <input type="text" name="id" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+=======
+                    <input type="text" name="bmi" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+>>>>>>> origin/master
                 </div>
             </div>
             <div class="layui-inline" style="margin-left: 100px">
                 <label class="layui-form-label">收  缩  压  (mmHg):  </label>
                 <div class="layui-input-block">
+<<<<<<< HEAD
                     <input type="text" name="id" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+=======
+                    <input type="text" name="hightBloodPressure" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+>>>>>>> origin/master
                 </div>
             </div>
         </div>
@@ -99,13 +173,21 @@
             <div class="layui-inline" style="margin-right: 100px">
                 <label class="layui-form-label">心率(次/分):   </label>
                 <div class="layui-input-block">
+<<<<<<< HEAD
                     <input type="text" name="id" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+=======
+                    <input type="text" name="heartRate" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+>>>>>>> origin/master
                 </div>
             </div>
             <div class="layui-inline" style="margin-left: 100px">
                 <label class="layui-form-label">舒  张  压  (mmHg):  </label>
                 <div class="layui-input-block">
+<<<<<<< HEAD
                     <input type="text" name="id" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+=======
+                    <input type="text" name="lowBloodPressure" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+>>>>>>> origin/master
                 </div>
             </div>
         </div>
@@ -113,6 +195,7 @@
         <div>
             <div class="layui-form-item">
                 <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+<<<<<<< HEAD
                     <input type="radio" name="noinfos" value="正常" title="正常">
                 </div>
                 <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
@@ -120,6 +203,15 @@
                 </div>
                 <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
                     <input type="text" name="infos"  style="margin-left: 50px;width: 200px" placeholder="精神状态异常描述-->" class="layui-input">
+=======
+                    <input type="radio" name="psycology" value="正常" title="正常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="psycology" value="异常" title="异常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="text" name="psycologyDtls"  style="margin-left: 50px;width: 200px" placeholder="精神状态异常描述-->" class="layui-input">
+>>>>>>> origin/master
                 </div>
             </div>
         </div>
@@ -127,16 +219,24 @@
         <div>
             <div class="layui-form-item">
                 <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+<<<<<<< HEAD
                     <input type="radio" name="noinfos" value="正常" title="正常">
                 </div>
                 <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
                     <input type="radio" name="noinfos" value="异常" title="异常">
+=======
+                    <input type="radio" name="retardation" lay-filter="retardation" value="正常" title="正常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="retardation" lay-filter="retardation" value="异常" title="异常">
+>>>>>>> origin/master
                 </div>
             </div>
         </div>
         <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;智力异常请打勾</div>
         <div class="layui-row" style="margin-top: 20px">
             <div class="layui-col-md1">
+<<<<<<< HEAD
                 <input type="checkbox" name="like[read]" title="常识">
 
             </div>
@@ -148,12 +248,25 @@
             </div>
             <div class="layui-col-md1">
                 <input type="checkbox" name="like[read]" title="计算">
+=======
+                <input type="checkbox" name="knowledge" value="异常" title="常识">
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="judge" value="异常"  title="判断">
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="memory"  value="异常" title="记忆">
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="caculate" value="异常"  title="计算">
+>>>>>>> origin/master
             </div>
         </div>
         <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;五官</div>
         <div>
             <div class="layui-form-item">
                 <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+<<<<<<< HEAD
                     <input type="radio" name="noinfos" value="正常" title="正常">
                 </div>
                 <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
@@ -161,6 +274,15 @@
                 </div>
                 <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
                     <input type="text" name="infos"  style="margin-left: 50px;width: 200px" placeholder="五官异常描述-->" class="layui-input">
+=======
+                    <input type="radio" name="facialFeature" value="正常" title="正常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="facialFeature" value="异常" title="异常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="text" name="facialFeatureDtls"  style="margin-left: 50px;width: 200px" placeholder="五官异常描述-->" class="layui-input">
+>>>>>>> origin/master
                 </div>
             </div>
         </div>
@@ -168,6 +290,7 @@
         <div>
             <div class="layui-form-item">
                 <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+<<<<<<< HEAD
                     <input type="radio" name="noinfos" value="正常" title="正常">
                 </div>
                 <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
@@ -175,6 +298,15 @@
                 </div>
                 <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
                     <input type="text" name="infos"  style="margin-left: 50px;width: 200px" placeholder="特殊体态描述-->" class="layui-input">
+=======
+                    <input type="radio" name="specialBody" value="正常" title="正常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="specialBody" value="异常" title="异常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="text" name="specialBodyDtls"  style="margin-left: 50px;width: 200px" placeholder="特殊体态描述-->" class="layui-input">
+>>>>>>> origin/master
                 </div>
             </div>
         </div>
@@ -182,6 +314,7 @@
         <div>
             <div class="layui-form-item">
                 <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+<<<<<<< HEAD
                     <input type="radio" name="noinfos" value="正常" title="正常">
                 </div>
                 <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
@@ -189,6 +322,15 @@
                 </div>
                 <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
                     <input type="text" name="infos"  style="margin-left: 50px;width: 200px" placeholder="特殊面容描述-->" class="layui-input">
+=======
+                    <input type="radio" name="specisalLook" value="正常" title="正常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="specisalLook" value="异常" title="异常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="text" name="specialLookDtls"  style="margin-left: 50px;width: 200px" placeholder="特殊面容描述-->" class="layui-input">
+>>>>>>> origin/master
                 </div>
             </div>
         </div>
@@ -196,6 +338,7 @@
         <div>
             <div class="layui-form-item">
                 <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+<<<<<<< HEAD
                     <input type="radio" name="noinfos" value="正常" title="正常">
                 </div>
                 <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
@@ -203,12 +346,22 @@
                 </div>
                 <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
                     <input type="text" name="infos"  style="margin-left: 50px;width: 200px" placeholder="皮肤毛发异常描述-->" class="layui-input">
+=======
+                    <input type="radio" name="skin" value="正常" title="正常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="skin" value="异常" title="异常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="text" name="skinDtls"  style="margin-left: 50px;width: 200px" placeholder="皮肤毛发异常描述-->" class="layui-input">
+>>>>>>> origin/master
                 </div>
             </div>
         </div>
         <div class="layui-input-inline" style="font-size: 14px;margin-top: 20px">
             <label class="layui-form-label wfwd" style="width: 110px">医生签名:</label>
             <div class="layui-inline">
+<<<<<<< HEAD
                 <input type="text" name="doctorName" id="doctorName" style="width: 200px" required  lay-verify="required" placeholder="医生签名" autocomplete="off" class="layui-input">
             </div>
         </div>
@@ -218,6 +371,9 @@
                 <div class="layui-input-inline">
                     <input type="text" class="layui-input" name="mtime" id="mtime" placeholder="yyyy-MM-dd" style="width: 300px" >
                 </div>
+=======
+                <input type="text" name="doctorName" id="realDoc2" style="width: 200px" required  lay-verify="required" placeholder="医生签名" autocomplete="off" class="layui-input">
+>>>>>>> origin/master
             </div>
         </div>
         <div style="margin-left: 600px">
