@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:c="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>妻子信息</title>
+
+    <link rel="stylesheet" href="/static/lib/layui-v2.5.4/css/layui.css">
+    <script src="/static/lib/layui-v2.5.4/layui.js"></script>
+    <script type="application/javascript" src="/static/lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+   <!--<link rel="stylesheet" href="http://libs.baidu.com/jquery/1.8.3/jquery.min.js">-->
+
+
+    <script type="text/javascript" th:inline="none">
+
+
+        layui.use('form', function(){
+            var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+
+            //……
+
+            //但是，如果你的HTML是动态生成的，自动渲染就会失效
+            //因此你需要在相应的地方，执行下述方法来进行渲染
+            form.render();
+        });
+
+        layui.use(['laydate','form','table','layedit','jquery'],function(){
+            //监听行工具事件
+
+            var table = layui.table;
+            var form = layui.form
+                ,layer = layui.layer
+                ,layedit = layui.layedit
+                ,$ = layui.jquery
+                ,laydate = layui.laydate;
+/*
+
+            form.on('submit(submitGo)', function(obj){
+                alert("已进入")
+                var data = obj.data;
+                if(obj.event === 'Gosubmit'){
+                    alert("进入新增")
+                        $.post("/addInfo",function (result){
+                            if(result == "Yes"){
+                                obj.del();
+                                layer.msg("保存成功");
+
+                            }else{
+                                layer.msg("保存失败");
+                            }
+                        });
+                        layer.close(index);
+
+                }
+            });
+*/
+
+            $(function () {
+                console.log(localStorage.getItem("id")+"===");
+                console.log(localStorage.getItem("fname")+"===");
+                console.log(localStorage.getItem("fbirthDate")+"===");
+                var ids=$('input:text[name="id"]').val(localStorage.getItem("id"));
+                var mNames=$('input:text[name="fname"]').val(localStorage.getItem("fname"));
+                var fNames=$('input:text[name="fbirthDate"]').val(localStorage.getItem("fbirthDate"));
+            });
+           /* var laydate = layui.laydate,
+                form = layui.form,
+                $=layui.jquery;*/
+
+            laydate.render({
+                elem: '#fbirthDate'
+            });
+            laydate.render({
+                elem: '#mtime'
+            });
+
+            form.on('radio(sick)', function(objs){
+                var vals=$('input:radio[name="sick"]:checked').val();
+                if (vals=='0'){
+                    console.log("laile")
+                    $('input:checkbox[name="anemia"]').attr("disabled",true);
+                    $('input:checkbox[name="hypertension"]').attr("disabled",true);
+                    $('input:checkbox[name="heartDisease"]').attr("disabled",true);
+                    $('input:checkbox[name="diabetes"]').attr("disabled",true);
+                    $('input:checkbox[name="thyroidDisease"]').attr("disabled",true);
+                    $('input:checkbox[name="chronicNephritis"]').attr("disabled",true);
+                    $('input:checkbox[name="swelling"]').attr("disabled",true);
+                    $('input:checkbox[name="nodule"]').attr("disabled",true);
+                    $('input:checkbox[name="yigan"]').attr("disabled",true);
+                    $('input:checkbox[name="epilepsy"]').attr("disabled",true);
+                    $('input:checkbox[name="sexuallyInfect"]').attr("disabled",true);
+                    $('input:checkbox[name="psyDisorder"]').attr("disabled",true);
+
+                }
+                if (vals=='1'){
+                    console.log("laile")
+                    $('input:checkbox[name="anemia"]').attr("disabled",false);
+                    $('input:checkbox[name="hypertension"]').attr("disabled",false);
+                    $('input:checkbox[name="heartDisease"]').attr("disabled",false);
+                    $('input:checkbox[name="diabetes"]').attr("disabled",false);
+                    $('input:checkbox[name="thyroidDisease"]').attr("disabled",false);
+                    $('input:checkbox[name="chronicNephritis"]').attr("disabled",false);
+                    $('input:checkbox[name="swelling"]').attr("disabled",false);
+                    $('input:checkbox[name="nodule"]').attr("disabled",false);
+                    $('input:checkbox[name="yigan"]').attr("disabled",false);
+                    $('input:checkbox[name="epilepsy"]').attr("disabled",false);
+                    $('input:checkbox[name="sexuallyInfect"]').attr("disabled",false);
+                    $('input:checkbox[name="psyDisorder"]').attr("disabled",false);
+                    $('input:input[name="anemia"]').attr("disabled",false);
+                    $('input:input[name="xianYouNan"]').attr("disabled",false);
+                    $('input:input[name="xianYouNv"]').attr("disabled",false);
+
+                }
+            });
+            form.on('radio(Gynaecology)', function(objs){
+                var valss=$('input:radio[name="Gynaecology"]:checked').val();
+                if (valss=='0'){
+                    console.log("第二个")
+                    $('input:checkbox[name="uterine"]').attr("disabled",true);
+                    $('input:checkbox[name="sterility"]').attr("disabled",true);
+                }
+                if (valss=='1'){
+                    console.log("第二个")
+                    $('input:checkbox[name="uterine"]').attr("disabled",false);
+                    $('input:checkbox[name="sterility"]').attr("disabled",false);
+                }
+            });
+            form.on('radio(vaccine)', function(objs){
+                var vaccines=$('input:radio[name="vaccine"]:checked').val();
+                if (vaccines=='0'){
+                    console.log("第三个")
+                    $('input:checkbox[name="fengzhen"]').attr("disabled",true);
+                    $('input:checkbox[name="yigan"]').attr("disabled",true);
+                    $('input:checkbox[name="vaccinateOthers"]').attr("disabled",true);
+                }
+                if (vaccines=='1'){
+                    console.log("第三个")
+                    $('input:checkbox[name="fengzhen"]').attr("disabled",false);
+                    $('input:checkbox[name="yigan"]').attr("disabled",false);
+                    $('input:checkbox[name="vaccinateOthers"]').attr("disabled",false);
+                }
+            });
+
+            form.on('radio(contraception)', function(objs){
+                var contraceptions=$('input:radio[name="contraception"]:checked').val();
+                if (contraceptions=='0'){
+                    console.log("第四个否")
+                    $('input:checkbox[name="intrauterineDevice"]').attr("disabled",true);
+                    $('input:checkbox[name="subcutaneousImplants"]').attr("disabled",true);
+                    $('input:checkbox[name="oralContraceptive"]').attr("disabled",true);
+                    $('input:checkbox[name="condom"]').attr("disabled",true);
+                    $('input:checkbox[name="topicalContraceptives"]').attr("disabled",true);
+                    $('input:checkbox[name="naturalContracept"]').attr("disabled",true);
+                    $('input:checkbox[name="contraceptOthers"]').attr("disabled",true);
+                }
+                if (contraceptions=='1'){
+                    console.log("第四个是")
+                    $('input:checkbox[name="intrauterineDevice"]').attr("disabled",false);
+                    $('input:checkbox[name="subcutaneousImplants"]').attr("disabled",false);
+                    $('input:checkbox[name="oralContraceptive"]').attr("disabled",false);
+                    $('input:checkbox[name="condom"]').attr("disabled",false);
+                    $('input:checkbox[name="topicalContraceptives"]').attr("disabled",false);
+                    $('input:checkbox[name="naturalContracept"]').attr("disabled",false);
+                    $('input:checkbox[name="contraceptOthers"]').attr("disabled",false);
+                }
+            });
+        })
+
+
+
+    </script>
+</head>
+<body>
+<form class="layui-form" action="/womenInfo/addInfo" >
+    <div style="width: 1400px; margin:0 auto;margin-top: 50px">
+        <div>
+            <div class="layui-inline" style="margin-right: 100px">
+                <label class="layui-form-label">系统编号:   </label>
+                <div class="layui-input-block">
+                    <input type="text" name="id" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-left: 100px">
+                <label class="layui-form-label">姓名:  </label>
+                <div class="layui-input-block">
+                    <input type="text" name="fname" lay-verify="required" autocomplete="off" placeholder="" class="layui-input mname">
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 30px;">
+            <div class="layui-inline" style="margin-right: 100px">
+                <label class="layui-form-label">性别:   </label>
+                <div class="layui-input-block">
+                    <input type="text" name="" lay-verify="required" autocomplete="off" value="女" placeholder="" class="layui-input id">
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-left: 100px">
+                <label class="layui-form-label">出生日期:  </label>
+                <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="fbirthDate" id="fbirthDate" placeholder="yyyy-MM-dd">
+                </div>
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;margin-top: 20px;padding-right: 500px;border-radius: 6px">&nbsp;&nbsp;是否患过或曾经患过以下疾病(如果选择是以下各项至少选泽一项)</div>
+        <div><p style="line-height: 35px"><hr></p></div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;是否患有以下</div>
+        <div>
+            <div class="layui-form-item">
+                <div class="layui-input-block" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="sick" lay-filter="sick" value="1" title="是">
+                    <input type="radio" name="sick" lay-filter="sick" value="0" title="否">
+                </div>
+            </div>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-md1">
+                <input type="checkbox" name="anemia"  value="1" lay-filter="anemia" title="贫血">
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="hypertension" value="1"  lay-filter="anemia" title="高血">
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="heartDisease"  value="1"  lay-filter="anemia" title="心脏" >
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="diabetes"  value="1" lay-filter="anemia" title="糖尿">
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="thyroidDisease"  value="1" lay-filter="anemia" title="甲状">
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="chronicNephritis" value="1"  lay-filter="anemia"  title="慢性">
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="swelling"  value="1" lay-filter="anemia" title="肿瘤" >
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="nodule"  value="1" lay-filter="anemia" title="结核">
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="yigan"  value="1" lay-filter="anemia" title="乙型">
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="epilepsy"  value="1" lay-filter="anemia" title="癫痫" >
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="sexuallyInfect"  value="1" lay-filter="anemia" title="淋病" >
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="psyDisorder"  value="1" lay-filter="anemia" title="心里疾病">
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;是否患有出生缺陷，如先天畸形、遗传病等</div>
+        <div>
+            <div class="layui-form-item">
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="noinfos" value="1" title="无">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="text" name="infos"  style="margin-left: 100px;width: 200px" placeholder="有,注明具体病名-->" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;是否有以下妇科疾病(如果选择是，以下各项至少选泽一项)</div>
+        <div>
+            <div class="layui-form-item">
+                <div class="layui-input-block" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="Gynaecology" lay-filter="Gynaecology" value="1" title="是">
+                    <input type="radio" name="Gynaecology" lay-filter="Gynaecology" value="0" title="否">
+                </div>
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是否有以下妇科疾病(如果选择是，以下各项至少选泽一项)</div>
+        <div class="layui-row" style="margin-top: 20px">
+            <div class="layui-col-md1" style="margin-right: 80px">
+                <input type="checkbox" name="uterine" value="1"  title="子宫附件炎真">
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="sterility"  value="1" title="不孕不育症">
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;目前是否服药</div>
+        <div>
+            <div class="layui-form-item">
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="noinfos" value="无" title="无">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="text" name="infos"  style="margin-left: 100px;width: 200px" placeholder="有，药物名称-->" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;是否注射过疫苗(如果是，以下各项至少选泽一项)</div>
+        <div>
+            <div class="layui-form-item">
+                <div class="layui-input-block" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="vaccine" lay-filter="vaccine" value="1" title="是">
+                    <input type="radio" name="vaccine" lay-filter="vaccine" value="0" title="否">
+                </div>
+            </div>
+        </div>
+        <div class="layui-row" style="margin-top: 20px">
+            <div class="layui-col-md1" style="margin-right: 80px">
+                <input type="checkbox" name="fengzhen"  value="1" title="风疹疫苗">
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="yigan" value="1"  title="乙肝疫苗">
+            </div>
+            <div class="layui-col-md1">
+                <input type="text" name="vaccinateOthers" style="margin-left: 100px;width: 200px" placeholder="其他-->" class="layui-input">
+            </div>
+
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;是否正在使用或曾经使用避孕措施</div>
+        <div>
+            <div class="layui-form-item">
+                <div class="layui-input-block" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="contraception" lay-filter="contraception" value="1" title="是">
+                    <input type="radio" name="contraception" lay-filter="contraception" value="0" title="否">
+                </div>
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;现用避孕措施或目前终止避孕者原避孕措施</div>
+        <div class="layui-row" style="margin-top: 20px">
+            <div class="layui-col-md1" style="margin-right: 80px">
+                <input type="checkbox" name="intrauterineDevice" value="1"  title="宫内节育器">
+            </div>
+            <div class="layui-col-md1" style="margin-right: 80px">
+                <input type="checkbox" name="subcutaneousImplants"  value="1" title="皮下埋植器">
+            </div>
+            <div class="layui-col-md1" style="margin-right: 80px">
+                <input type="checkbox" name="oralContraceptive"  value="1" title="口服避孕药">
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="condom"  value="1" title="避孕套">
+            </div>
+        </div>
+        <div class="layui-row" style="margin-top: 20px">
+            <div class="layui-col-md1" style="margin-right: 80px">
+                <input type="checkbox" name="topicalContraceptives"  value="1" title="外用药">
+            </div>
+            <div class="layui-col-md1" >
+                <input type="checkbox" name="naturalContracept" value="1" title="自然避孕">
+            </div>
+            <div class="layui-col-md1">
+                <input type="text" name="contraceptOthers"  style="margin-left: 100px;width: 200px" placeholder="其他-->" class="layui-input">
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;是否做好怀孕准备</div>
+        <div>
+            <div class="layui-form-item">
+                <div class="layui-input-block" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="sex" value="1" title="是">
+                    <input type="radio" name="sex" value="0" title="否" checked>
+                </div>
+            </div>
+        </div>
+        <div class="layui-input-inline" style="font-size: 14px">
+            <label class="layui-form-label wfwd" style="width: 110px">医生签名:</label>
+            <div class="layui-inline">
+                <input type="text" name="doctorName" id="doctorName"  style="width: 200px" required  lay-verify="required" placeholder="医生签名" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+      <!--  <div class="layui-input-inline" style="font-size: 14px">
+            <label class="layui-form-label wfwd">询问日期:</label>
+            <div class="layui-inline">
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" name="createServiceDate" id="mtime" placeholder="yyyy-MM-dd" style="width: 300px" >
+                </div>
+            </div>
+        </div>-->
+      <div style="margin-left: 600px">
+          <div class="layui-input-inline" style="font-size: 14px;margin-top: 20px">
+              <div class="layui-inline">
+                  <button type="reset" class="layui-btn" id="clear" style="margin-right: 100px">重置</button>
+              </div>
+          </div>
+          <div class="layui-input-inline" style="margin-top: 20px">
+              <div class="layui-col-md1">
+                  <button type="submit" class="layui-btn" id="selectInfo" lay-filter="submitGo">保存</button>
+              </div>
+          </div>
+      </div>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+    </div>
+
+
+
+</form>
+
+</body>
+
+</html>

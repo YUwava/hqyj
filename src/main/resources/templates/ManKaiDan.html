@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:c="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>丈夫临床开单</title>
+
+    <link rel="stylesheet" href="/static/lib/layui-v2.5.4/css/layui.css">
+    <script src="/static/lib/layui-v2.5.4/layui.js"></script>
+    <script type="application/javascript" src="/static/lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="http://libs.baidu.com/jquery/1.8.3/jquery.min.js">
+
+
+    <script type="text/javascript" th:inline="none">
+   /*     layui.use('form', function(){
+            var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+
+            //……
+
+            //但是，如果你的HTML是动态生成的，自动渲染就会失效
+            //因此你需要在相应的地方，执行下述方法来进行渲染
+            form.render();
+        });*/
+
+        layui.use(['laydate','form','table','layedit','jquery'],function(){
+            //监听行工具事件
+            var table = layui.table;
+            var form = layui.form
+                ,layer = layui.layer
+                ,layedit = layui.layedit
+                ,$ = layui.jquery
+                ,laydate = layui.laydate;
+            form.render();
+
+            $(function () {
+                console.log(localStorage.getItem("id")+"===");
+                console.log(localStorage.getItem("mname")+"===");
+                console.log(localStorage.getItem("mbirthDate")+"===");
+                var ids=$('input:text[name="id"]').val(localStorage.getItem("id"));
+                var mNames=$('input:text[name="mname"]').val(localStorage.getItem("mname"));
+                var fNames=$('input:text[name="mbirthDate"]').val(localStorage.getItem("mbirthDate"));
+            });
+
+
+            /*  laydate.render({
+                  elem: '#mtime'
+              });*/
+
+       /*   form.on('checkbox(go)', function(objs){
+                var vals=$('input:checkbox[name="go"]:checked').val();
+                console.log("值======>"+vals);
+                alert("进入")
+                if (vals=='全选'){
+                    $('input:checkbox[name="mabo"]').prop("checked",true);
+                    $('input:checkbox[name="mrh"]').attr("checked",true);
+                    $('input:checkbox[name="murt"]').attr("checked",true);
+                    $('input:checkbox[name="mtreponema"]').attr("checked",true);
+                }
+            });*/
+           form.on('checkbox(go)', function(data){
+               var vals = $(".goone input[type='checkbox']");
+               vals.each(function (index, item) {
+                   item.checked = data.elem.checked;
+               });
+               form.render('checkbox');
+               /* console.log(data.elem); //得到checkbox原始DOM对象
+                console.log(data.elem.checked); //是否被选中，true或者false
+                console.log(data.value); //复选框value值，也可以通过data.elem.value得到
+                console.log(data.othis); //得到美化后的DOM对象*/
+            });
+            form.on('checkbox(gotoo)', function(data){
+                var vals = $(".gotwo input[type='checkbox']");
+                vals.each(function (index, item) {
+                    item.checked = data.elem.checked;
+                });
+                form.render('checkbox');
+                /* console.log(data.elem); //得到checkbox原始DOM对象
+                 console.log(data.elem.checked); //是否被选中，true或者false
+                 console.log(data.value); //复选框value值，也可以通过data.elem.value得到
+                 console.log(data.othis); //得到美化后的DOM对象*/
+            });
+
+
+        })
+
+    </script>
+    <style type="text/css">
+        .widl{width:80px}
+    </style>
+</head>
+<body>
+<form class="layui-form" action="/manKaiDan/addInfo">
+    <div style="width: 1400px; margin:0 auto;margin-top: 50px">
+        <div>
+            <div class="layui-inline" style="margin-right: 100px">
+                <label class="layui-form-label">系统编号:   </label>
+                <div class="layui-input-block">
+                    <input type="text" name="id" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-left: 100px">
+                <label class="layui-form-label">姓名:  </label>
+                <div class="layui-input-block">
+                    <input type="text" name="mname" lay-verify="required" autocomplete="off" placeholder="" class="layui-input mname">
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 30px;">
+            <div class="layui-inline" style="margin-right: 100px">
+                <label class="layui-form-label">性别:   </label>
+                <div class="layui-input-block">
+                    <input type="text" lay-verify="required" value="男" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-left: 100px">
+                <label class="layui-form-label">出生日期:  </label>
+                <div class="layui-input-block">
+                    <input type="text" class="layui-input" name="mbirthDate" id="mbirthDate" placeholder="yyyy-MM-dd">
+                </div>
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp;男性临床检验单</div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;margin-top: 20px;padding-right: 500px;border-radius: 6px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;血型:</div>
+        <div class="layui-row" style="margin-top: 20px">
+            <div class="layui-col-md1">
+                <input type="checkbox" name="go" lay-filter="go" value="全选" title="全选">
+            </div>
+        </div>
+        <div class="layui-row goone" style="margin-top: 20px">
+            <div class="layui-col-md1">
+                <input type="checkbox" name="mabo" value="1"  title="ABO">
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="mrh"  value="1" title="RH">
+            </div>
+            <div class="layui-col-md1" style="margin-right: 80px">
+                <input type="checkbox" name="murt" value="1"  title="尿液常规检查">
+            </div>
+            <div class="layui-col-md1">
+            <input type="checkbox" name="mtreponema"  value="1" title="梅毒螺旋体">
+            </div>
+        </div>
+
+
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;肝肾功能检测</div>
+        <div>
+            <div class="layui-form-item gotwo">
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="gotoo" lay-filter="gotoo" value="gotoo" title="全选">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="text" name="malt"  style="margin-left: 50px;width: 200px" placeholder="谷丙转氨酶ALT(U/L):-->" class="layui-input">
+                </div>
+
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="text" name="mcr"  style="margin-left: 50px;width: 200px" placeholder="肌酐Cr(umol/L):-->" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;乙肝血清学检查</div>
+        <div>
+            <div class="layui-form-item gotwo">
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="checkbox" name="gotoo" lay-filter="gotoo" value="全" title="全选">
+                </div>
+                <div class="layui-row" style="margin-top: 20px">
+                    <div class="layui-col-md1">
+                        <input type="checkbox" name="mhbsag" value="1"  title="HBs-Ag">
+                    </div>
+                    <div class="layui-col-md1">
+                        <input type="checkbox" name="mhbsab"  value="1" title="HBs-Ab">
+                    </div>
+                    <div class="layui-col-md1">
+                        <input type="checkbox" name="mhbeag"  value="1" title="HBe-Ag">
+                    </div>
+                    <div class="layui-col-md1">
+                        <input type="checkbox" name="mhbeab"  value="1" title="HBe-Ab">
+                    </div>
+                    <div class="layui-col-md1">
+                        <input type="checkbox" name="mhbcab"  value="1" title="HBc-Ab">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;其他检查</div>
+        <div>
+            <div class="layui-form-item">
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="text" name="elseItem"  style="margin-left: 50px;width: 200px" placeholder="" class="layui-input">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="layui-input-inline" style="font-size: 14px;margin-top: 20px">
+            <label class="layui-form-label wfwd" style="width: 110px">医生签名:</label>
+            <div class="layui-inline">
+                <input type="text" name="doctorName" id="realDoc" style="width: 200px" required  lay-verify="required" placeholder="医生签名" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div style="margin-left: 600px">
+            <div class="layui-input-inline" style="font-size: 14px;margin-top: 20px">
+                <div class="layui-inline">
+                    <button type="reset" class="layui-btn" id="clear" style="margin-right: 100px">重置</button>
+                </div>
+            </div>
+            <div class="layui-input-inline" style="margin-top: 20px">
+                <div class="layui-col-md1">
+                    <button type="submit" class="layui-btn" id="selectInfo">保存</button>
+                </div>
+            </div>
+        </div>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+    </div>
+
+
+
+</form>
+
+</body>
+
+</html>

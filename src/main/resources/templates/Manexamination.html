@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:c="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>妻子体格检查</title>
+
+    <link rel="stylesheet" href="/static/lib/layui-v2.5.4/css/layui.css">
+    <script src="/static/lib/layui-v2.5.4/layui.js"></script>
+    <script type="application/javascript" src="/static/lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="http://libs.baidu.com/jquery/1.8.3/jquery.min.js">
+
+
+    <script type="text/javascript" th:inline="none">
+        layui.use('form', function(){
+            var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+
+            //……
+
+            //但是，如果你的HTML是动态生成的，自动渲染就会失效
+            //因此你需要在相应的地方，执行下述方法来进行渲染
+            form.render();
+        });
+
+        layui.use(['laydate','form','table','layedit','jquery'],function(){
+            //监听行工具事件
+            var table = layui.table;
+            var form = layui.form
+                ,layer = layui.layer
+                ,layedit = layui.layedit
+                ,$ = layui.jquery
+                ,laydate = layui.laydate;
+
+            $(function () {
+                console.log(localStorage.getItem("id")+"===");
+                console.log(localStorage.getItem("mname")+"===");
+                console.log(localStorage.getItem("mbirthDate")+"===");
+                var ids=$('input:text[name="id"]').val(localStorage.getItem("id"));
+                var mNames=$('input:text[name="mname"]').val(localStorage.getItem("mname"));
+                var fNames=$('input:text[name="mbirthDate"]').val(localStorage.getItem("mbirthDate"));
+            });
+
+
+            laydate.render({
+                elem: '#mtime'
+            });
+            form.on('radio(retardation)', function(objs){
+
+                var vals=$('input:radio[name="retardation"]:checked').val();
+                if (vals=='正常'){
+                    console.log("laile")
+                    $('input:checkbox[name="knowledge"]').attr("disabled",true);
+                    $('input:checkbox[name="judge"]').attr("disabled",true);
+                    $('input:checkbox[name="memory"]').attr("disabled",true);
+                    $('input:checkbox[name="caculate"]').attr("disabled",true);
+
+                }
+                if (vals=='异常'){
+                    console.log("laile")
+                    $('input:checkbox[name="knowledge"]').attr("disabled",false);
+                    $('input:checkbox[name="judge"]').attr("disabled",false);
+                    $('input:checkbox[name="memory"]').attr("disabled",false);
+                    $('input:checkbox[name="caculate"]').attr("disabled",false);
+
+
+                }
+            });
+
+        })
+
+    </script>
+</head>
+<body>
+<form class="layui-form" action="/manexInfo/addInfo">
+    <div style="width: 1400px; margin:0 auto;margin-top: 50px">
+        <div>
+            <div class="layui-inline" style="margin-right: 100px">
+                <label class="layui-form-label">系统编号:   </label>
+                <div class="layui-input-block">
+                    <input type="text" name="id" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-left: 100px">
+                <label class="layui-form-label">姓名:  </label>
+                <div class="layui-input-block">
+                    <input type="text" name="mname" lay-verify="required" autocomplete="off" placeholder="" class="layui-input mname">
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 30px;">
+            <div class="layui-inline" style="margin-right: 100px">
+                <label class="layui-form-label">性别:   </label>
+                <div class="layui-input-block">
+                    <input type="text" lay-verify="required" value="男" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-left: 100px">
+                <label class="layui-form-label">出生日期:  </label>
+                <div class="layui-input-block">
+                    <input type="text" class="layui-input" name="mbirthDate" id="mbirthDate" placeholder="yyyy-MM-dd">
+                </div>
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;margin-top: 20px;padding-right: 500px;border-radius: 6px">&nbsp;&nbsp;女子一般体格检查</div>
+        <div><p style="line-height: 35px"><hr></p></div>
+        <div style="margin-top: 20px;">
+            <div class="layui-inline" style="margin-right: 100px">
+                <label class="layui-form-label">身高(cm):   </label>
+                <div class="layui-input-block">
+                    <input type="text" name="height" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-left: 100px">
+                <label class="layui-form-label">体重指数(kg/m2):  </label>
+                <div class="layui-input-block">
+                    <input type="text" name="weight" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 20px;">
+            <div class="layui-inline" style="margin-right: 100px">
+                <label class="layui-form-label">体重 (kg):   </label>
+                <div class="layui-input-block">
+                    <input type="text" name="bmi" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-left: 100px">
+                <label class="layui-form-label">收  缩  压  (mmHg):  </label>
+                <div class="layui-input-block">
+                    <input type="text" name="hightBloodPressure" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 20px;">
+            <div class="layui-inline" style="margin-right: 100px">
+                <label class="layui-form-label">心率(次/分):   </label>
+                <div class="layui-input-block">
+                    <input type="text" name="heartRate" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-left: 100px">
+                <label class="layui-form-label">舒  张  压  (mmHg):  </label>
+                <div class="layui-input-block">
+                    <input type="text" name="lowBloodPressure" lay-verify="required" autocomplete="off" placeholder="" class="layui-input id">
+                </div>
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;精神状态</div>
+        <div>
+            <div class="layui-form-item">
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="psycology" value="正常" title="正常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="psycology" value="异常" title="异常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="text" name="psycologyDtls"  style="margin-left: 50px;width: 200px" placeholder="精神状态异常描述-->" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;智力</div>
+        <div>
+            <div class="layui-form-item">
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="retardation" lay-filter="retardation" value="正常" title="正常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="retardation" lay-filter="retardation" value="异常" title="异常">
+                </div>
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;智力异常请打勾</div>
+        <div class="layui-row" style="margin-top: 20px">
+            <div class="layui-col-md1">
+                <input type="checkbox" name="knowledge" value="异常" title="常识">
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="judge" value="异常"  title="判断">
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="memory"  value="异常" title="记忆">
+            </div>
+            <div class="layui-col-md1">
+                <input type="checkbox" name="caculate" value="异常"  title="计算">
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;五官</div>
+        <div>
+            <div class="layui-form-item">
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="facialFeature" value="正常" title="正常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="facialFeature" value="异常" title="异常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="text" name="facialFeatureDtls"  style="margin-left: 50px;width: 200px" placeholder="五官异常描述-->" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;特殊体态</div>
+        <div>
+            <div class="layui-form-item">
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="specialBody" value="正常" title="正常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="specialBody" value="异常" title="异常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="text" name="specialBodyDtls"  style="margin-left: 50px;width: 200px" placeholder="特殊体态描述-->" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;特殊面容</div>
+        <div>
+            <div class="layui-form-item">
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="specisalLook" value="正常" title="正常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="specisalLook" value="异常" title="异常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="text" name="specialLookDtls"  style="margin-left: 50px;width: 200px" placeholder="特殊面容描述-->" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div style="font-size: 16px;background-color: #d9edf7;color: #31708f;line-height: 40px;padding-right: 480px;border-radius: 6px;margin-top: 20px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;皮肤毛发</div>
+        <div>
+            <div class="layui-form-item">
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="skin" value="正常" title="正常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="radio" name="skin" value="异常" title="异常">
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;margin-left: 10px">
+                    <input type="text" name="skinDtls"  style="margin-left: 50px;width: 200px" placeholder="皮肤毛发异常描述-->" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-input-inline" style="font-size: 14px;margin-top: 20px">
+            <label class="layui-form-label wfwd" style="width: 110px">医生签名:</label>
+            <div class="layui-inline">
+                <input type="text" name="doctorName" id="realDoc2" style="width: 200px" required  lay-verify="required" placeholder="医生签名" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div style="margin-left: 600px">
+            <div class="layui-input-inline" style="font-size: 14px;margin-top: 20px">
+                <div class="layui-inline">
+                    <button type="reset" class="layui-btn" id="clear" style="margin-right: 100px">重置</button>
+                </div>
+            </div>
+            <div class="layui-input-inline" style="margin-top: 20px">
+                <div class="layui-col-md1">
+                    <button type="submit" class="layui-btn" id="selectInfo">保存</button>
+                </div>
+            </div>
+        </div>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+    </div>
+
+
+
+</form>
+
+</body>
+
+</html>
